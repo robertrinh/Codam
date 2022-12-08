@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/01 15:46:24 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/12/02 17:07:47 by qtrinh        ########   odam.nl         */
+/*   Updated: 2022/12/07 18:02:16 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static int	ptr_hex_length(unsigned long num)
 	int	length;
 
 	length = 0;
-	while (length)
+	while (num)
 	{
 		num = num / 16;
-		num++;
+		length++;
 	}
 	return (length);
 }

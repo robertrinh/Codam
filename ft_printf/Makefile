@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/11/25 15:46:02 by qtrinh        #+#    #+#                  #
-#    Updated: 2022/12/07 16:53:45 by qtrinh        ########   odam.nl          #
+#    Updated: 2022/12/08 14:29:15 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,19 @@ SRCS := ft_printf.c \
 
 OBJ := $(SRCS:.c=.o)
 
+BOLD_GREEN=\033[1;92m
+RED=\033[0;31m
+BOLD_RED=\033[1;91m
+INTENSE_CYAN=\033[0;96m
+END_COLOUR=\033[0m
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(AR) $(NAME) $(OBJ)
 	@cd Libft && $(MAKE)
 	@cp ./Libft/libft.a $(NAME)
-	#niet vergeten om terug erin te doen
+	@$(AR) $(NAME) $(OBJ)
+	@echo "${RED}compiling? ${BOLD_GREEN} Completed it mate ${END_COLOUR}"
 
 %.o:%.c
 	@$(CC) -c $(CFLAGS) $< -o $@
@@ -42,6 +48,7 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) fclean -C ./Libft
+	@echo "${INTENSE_CYAN}library..? ${BOLD_GREEN}LIBRARY..? ${BOLD_RED}LIBRARY!!!"
 
 re: fclean all
 

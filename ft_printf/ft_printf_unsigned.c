@@ -6,18 +6,19 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/30 15:03:07 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/12/07 15:39:07 by qtrinh        ########   odam.nl         */
+/*   Updated: 2022/12/08 14:39:17 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "./Libft/libft.h"
 
 static int	numlen(unsigned int num)
 {
 	int	length;
 
 	length = 0;
-	while (num > 0)
+	while (num)
 	{
 		num = num / 10;
 		length++;
@@ -31,20 +32,13 @@ static char	*itoa_unsigned(unsigned int num)
 	int		size;
 
 	size = numlen(num);
-	result = (char *)malloc(sizeof(char) * (size + 1));
+	result = ft_calloc(sizeof(char),(size + 1));
 	if (!result)
 		return (NULL);
-	result[size] = '\0';
-	// if (num == 0)
-	// {
-	// 	result[0] = '0';
-	// 	return (result);
-	// }
-	while (num)
+	while (size--)
 	{
-		result[size - 1] = num % 10 + '0';
+		result[size] = num % 10 + '0';
 		num = num / 10;
-		size--;
 	}
 	return (result);
 }

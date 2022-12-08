@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/04 17:09:25 by qtrinh        #+#    #+#                  #
-#    Updated: 2022/11/18 16:23:27 by qtrinh        ########   odam.nl          #
+#    Updated: 2022/12/08 14:21:19 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,6 @@ all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
 	@$(AR) $(NAME) $(OBJ_FILES)
-	@echo "compiling? completed it mate"
 
 %.o: %.c 
 	@$(CC) -c $(CFLAGS) $< -o $@
@@ -85,7 +84,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "libft? libft...? LIBFT!!!!!"
 
 re: fclean all bonus
 
