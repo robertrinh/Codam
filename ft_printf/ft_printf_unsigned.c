@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/30 15:03:07 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/12/08 14:39:17 by qtrinh        ########   odam.nl         */
+/*   Updated: 2022/12/14 14:42:33 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char	*itoa_unsigned(unsigned int num)
 	int		size;
 
 	size = numlen(num);
-	result = ft_calloc(sizeof(char),(size + 1));
+	result = ft_calloc(sizeof(char), (size + 1));
 	if (!result)
 		return (NULL);
 	while (size--)

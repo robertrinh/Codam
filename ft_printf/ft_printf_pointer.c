@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/01 15:46:24 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/12/07 18:02:16 by qtrinh        ########   odam.nl         */
+/*   Updated: 2022/12/14 17:28:46 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	print_pointer(unsigned long ptr)
 	int	length;
 
 	length = 0;
-	length += write(1, "0x", 2);
+	length += print_str("0x");
 	if (ptr == 0)
 		length += print_char('0');
 	else
