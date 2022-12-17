@@ -7,17 +7,17 @@ opportunity to improve programming skills. It is of moderate difficulty and intr
 
 ```ft_printf```
 
-The prototype is consisted as the following:
+The prototype of `ft_printf()` is:
 
 ```c
 int	ft_printf(const char *str, ...);
 ```
 
-> Parameters of the string:
+> Parameters:\
 The first argument has to be a string of characters. Afterwards, optional parameters can be given, which is defined by several possible format specifiers.
 
-> Return value:
-	ft_printf returns the number of written characters in an integer. The number does not include the null-terminator ('\0').
+> Return value:\
+	`ft_printf` returns the number of written characters represented as an integer. The number does not include the null-terminator (`'\0'`).
 	
 > Format specifiers:\
 ```%c``` Prints a single character.\
@@ -28,4 +28,4 @@ The first argument has to be a string of characters. Afterwards, optional parame
 ```%u``` Prints an unsigned decimal (base 10) number.\
 ```%x``` Prints a number in hexadecimal (base 16) lowercase format.\
 ```%X``` Prints a number in hexadecimal (base 16) uppercase format.\
-```%%``` Prints a percent sign.\
+```%%``` Prints a percent sign.
