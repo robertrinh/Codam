@@ -6,12 +6,11 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 13:53:19 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/12/17 14:45:21 by qtrinh        ########   odam.nl         */
+/*   Updated: 2022/12/17 19:07:25 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static int	what_format(va_list args, const char format)
 {
