@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/11/25 15:46:02 by qtrinh        #+#    #+#                  #
-#    Updated: 2022/12/08 14:29:15 by qtrinh        ########   odam.nl          #
+#    Updated: 2022/12/15 19:04:47 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,9 +33,9 @@ END_COLOUR=\033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@cd Libft && $(MAKE)
-	@cp ./Libft/libft.a $(NAME)
-	@$(AR) $(NAME) $(OBJ)
+	cd Libft && $(MAKE)
+	cp ./Libft/libft.a $(NAME)
+	$(AR) $(NAME) $(OBJ)
 	@echo "${RED}compiling? ${BOLD_GREEN} Completed it mate ${END_COLOUR}"
 
 %.o:%.c
@@ -43,11 +43,11 @@ $(NAME): $(OBJ)
 
 clean:
 	@rm -f $(OBJ)
-	@$(MAKE) clean -C ./Libft
+	$(MAKE) clean -C ./Libft
 
 fclean: clean
 	@rm -f $(NAME)
-	@$(MAKE) fclean -C ./Libft
+	$(MAKE) fclean -C ./Libft
 	@echo "${INTENSE_CYAN}library..? ${BOLD_GREEN}LIBRARY..? ${BOLD_RED}LIBRARY!!!"
 
 re: fclean all

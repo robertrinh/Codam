@@ -6,12 +6,12 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 21:24:37 by robertrinh    #+#    #+#                 */
-/*   Updated: 2022/12/08 14:41:38 by qtrinh        ########   odam.nl         */
+/*   Updated: 2022/12/17 15:14:18 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "./Libft/libft.h"
+#include "ft_printf.h"
 
 int	print_char(int c)
 {
@@ -38,9 +38,12 @@ int	print_num(int num)
 	int		count;
 	char	*str;
 
+	count = 0;
 	str = ft_itoa(num);
-	count = ft_strlen(str);
-	write(1, str, count);
-	free (str);
+	if (str)
+	{
+		count += print_str(str);
+		free(str);
+	}
 	return (count);
 }

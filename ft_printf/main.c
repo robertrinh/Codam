@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 14:26:05 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/12/14 17:59:41 by qtrinh        ########   odam.nl         */
+/*   Updated: 2022/12/17 15:15:55 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "./Libft/libft.h"
 #include "limits.h"
 
-int	main(void)
+int main(void)
 {
 	/* c format */
 	char a = 'a';
@@ -45,7 +45,7 @@ int	main(void)
 	printf("dem mans null-terminator: %c\n", b);
 	/* divider */
 	ft_printf("%s \n", str2);
-	ft_printf("Our String: %s \n",str);
+	ft_printf("Our String: %s \n", str);
 	printf("dem mans string: %s \n", str);
 	/* divider */
 	ft_printf("%s \n", str2);
@@ -76,10 +76,6 @@ int	main(void)
 	printf("dem hexa big: %X\n", hex_value);
 	/* divider */
 	ft_printf("%s \n", str2);
-	ft_printf("Our percentage: %%\n");
-	printf("dem mans procent: %%\n");
-	/* divider */
-	ft_printf("%s \n", str2);
 	ft_printf("Our ptr address: %p, value is %d \n", ptr, *ptr);
 	printf("dem mans ptr address: %p, value is %d \n", ptr, *ptr);
 	/* divider */
@@ -87,8 +83,8 @@ int	main(void)
 	ft_printf("Ours oaaa% \n");
 	printf("OG oaaa% \n");
 	/* divider */
-	ft_printf("%s \n", str2);	
-	printf("francinette test: %d %d %d %d %d %d %d\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	ft_printf("%s \n", str2);
+	printf("OG francinette test: %d %d %d %d %d %d %d\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
 	ft_printf("francinette test: %d %d %d %d %d %d %d\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
 	/* divider */
 	ft_printf("%s \n", str2);
@@ -96,13 +92,26 @@ int	main(void)
 	printf("random: adsfklj%%%%i%fss\n");
 	/* divider */
 	ft_printf("%s \n", str2);
+	ft_printf("mixups: %d %s %u %x \n", i, str, value, hex_value);
+	printf("OG mixups: %d %s %u %x \n", i, str, value, hex_value);
+	/* divider */
+	ft_printf("%s \n", str2);
 	int ft_len = ft_printf("%%%k");
 	printf("\n");
 	int og_len = printf("%%%k");
 	printf("\n");
 	if (ft_len == og_len)
-		printf("GOOD");
+		printf("GOOD\n");
 	else
-		printf("BAD");
-	return (0);
+		printf("BAD\n");
+	/* divider */
+	ft_printf("%s \n", str2);
+	int og_edge = printf("Nicolas gave me this edgecase: %\0HELLO !!! \n");
+	printf("\n");
+	int our_edge = ft_printf("Nicolas gave me this edgecase: %\0HELLO !!! \n");
+	printf("\n");
+	if (our_edge == og_edge)
+		printf("EDGE.. LORD! (aka ait man this is GOOD) \n");
+	else
+		printf("Edgecase.. edging... (nee bro this ain't it) \n");
 }

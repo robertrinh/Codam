@@ -6,11 +6,12 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 13:53:19 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/12/14 20:40:42 by qtrinh        ########   odam.nl         */
+/*   Updated: 2022/12/17 14:45:21 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static int	what_format(va_list args, const char format)
 {
@@ -38,21 +39,22 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		len;
-	int		i;
 
-	i = 0;
 	len = 0;
 	va_start(args, str);
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == '%')
+		if (*str == '%' && *(str + 1) != '\0')
 		{
-			len += what_format(args, str[i + 1]);
-			i++;
+			len += what_format(args, *(str + 1));
+			str++;
 		}
 		else
-			len += print_char(str[i]);
-		i++;
+		{
+			if (*str != '%')
+				len += print_char(*str);
+		}
+		str++;
 	}
 	va_end(args);
 	return (len);

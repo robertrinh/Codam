@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/30 15:03:07 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/12/14 14:42:33 by qtrinh        ########   odam.nl         */
+/*   Updated: 2022/12/17 14:59:28 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,11 @@ int	print_unsigned(unsigned int num)
 	else
 	{
 		str = itoa_unsigned(num);
-		char_count += print_str(str);
-		free (str);
+		if (str)
+		{
+			char_count += print_str(str);
+			free (str);
+		}
 	}
 	return (char_count);
 }
