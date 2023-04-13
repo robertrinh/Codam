@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 18:08:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/11/17 17:02:57 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/03/15 16:17:24 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stddef.h>
+# include <fcntl.h>
+# include <stdarg.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
 
 typedef struct s_list
 {
@@ -57,6 +64,23 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+
+/* printf */
+int		ft_printf(const char *str, ...);
+int		print_unsigned(unsigned int num);
+int		print_hex(unsigned int num, const char format);
+int		print_pointer(unsigned long ptr);
+int		print_num(int num);
+int		print_str(char *str);
+int		print_char(int c);
+
+/* get_next_line */
+char	*get_next_line(int fd);
+size_t	gnl_strlen(char const *str);
+char	*gnl_strjoin(char *s1, char *s2);
+ssize_t	spot_new_line(char *str);
+char	*gnl_strdup(char const *s1);
+void	*gnl_free(char *str);
 
 /* bonus */
 t_list	*ft_lstnew(void *content);
