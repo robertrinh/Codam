@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/04 17:09:25 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/03/16 16:08:56 by qtrinh        ########   odam.nl          #
+#    Updated: 2023/04/28 16:44:30 by robertrinh    ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,8 +58,7 @@ SRCS := ft_atoi.c \
 		ft_printf_unsigned.c \
 		get_next_line.c \
 		get_next_line_utils.c \
-
-BSRCS := ft_lstadd_back.c \
+		ft_lstadd_back.c \
 		ft_lstadd_front.c \
 		ft_lstclear.c \
 		ft_lstdelone.c \
@@ -70,13 +69,6 @@ BSRCS := ft_lstadd_back.c \
 		ft_lstsize.c \
 
 OBJ := $(SRCS:.c=.o)
-OBJ_B := $(BSRCS:.c=.o)
-
-ifdef WITH_BONUS
-OBJ_FILES = $(OBJ) $(OBJ_B)
-else
-OBJ_FILES = $(OBJ)
-endif
 
 #COLORS SHOW
 BOLD_GREEN=\033[1;92m
@@ -90,20 +82,24 @@ END_COLOUR=\033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJ_FILES)
-	@$(AR) $(NAME) $(OBJ_FILES)
+$(NAME): $(OBJ)
+	@$(AR) $(NAME) $(OBJ)
+	@echo "    __    ________  ____________                       __      __"
+	@echo "   / /   /  _/ __ )/ ____/_  __/  ________  ____ _____/ /_  __/ /"
+	@echo "  / /    / // __  / /_    / /    / ___/ _ \/ __  / __  / / / / / "
+	@echo " / /____/ // /_/ / __/   / /    / /  /  __/ /_/ / /_/ / /_/ /_/  "
+	@echo "/_____/___/_____/_/     /_/    /_/   \___/\__,_/\__,_/\__, (_)   "
+	@echo "                                                     /____/      "
 
 %.o: %.c 
 	@echo "${RED} compiling ${GRAY}libft.. ${PURPLE}bliep.. bloep.. ${INTENSE_CYAN}$<${YELLOW}ccccc ${END_COLOUR}"
 	@$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	@rm -f $(OBJ) $(OBJ_B)
+	@rm -f $(OBJ)
 
 fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all bonus
 
-bonus:
-	@$(MAKE) WITH_BONUS=1 all
