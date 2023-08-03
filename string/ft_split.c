@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 13:39:27 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/11/18 15:45:56 by qtrinh        ########   odam.nl         */
+/*   Updated: 2022/12/19 16:39:15 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static char	**split_word(char const *s, char c, char **str)
 			while (*s && *s != c)
 				s++;
 			str[i] = ft_substr(newword, 0, s - newword);
-			if (str == NULL)
+			if (str[i] == NULL)
 				return (free_mem(str));
 			i++;
 		}

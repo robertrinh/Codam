@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 16:35:59 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/11/18 15:27:01 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/08/03 14:44:24 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ char	*ft_strrchr(const char *s, int c)
 	while (i >= 0)
 	{
 		if (s[i] == (char)c)
-			return ((char *)s + i);
+			return (char *)(s + i);
 		i--;
 	}
 	return (0);
 }
-
 /* int	main(void)
 {
 	char	str[] = "raaizou";
