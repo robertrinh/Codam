@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 13:39:27 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/12/19 16:39:15 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/08/04 14:17:15 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static char	**free_mem(char **two_d_array)
 	size_t	i;
 
 	i = 0;
-	while (two_d_array[i] != NULL)
+	while (two_d_array[i])
 	{
 		free(two_d_array[i]);
 		i++;

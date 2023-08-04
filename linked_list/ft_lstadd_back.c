@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/16 15:52:38 by qtrinh        #+#    #+#                 */
-/*   Updated: 2022/11/17 17:10:38 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/08/04 14:10:06 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	}
 	else
+	{
 		temp = ft_lstlast(*lst);
 		temp->next = new;
+	}
 }
