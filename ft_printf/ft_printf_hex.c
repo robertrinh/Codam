@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/01 12:41:57 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/08/04 15:06:21 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/08/04 16:43:22 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	print_hex(unsigned int num, const char format)
 					print_char(num - 10 + 'a');
 				if (format == 'X')
 					print_char(num - 10 + 'A');
-			}	
+			}
 		}
 	}
 	return (hex_length(num));
