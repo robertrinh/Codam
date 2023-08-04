@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/04 17:09:25 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/08/04 15:11:41 by qtrinh        ########   odam.nl          #
+#    Updated: 2023/08/04 15:14:01 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,6 @@ vpath %.c character get_next_line include linked_list memory string write ft_pri
 OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(SRC))
 
 OBJDIR = objects
-# OBJ = $(addprefix $(OBJDIR)/,$(SRC:.c=.o))
-
-# DIRECTORY = $(dir $(SRC))
-# SPLIT = $(DIRECTORY:/=)
-# CAT = $(addprefix $(OBJDIR)/, $(DIRECTORY))
 
 #COLORS SHOW
 BOLD_GREEN=\033[1;92m
