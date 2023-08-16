@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 18:08:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/08/16 17:01:40 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/08/16 17:25:19 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
+char	**ft_free_2d(char **two_d_array);
 
 /* string functions */
 int		ft_atoi(const char *str);

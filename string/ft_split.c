@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 13:39:27 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/08/04 14:17:15 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/08/16 17:23:34 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,6 @@ static char	word_count(char const *str, char c)
 	return (count);
 }
 
-static char	**free_mem(char **two_d_array)
-{
-	size_t	i;
-
-	i = 0;
-	while (two_d_array[i])
-	{
-		free(two_d_array[i]);
-		i++;
-	}
-	free(two_d_array);
-	return (NULL);
-}
-
 static char	**split_word(char const *s, char c, char **str)
 {
 	const char	*newword;
@@ -62,7 +48,7 @@ static char	**split_word(char const *s, char c, char **str)
 				s++;
 			str[i] = ft_substr(newword, 0, s - newword);
 			if (str[i] == NULL)
-				return (free_mem(str));
+				return (ft_free_2d(str));
 			i++;
 		}
 		else
