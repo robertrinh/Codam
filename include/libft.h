@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 18:08:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/08/04 15:09:37 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/08/16 17:01:40 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	*ft_memset(void *b, int c, size_t len);
 
 /* string functions */
 int		ft_atoi(const char *str);
+long	ft_ayetoi(const char *str);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
