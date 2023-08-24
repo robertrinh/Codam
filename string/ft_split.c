@@ -6,13 +6,13 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 13:39:27 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/08/16 17:23:34 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/08/24 21:54:40 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	word_count(char const *str, char c)
+static int	word_count(char const *str, char c)
 {
 	size_t	i;
 	size_t	count;
