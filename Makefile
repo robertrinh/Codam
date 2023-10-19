@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/30 18:26:49 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/09/08 17:01:15 by robertrinh    ########   odam.nl          #
+#    Updated: 2023/09/15 16:56:09 by robertrinh    ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,14 +25,11 @@ LINKERS = -lglfw3 -framework IOKit -framework Cocoa
 endif
 
 LIBS := $(LIBMLX)/build/libmlx42.a -ldl -pthread -lm $(LINKERS)
-SRC := \
-	main.c \
-	#julia.c \
-	#mandelbrot.c \
-	#utils.c \
+SRC := main.c \
 
+# vpath %.c src
 OBJDIR := objects
-OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(SRC))
+OBJ := $(addprefix $(OBJDIR)/, $(notdir $(SRC:.c=.o)))
 
 #COLORS SHOW
 BOLD_GREEN=\033[1;92m
@@ -44,14 +41,10 @@ GRAY=\033[0;37m
 INTENSE_CYAN=\033[0;96m
 END_COLOUR=\033[0m
 
-all: $(NAME)
+all: $(MLX) $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ) $(MLX42)
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) -o $@
-
-$(OBJDIR)/%.o: %.c $(HEADER)
-	@mkdir -p $(OBJDIR)
-	@$(CC) $(CFLAGS) -c -o $@ $^ $(HEADER)
+	@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBFT) $(MLX) $(NAME) $(LIBS) $(HEADER)
 
 $(MLX):
 	@git submodule update --init --recursive
@@ -60,6 +53,10 @@ $(MLX):
 $(LIBFT):
 	@git submodule update --init --recursive
 	@$(MAKE) -C ./libft
+
+$(OBJDIR)/%.o: src/%.c $(HEADER)
+	@mkdir -p $(OBJDIR)
+	@$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
 	@$(MAKE) clean -C ./libft
@@ -73,5 +70,3 @@ fclean: clean
 re:	fclean all
 
 .PHONY: all clean fclean re
-
-
