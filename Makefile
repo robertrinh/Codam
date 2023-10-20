@@ -6,17 +6,18 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/30 18:26:49 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/09/15 16:56:09 by robertrinh    ########   odam.nl          #
+#    Updated: 2023/10/20 15:58:38 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := fractol
-CC := gcc
+CC := cc
 CFLAGS := -Wall -Werror -Wextra
 MLX := MLX42/build/libmlx42.a
 LIBFT := libft/libft.a
 LIBMLX := ./MLX42
-HEADER := -I ./include -I $(LIBMLX)/include
+INCLUDE := -I ./include -I $(LIBMLX)/include
+OBJDIR := objects
 
 ifeq ($(shell uname -m),arm64)
 LINKERS = -L/opt/homebrew/lib -lglfw -framework IOKit -framework Cocoa
@@ -25,11 +26,11 @@ LINKERS = -lglfw3 -framework IOKit -framework Cocoa
 endif
 
 LIBS := $(LIBMLX)/build/libmlx42.a -ldl -pthread -lm $(LINKERS)
-SRC := main.c \
+SRC :=	main.c \
 
-# vpath %.c src
-OBJDIR := objects
-OBJ := $(addprefix $(OBJDIR)/, $(notdir $(SRC:.c=.o)))
+vpath %.c	src
+OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(SRC))
+# OBJ := $(addprefix $(OBJDIR)/, $(notdir $(SRC:.c=.o)))
 
 #COLORS SHOW
 BOLD_GREEN=\033[1;92m
@@ -41,22 +42,23 @@ GRAY=\033[0;37m
 INTENSE_CYAN=\033[0;96m
 END_COLOUR=\033[0m
 
-all: $(MLX) $(NAME)
+all: $(LIBMLX) $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ) $(MLX42)
-	@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBFT) $(MLX) $(NAME) $(LIBS) $(HEADER)
+$(NAME): $(LIBFT) $(OBJ) $(MLX)
+	@$(CC) $(CFLAGS) $(OBJ) -o $@ $(LIBFT) $(LIBMLX) $(INCLUDE) $(LIBS)
 
 $(MLX):
 	@git submodule update --init --recursive
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
-	
+
 $(LIBFT):
 	@git submodule update --init --recursive
 	@$(MAKE) -C ./libft
 
-$(OBJDIR)/%.o: src/%.c $(HEADER)
+$(OBJDIR)/%.o: %.c
 	@mkdir -p $(OBJDIR)
-	@$(CC) $(CFLAGS) -c -o $@ $<
+	@echo "${RED} assembling ${GRAY}political fractions..${INTENSE_CYAN}$<${YELLOW}ccccc ${END_COLOUR}"
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
 	@$(MAKE) clean -C ./libft
@@ -69,4 +71,4 @@ fclean: clean
 
 re:	fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re libmlx
