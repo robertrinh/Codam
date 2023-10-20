@@ -6,31 +6,31 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/30 18:26:49 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/10/20 15:58:38 by qtrinh        ########   odam.nl          #
+#    Updated: 2023/10/20 17:35:36 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := fractol
 CC := cc
 CFLAGS := -Wall -Werror -Wextra
-MLX := MLX42/build/libmlx42.a
-LIBFT := libft/libft.a
-LIBMLX := ./MLX42
-INCLUDE := -I ./include -I $(LIBMLX)/include
+INCLUDE := -I ./include -I libft/include -I MLX42/source/include/MLX42
 OBJDIR := objects
+LIBFT := libft/libft.a
 
-ifeq ($(shell uname -m),arm64)
-LINKERS = -L/opt/homebrew/lib -lglfw -framework IOKit -framework Cocoa
-else ifeq ($(shell uname -m),x86_64)
-LINKERS = -lglfw3 -framework IOKit -framework Cocoa
+# MLX stuff
+MLX42_BUILD_DIR = MLX42/build/
+MLX_LIB := MLX42/build/libmlx42.a
+
+ifeq ($(shell uname -s),Linux)
+LINKERS = -Iinclude -ldl -lglfw -pthread -lm
+else ifeq ($(shell uname -s), Darwin)
+LINKERS = -framework Cocoa -framework OpenGL -framework IOKit -lglfw3
 endif
 
-LIBS := $(LIBMLX)/build/libmlx42.a -ldl -pthread -lm $(LINKERS)
 SRC :=	main.c \
 
 vpath %.c	src
 OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(SRC))
-# OBJ := $(addprefix $(OBJDIR)/, $(notdir $(SRC:.c=.o)))
 
 #COLORS SHOW
 BOLD_GREEN=\033[1;92m
@@ -42,14 +42,15 @@ GRAY=\033[0;37m
 INTENSE_CYAN=\033[0;96m
 END_COLOUR=\033[0m
 
-all: $(LIBMLX) $(NAME)
+all: libft $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ) $(MLX)
-	@$(CC) $(CFLAGS) $(OBJ) -o $@ $(LIBFT) $(LIBMLX) $(INCLUDE) $(LIBS)
+$(NAME):  $(MLX_LIB) $(LIBFT) $(OBJ)
+	@$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(OBJ) $(LIBFT) $(MLX_LIB)
+	@echo "${BOLD_RED}Are we ready ${BOLD_GREEN}to do some ${YELLOW}political debates?!${END_COLOUR}"
 
-$(MLX):
+$(MLX_LIB):
 	@git submodule update --init --recursive
-	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+	@cmake ./MLX42 -B $(MLX42_BUILD_DIR) && make -C $(MLX42_BUILD_DIR) -j4
 
 $(LIBFT):
 	@git submodule update --init --recursive
@@ -63,12 +64,16 @@ $(OBJDIR)/%.o: %.c
 clean:
 	@$(MAKE) clean -C ./libft
 	@rm -rf $(OBJDIR)
-	@rm -rf $(LIBMLX)/build
 
 fclean: clean
 	@$(MAKE) fclean -C ./libft
-	@rm -f $(NAME)
+	@rm -rf $(OBJDIR)
+	@rm -rf $(NAME)
+	@rm -rf $(MLX42_BUILD_DIR)
 
 re:	fclean all
+
+module-update:
+	@git submodule update --remote --merge
 
 .PHONY: all clean fclean re libmlx
