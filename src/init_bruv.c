@@ -6,67 +6,49 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/08 17:37:22 by robertrinh    #+#    #+#                 */
-/*   Updated: 2023/09/15 17:57:07 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/10/26 16:35:30 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-void    init_bruv(t_data *data)
+static void	init_data(t_data *data)
 {
-    ft_bzero(data, sizeof(data));
-    data->mlx = mlx_init(WIDTH, HEIGHT, "fractal window", true);
-    if (!data->mlx)
-        terminator("no mlx", 2);
-    data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-    if (!data->img)
-    {
-        mlx_close_window(data->mlx);
-        terminator("window buffer allocation fail", 2);
-    }
-    if (mlx_image_to_window(data->mlx, data->img, 0, 0) == -1)
-    {
-        mlx_close_window(data->mlx);
-        terminator("image to window failed", 2);
-    }
-    data->zoom = 1;
-    data->x = 2;
-    data->y = 2;
-    data->r = 2;
-    data->g = 4;
-    data->b = 6;
-    data->julia_x = 0;
-    data->julia_y = 0;
+	data->x[0] = -2;
+	data->x[1] = 2;
+	data->y[0] = -2;
+	data->y[1] = 2;
+	data->max = 100;
+	//colours erbij doen?
 }
 
-void    what_sign(t_data *data, char **av, int ac)
+static void	check_input(t_data *data, int ac, char **av)
 {
-    if (!ft_strncmp(av[1], "mandelbrot", 11) && ac == 2)
+	if (ac == 1)
+		terminator("more inputs! -> ./fractol [julia/man] [x] [y]", data);
+	if (!ft_strncmp(av[1], "mandelbrot", 11) && ac == 2)
         data->fract = 1;
-    else if (!ft_strncmp(av[1], "julia", 6) && ac == 2)
-        data->fract = 2;
     else if (!ft_strncmp(av[1], "julia", 6) && ac == 4)
-    {
-        data->fract = 2;
-        // data->julia_x = ft_atod(av[2]); // check dit nog voor later
-        // data->julia_y = ft_atod(av[3]); //check dit nog voor later
-    }
-    else
-        terminator("what yu doin?? use ./fractol [fractal] [r] [i]", 2);
+	{
+		data->fract = 2;
+		if (!string_check(av[2]) || !string_check(av[3]))
+			terminator("gimme some valid coordinates!", data);
+		//build an atod
+		//check if it falls between -2 and 2
+	}
+	else
+		terminator("what yu doin?? use ./fractol [julia/man] [x] [y]", data);
+	init_data(data);
+	//color palette regelen?
+		
 }
 
-// void    parse_av(t_data *data, char *av, int ac)
-// {
-//     ft_bzero(data, sizeof(t_data));
-//     if (ac == 1)
-//         terminator("what yu doin?? use ./fractol [fractal]", 2);
-//     if (!ft_strncmp(av[1], "mandelbrot", 11) && ac == 2)
-//         data->fract = 1;
-//     else if (!ft_strncmp(av[1], "julia", 6) && ac == 4)
-//         data->fract = 2;
-//     else
-//         terminator("what yu doin?? use ./fractol [fractal]", 2);
-    
-// }
+void    init_bruv(t_data *data, int ac, char **av)
+{
+	ft_memset(data, 0 , sizeof(t_data));
+	check_input(data, ac, av);
+	//init mlx
+}
+
 
 

@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/30 18:26:49 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/10/20 17:35:36 by qtrinh        ########   odam.nl          #
+#    Updated: 2023/10/26 15:02:06 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,10 @@ else ifeq ($(shell uname -s), Darwin)
 LINKERS = -framework Cocoa -framework OpenGL -framework IOKit -lglfw3
 endif
 
-SRC :=	main.c \
+SRC :=	check.c \
+		init_bruv.c \
+		main.c \
+		utils.c \
 
 vpath %.c	src
 OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(SRC))
