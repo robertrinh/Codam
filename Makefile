@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/30 18:26:49 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/10/26 17:32:30 by qtrinh        ########   odam.nl          #
+#    Updated: 2023/10/26 17:41:41 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,7 @@ else ifeq ($(shell uname -s), Darwin)
 LINKERS = -framework Cocoa -framework OpenGL -framework IOKit -lglfw3
 endif
 
-SRC :=	check.c \
-		init_bruv.c \
+SRC :=	init_bruv.c \
 		main.c \
 		utils.c \
 

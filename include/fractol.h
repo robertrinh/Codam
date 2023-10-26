@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:10:50 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/10/26 16:35:16 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/10/26 17:41:53 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ typedef struct	s_data
 
 /* generic shi */
 void    init_bruv(t_data *data, int ac, char **av);
-bool	string_check(char *av);
 void    terminator(char *str, t_data *data);
 
 /* mandelbrot */
