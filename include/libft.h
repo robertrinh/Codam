@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 18:08:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/08/16 17:25:19 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/10/26 17:24:35 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	*ft_memset(void *b, int c, size_t len);
 char	**ft_free_2d(char **two_d_array);
 
 /* string functions */
+double	ft_atod(char *str);
 int		ft_atoi(const char *str);
 long	ft_ayetoi(const char *str);
 char	*ft_itoa(int n);
