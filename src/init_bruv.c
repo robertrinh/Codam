@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/08 17:37:22 by robertrinh    #+#    #+#                 */
-/*   Updated: 2023/10/26 17:39:39 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/10/26 18:07:48 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	init_data(t_data *data)
 	data->max = 100;
 	//colours erbij doen?
 }
+
 static int	check_dots(char *av)
 {
 	int	i;
@@ -85,20 +86,18 @@ static void	check_input(t_data *data, int ac, char **av)
 	//color palette regelen?
 }
 
-
 void    init_bruv(t_data *data, int ac, char **av)
 {
 	mlx_t*	mlx;
 	
 	ft_bzero(data, sizeof(t_data));
 	check_input(data, ac, av);
-	mlx = mlx_init(WIDTH, HEIGHT, "fractol", true);
-	if (!mlx)
+	// mlx = mlx_init(WIDTH, HEIGHT, "fractol", true);
+	if (!(mlx = mlx_init(WIDTH, HEIGHT, "fractol", true)))
 		terminator("mlx failed, init", data);
 	mlx_set_setting(MLX_STRETCH_IMAGE, true); //nodig?
 	// data->mlx = mlx;
-	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	if (!data->img)
+	// data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	if (!(data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT)))
 		terminator("mlx new image failed", data);
 }
-

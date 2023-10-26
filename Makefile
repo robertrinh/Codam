@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/30 18:26:49 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/10/26 17:41:41 by qtrinh        ########   odam.nl          #
+#    Updated: 2023/10/26 18:01:05 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ END_COLOUR=\033[0m
 all: libft $(NAME)
 
 $(NAME):  $(MLX_LIB) $(LIBFT) $(OBJ)
-	@$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(OBJ) $(LIBFT) $(MLX_LIB)
+	@$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(OBJ) $(LIBFT) $(MLX_LIB) $(LINKERS)
 	@echo "${BOLD_RED}Are we ready ${BOLD_GREEN}to do some ${YELLOW}political debates?!${END_COLOUR}"
 
 $(MLX_LIB):
