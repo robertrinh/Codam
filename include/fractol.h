@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:10:50 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/10/26 17:41:53 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/10/27 16:08:53 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,17 @@
 # define HEIGHT 1000
 # define WIDTH 1000
 # define MAX_ITER 50
+
 # define X 0
 # define Y 1
+
+# define MANDELBROT 1
+# define JULIA 2
+
+# define LEFT 0
+# define RIGHT 1
+# define UP 0
+# define DOWN 1
 
 
 /**
@@ -39,6 +48,8 @@
  * 
 */
 
+enum colours {R, G, B};
+
 typedef struct	s_data
 {
 	mlx_t	*mlx;
@@ -49,18 +60,22 @@ typedef struct	s_data
 	double	y[2];
 	double	julia_x;
 	double	julia_y;
-	int32_t	r;
-	int32_t	g;
-	int32_t	b;
+	enum colours colour[3];
 }	t_data;
 
 /* generic shi */
 void    init_bruv(t_data *data, int ac, char **av);
 void    terminator(char *str, t_data *data);
+void	what_fractol(t_data *data);
+uint32_t	get_rgba(t_data *data, double iter);
 
 /* mandelbrot */
+void	mandelbrot(t_data *data);
 
 /* julia */
+void	julia(t_data *data);
 
+/* hooks */
+void	key_hook(void *param);
 
 #endif
