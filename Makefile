@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/30 18:26:49 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/10/27 16:42:24 by qtrinh        ########   odam.nl          #
+#    Updated: 2023/10/30 14:32:15 by robertrinh    ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ MLX_LIB := MLX42/build/libmlx42.a
 ifeq ($(shell uname -s),Linux)
 LINKERS = -Iinclude -ldl -lglfw -pthread -lm
 else ifeq ($(shell uname -s), Darwin)
-LINKERS = -framework Cocoa -framework OpenGL -framework IOKit -lglfw3
+LINKERS = -framework Cocoa -framework OpenGL -framework IOKit -lglfw -L"/Users/robertrinh/.brew/opt/glfw/lib/"
+
 endif
 
 SRC :=	hooks.c \
