@@ -6,11 +6,16 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:26:25 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/10/30 18:40:51 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/10/30 23:59:08 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
+
+void	leaks_check(void)
+{
+	system("leaks fractol");
+}
 
 int	main(int ac, char **av)
 {
@@ -18,13 +23,12 @@ int	main(int ac, char **av)
 
 	init_bruv(&data, ac, av);
 	what_fractal(&data);
-	//mlx key hook -> scroll hook -> close
-	// mlx_loop_hook(data.mlx, ..., data.mlx);
 	mlx_key_hook(data.mlx, (mlx_keyfunc) press_keys, &data);
 	mlx_scroll_hook(data.mlx, (mlx_scrollfunc) zoom_in_n_out, &data);
 	mlx_loop(data.mlx);
 	mlx_close_window(data.mlx);
 	mlx_terminate(data.mlx);
+	// atexit(&leaks_check);
 	return (EXIT_SUCCESS);
 }
 
