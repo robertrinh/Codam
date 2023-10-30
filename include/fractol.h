@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:10:50 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/10/27 16:08:53 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/10/30 18:02:57 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 
 # define LEFT 0
 # define RIGHT 1
-# define UP 0
-# define DOWN 1
+# define DOWN 0
+# define UP 1
 
 
 /**
@@ -41,8 +41,8 @@
  * @param img The image struct
  * @param fract the fractol that will be chosen
  * @param iter the max number of iterations
- * @param x x[0] = beginning and x[1] end of x-axis
- * @param y y[0] = beginning and y[1] end of y-axis
+ * @param x x[0] = left side and x[1] right side of x-axis
+ * @param y y[0] = down side and y[1] up side of y-axis
  * @param julia_x x range of julia struct
  * @param julia_y y range of julia struct
  * 
@@ -66,8 +66,9 @@ typedef struct	s_data
 /* generic shi */
 void    init_bruv(t_data *data, int ac, char **av);
 void    terminator(char *str, t_data *data);
-void	what_fractol(t_data *data);
+void	what_fractal(t_data *data);
 uint32_t	get_rgba(t_data *data, double iter);
+void	init_data(t_data *data);
 
 /* mandelbrot */
 void	mandelbrot(t_data *data);
@@ -76,6 +77,9 @@ void	mandelbrot(t_data *data);
 void	julia(t_data *data);
 
 /* hooks */
-void	key_hook(void *param);
+void	press_keys(mlx_key_data_t keydata, t_data *data);
+void	move_x(t_data *data, double amount);
+void	move_y(t_data *data, double amount);
+void	zoom_in_n_out(double x, double y, t_data *data);
 
 #endif

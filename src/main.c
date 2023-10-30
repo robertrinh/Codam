@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:26:25 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/10/27 16:45:51 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/10/30 16:21:14 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	init_bruv(&data, ac, av);
-	what_fractol(&data);
+	what_fractal(&data);
 	//mlx key hook -> scroll hook -> close
 	// mlx_loop_hook(data.mlx, ..., data.mlx);
-	mlx_key_hook(data.mlx, (mlx_keyfunc) key_hook, &data);
+	mlx_key_hook(data.mlx, (mlx_keyfunc) press_keys, &data);
+	mlx_scroll_hook(data.mlx, (mlx_scrollfunc) zoom_in_n_out, &data);
 	mlx_loop(data.mlx);
+	mlx_close_window(data.mlx);
 	mlx_terminate(data.mlx);
 	return (EXIT_SUCCESS);
 }

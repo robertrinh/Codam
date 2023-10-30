@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/08 17:37:22 by robertrinh    #+#    #+#                 */
-/*   Updated: 2023/10/27 16:35:01 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/10/30 18:02:44 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@
  * @brief initializes struct
  * @param t_data The data struct
 */
-static void	init_data(t_data *data)
+void	init_data(t_data *data)
 {
-	data->x[0] = -2;
-	data->x[1] = 2;
-	data->y[0] = -2;
-	data->y[1] = 2;
+	data->x[LEFT] = -2;
+	data->x[RIGHT] = 2;
+	data->y[DOWN] = -2;
+	data->y[UP] = 2;
 	data->max = 100;
 	data->colour[R] = 2;
 	data->colour[G] = 4;
 	data->colour[B] = 6;
-	//colours erbij doen?
 }
 /**
  * @brief counts how many dots are found in the string

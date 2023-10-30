@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/30 18:26:49 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/10/30 14:32:15 by robertrinh    ########   odam.nl          #
+#    Updated: 2023/10/30 15:46:18 by robertrinh    ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ LINKERS = -framework Cocoa -framework OpenGL -framework IOKit -lglfw -L"/Users/r
 
 endif
 
-SRC :=	hooks.c \
+SRC :=	hooks_util.c \
+		hooks.c \
 		init_bruv.c \
 		julia.c \
 		main.c \
