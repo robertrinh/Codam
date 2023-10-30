@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/27 16:03:05 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/10/30 18:40:34 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/10/30 23:43:15 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	press_keys(mlx_key_data_t keydata, t_data *data)
 	change_colour(data);
 	iter_fract(data);
 	if (mlx_is_key_down(data->mlx, MLX_KEY_UP))
-		move_y(data, 0.2);
+		move_y(data, 0.02);
 	if (mlx_is_key_down(data->mlx, MLX_KEY_DOWN))
 		move_y(data, -0.02);
 	if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
