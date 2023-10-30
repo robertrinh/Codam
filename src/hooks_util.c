@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/30 15:29:02 by robertrinh    #+#    #+#                 */
-/*   Updated: 2023/10/30 17:06:16 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/10/30 18:34:44 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	zoom_in_n_out(double delta_x, double delta_y, t_data *data)
 	what_fractal(data);
 }
 
+/**
+ * @brief Moves fractal in the x direction
+ * @param data The data struct
+ * @param amount the amount needed to move (preset in function)
+*/
 void	move_x(t_data *data, double amount)
 {
 	data->x[LEFT] += amount;
@@ -40,6 +45,11 @@ void	move_x(t_data *data, double amount)
 	what_fractal(data);
 }
 
+/**
+ * @brief Moves fractal in the y direction
+ * @param data The data struct
+ * @param amount the amount needed to move (preset in function)
+*/
 void	move_y(t_data *data, double amount)
 {
 	data->y[UP] += amount;

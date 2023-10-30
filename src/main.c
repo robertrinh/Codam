@@ -6,18 +6,11 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:26:25 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/10/30 16:21:14 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/10/30 18:40:51 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
-#include <stdio.h>
-
-// int main(void)
-// {
-//     printf("ik haat Makefiles\n");
-//     return (0);
-// }
 
 int	main(int ac, char **av)
 {
