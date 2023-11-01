@@ -6,13 +6,14 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/30 18:26:49 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/11/01 14:06:46 by qtrinh        ########   odam.nl          #
+#    Updated: 2023/11/01 14:37:34 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := fractol
 CC := cc
-CFLAGS := -Wall -Werror -Wextra -Ofast -O3
+CFLAGS := -Wall -Werror -Wextra -Ofast -O3 
+#CFLAGS += -g -fsanitize=address 
 INCLUDE := -I ./include -I libft/include -I MLX42/source/include/MLX42
 OBJDIR := objects
 LIBFT := libft/libft.a
