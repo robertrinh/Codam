@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:26:25 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/10/30 23:59:08 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/11/01 13:35:10 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,8 @@ int	main(int ac, char **av)
 //bonus: moving view by pressing arrow keys
 //bonus: zoom follows mouse position
 
-
 //samenvoegen MLX42 /libft (submodule usen!) en compilen mbt makefile
-//fix pixel op scherm --> open window (via MLX) voor begrijpen --> met MLX_Put_pixel
+//fix pixel op scherm --> open window (via MLX) voor begrijpen --> MLX_Put_pixel
 //colour van pixel/ size pixel proberen
 //pseudo code van mandel/julia via wikipedia
 

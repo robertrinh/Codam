@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/27 16:03:05 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/10/30 23:43:15 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/11/01 13:30:35 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,20 @@ static void	change_colour(t_data *data)
 {
 	if (mlx_is_key_down(data->mlx, MLX_KEY_X))
 	{
-		data->colour[R] -= 3;
-		data->colour[G] -= 1;
-		data->colour[B] -= 2;
+		data->colour[r] -= 3;
+		data->colour[g] -= 1;
+		data->colour[b] -= 2;
 		what_fractal(data);
 	}
 	if (mlx_is_key_down(data->mlx, MLX_KEY_C))
 	{
-		data->colour[R] += 3;
-		data->colour[G] += 1;
-		data->colour[B] += 2;
+		data->colour[r] += 3;
+		data->colour[g] += 1;
+		data->colour[b] += 2;
 		what_fractal(data);
 	}
 }
+
 /**
  * @brief resets the fractal to original position by reinitialising.
  * @param data the data struct
@@ -84,7 +85,6 @@ void	press_keys(mlx_key_data_t keydata, t_data *data)
 		move_x(data, 0.02);
 	if (mlx_is_key_down(data->mlx, MLX_KEY_LEFT))
 		move_x(data, -0.02);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_ESCAPE) || 
-		mlx_is_key_down(data->mlx, MLX_KEY_Q))
+	if (mlx_is_key_down(data->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(data->mlx);
 }

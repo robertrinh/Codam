@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:49:30 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/10/30 18:31:52 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/11/01 13:32:28 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 */
 static double	get_julia(t_data *data, double x, double y)
 {
-	double xtemp;
-	int	iter;
-	
+	double	xtemp;
+	int		iter;
+
 	iter = 0;
-		while ((x * x + y * y) <= 4 && iter < data->max)
+	while ((x * x + y * y) <= 4 && iter < data->max)
 	{
 		xtemp = (x * x) - (y * y) + data->julia_x;
 		y = 2 * (x * y) + data->julia_y;
@@ -40,8 +40,8 @@ static double	get_julia(t_data *data, double x, double y)
  * @brief checks position of coordinates with windowsize to put a pixel 
  * @brief on regarded position.
  * @brief julia formula is infinite amount of images while zooming.
- * @brief Iterations determine the colour by multiplying them with each iteration.
- * @note julia example params: (-0.4, 0.6) (-0.7, -0.38) (-0.72, 0.18) (-0.8, 0.15)
+ * @brief Iterations determine the colour by multiplying them with each iter.
+ * @note julia example params: (-0.4, 0.6) (-0.7, -0.38) (-0.72, 0.18)
  * @param t_data struct containing the data
 */
 void	julia(t_data *data)

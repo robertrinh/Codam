@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:52:40 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/10/30 17:26:51 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/11/01 13:34:52 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,15 @@ void	what_fractal(t_data *data)
 */
 uint32_t	get_rgba(t_data *data, double iter)
 {
-	int	r = (data->colour[R] * iter);
-	int	g = (data->colour[G] * iter);
-	int	b = (data->colour[B] * iter);
-	int	a = 255;
+	int	r;
+	int	g;
+	int	b;
+	int	a;
 
+	r = (data->colour[r] * iter);
+	g = (data->colour[g] * iter);
+	b = (data->colour[b] * iter);
+	a = 255;
 	return ((r << 24) | (g << 16) | (b << 8) | a);
 }
 
@@ -50,7 +54,6 @@ void	terminator(char *str, t_data *data)
 	ft_putendl_fd(str, STDERR_FILENO);
 	if (data->mlx)
 	{
-		free(data->img); //nodig?
 		mlx_close_window(data->mlx);
 		mlx_terminate(data->mlx);
 	}

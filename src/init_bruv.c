@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/08 17:37:22 by robertrinh    #+#    #+#                 */
-/*   Updated: 2023/10/30 18:02:44 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/11/01 13:31:18 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ void	init_data(t_data *data)
 	data->y[DOWN] = -2;
 	data->y[UP] = 2;
 	data->max = 100;
-	data->colour[R] = 2;
-	data->colour[G] = 4;
-	data->colour[B] = 6;
+	data->colour[r] = 2;
+	data->colour[g] = 4;
+	data->colour[b] = 6;
 }
+
 /**
  * @brief counts how many dots are found in the string
  * @param av pointer to the string given in the av
@@ -106,7 +107,6 @@ static void	check_input(t_data *data, int ac, char **av)
 	else
 		terminator("try ./fractol [julia/mandelbrot] [x] [y]", data);
 	init_data(data);
-	//color palette regelen?
 }
 
 /**
@@ -122,7 +122,7 @@ void	init_bruv(t_data *data, int ac, char **av)
 	data->mlx = mlx_init(WIDTH, HEIGHT, "fractol", true);
 	if (!(data->mlx))
 		terminator("mlx failed, init", data);
-	mlx_set_setting(MLX_STRETCH_IMAGE, true); //nodig?
+	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (!(data->img))
 		terminator("mlx new image failed", data);
