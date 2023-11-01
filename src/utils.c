@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:52:40 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/11/01 13:34:52 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/11/01 13:52:18 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ void	what_fractal(t_data *data)
 */
 uint32_t	get_rgba(t_data *data, double iter)
 {
-	int	r;
-	int	g;
-	int	b;
-	int	a;
+	int	red;
+	int	green;
+	int	blue;
+	int	alpha;
 
-	r = (data->colour[r] * iter);
-	g = (data->colour[g] * iter);
-	b = (data->colour[b] * iter);
-	a = 255;
-	return ((r << 24) | (g << 16) | (b << 8) | a);
+	red = (data->colour[r] * iter);
+	green = (data->colour[g] * iter);
+	blue = (data->colour[b] * iter);
+	alpha = 255;
+	return ((red << 24) | (green << 16) | (blue << 8) | alpha);
 }
 
 /**

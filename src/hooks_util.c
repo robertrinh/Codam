@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/30 15:29:02 by robertrinh    #+#    #+#                 */
-/*   Updated: 2023/11/01 13:30:20 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/11/01 14:00:01 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	zoom_in_n_out(double delta_x, double delta_y, t_data *data)
 
 	(void)delta_x;
 	if (delta_y > 0)
-		zoom_factor = 0.8;
+		zoom_factor = 0.95;
 	else
-		zoom_factor = 1.2;
+		zoom_factor = 1.05;
 	data->x[LEFT] *= zoom_factor;
 	data->x[RIGHT] *= zoom_factor;
 	data->y[UP] *= zoom_factor;
