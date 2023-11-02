@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:49:30 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/11/01 14:04:19 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/11/02 15:00:51 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	julia(t_data *data)
 			pos[Y] = data->y[UP] + (y / HEIGHT) * (data->y[DOWN] - data->y[UP]);
 			iter = get_julia(data, pos[X], pos[Y]);
 			if (iter == data->max)
-				colour = 50;
+				colour = 0XFF;
 			else
 				colour = get_rgba(data, iter);
 			mlx_put_pixel(data->img, x, y, colour);
