@@ -1,0 +1,6 @@
+objects
+*.o
+*.a
+pipex
+**/.DS_Store
+.vscode
