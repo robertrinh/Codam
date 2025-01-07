@@ -1,3 +1,6 @@
 [submodule "Rank3/minishell"]
 	path = Rank3/minishell
 	url = https://github.com/robertrinh/minishell.git
+[submodule "Rank4/cub3d"]
+	path = Rank4/cub3d
+	url = https://github.com/XilianRose/cub3d.git
