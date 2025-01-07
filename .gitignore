@@ -1,0 +1,14 @@
+*!
+*.o
+*.a
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.tar
+*.zip
+.gitignore
+.gitmodules
+.vscode/
