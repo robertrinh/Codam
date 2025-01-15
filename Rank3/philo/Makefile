@@ -6,23 +6,23 @@
 #    By: robertrinh <robertrinh@student.codam.nl      +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/01/07 18:12:23 by robertrinh    #+#    #+#                  #
-#    Updated: 2025/01/07 18:14:12 by robertrinh    ########   odam.nl          #
+#    Updated: 2025/01/15 14:38:14 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := philo
 
 CC := gcc
-CFLAGS := -Wall -Werror -Wextra -g #gflag for debug
+CFLAGS := -Wall -Werror -Wextra #-g gflag for debug
 HEADER := include/philo.h
 INCLUDE := -I include
 OBJDIR = objects
 
-SRC := 	philo.c \
-#init_bruv.c \
+SRC := 	checks.c \
 		main.c \
 		parse.c \
 		utils.c \
+		
 
 vpath %.c	src
 OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(SRC))
