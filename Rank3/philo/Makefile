@@ -6,7 +6,7 @@
 #    By: robertrinh <robertrinh@student.codam.nl      +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/01/07 18:12:23 by robertrinh    #+#    #+#                  #
-#    Updated: 2025/01/15 14:38:14 by qtrinh        ########   odam.nl          #
+#    Updated: 2025/01/17 16:24:48 by robertrinh    ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,12 @@ HEADER := include/philo.h
 INCLUDE := -I include
 OBJDIR = objects
 
-SRC := 	checks.c \
+SRC := 	free.c \
+		init_bruv.c \
 		main.c \
 		parse.c \
 		utils.c \
 		
-
 vpath %.c	src
 OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(SRC))
 

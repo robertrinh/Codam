@@ -6,17 +6,17 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:18:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/15 14:31:37 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/01/17 16:23:08 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-int	marcus_atoi(char *str)
+size_t	marcus_atoi(char *str)
 {
-	int	i;
-	int	result;
-	int	neg;
+	size_t	i;
+	size_t	result;
+	size_t	neg;
 
 	i = 0;
 	result = 0;

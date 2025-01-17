@@ -6,39 +6,63 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 14:09:09 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/15 14:52:19 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/01/16 18:08:10 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-static void	assign_inputs(t_data *p, int argc, char **argv)
+bool	check_args(char **argv)
 {
-	p->philo_count = marcus_atoi(argv[1]);
-	p->time_to_die = marcus_atoi(argv[2]);
-	p->time_to_eat = marcus_atoi(argv[3]);
-	p->time_to_sleep = marcus_atoi(argv[4]);
+	int	str;
+	int	i;
+
+	str = 1;
+	while (argv[str])
+	{
+		i = 0;
+		while (argv[str][i])
+		{
+			if (!plato_isdigit(argv[str][i]))
+				return (write(2, "numeric arguments only!\n", 24), false);
+			i++;
+		}
+		str++;
+	}
+	return (true);
+}
+
+static bool check_input(t_data *data, int argc)
+{
+	// ? need to catch overflow?
+	if (data->philo_count == 0 || data->philo_count > 200)
+		return (write(2, "Philo max is 200\n", 18), false);
+	if (data->time_to_die == 0 || data->time_to_die > INT_MAX)
+		return (write(2, "Invalid time to die\n", 21), false);
+	if (data->time_to_eat == 0 || data->time_to_eat > INT_MAX)
+		return (write(2, "Invalid time to eat\n", 21), false);
+	if (data->time_to_sleep == 0 || data->time_to_sleep > INT_MAX)
+		return (write(2, "Invalid time to sleep\n", 23), false);
+	if (argc == 6 && (data->must_eat == 0 || data->must_eat > INT_MAX))
+		return (write(2, "Invalid times eating\n", 22), false);
+	return (true);
+}
+
+bool	assign_inputs(t_data *data, int argc, char **argv)
+{
+	data->philo_count = marcus_atoi(argv[1]);
+	data->time_to_die = marcus_atoi(argv[2]);
+	data->time_to_eat = marcus_atoi(argv[3]);
+	data->time_to_sleep = marcus_atoi(argv[4]);
 	if (argc == 5)
-		p->must_eat = -1;
+		data->must_eat = -1;
 	if (argc == 6)
 	{
-		p->must_eat = marcus_atoi(argv[5]);
-		p->has_eaten = true; // ! check later if needed
+		data->must_eat = marcus_atoi(argv[5]);
+		data->has_eaten = true; // ! check later if needed
 	}
+	if (!check_input(data, argc))
+		return (false);
+	return (true);
 }
 
-t_data	*parse_args(t_data *data, int argc, char **argv)
-{
-	// t_data	*p;
-
-	data = karl_calloc(sizeof(t_data), 1);
-	if (!data)
-		return (write(2, "malloc\n", 8), NULL);
-	assign_inputs(data, argc, argv);
-	// if (!input_check(data, argc, argv))
-	// {
-	// 	write(2, "input exceeds max_int, choose a integer between\n", 48);
-	// 	return (free(data), NULL);
-	// }
-	return (data);
-}

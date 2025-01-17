@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/07 17:58:46 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/15 14:49:07 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/01/17 16:26:31 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,12 @@
 /**
  * @param id each unique ID of a thread (philo)
  * @param fork_left mutex assigned as left fork, unique to each philo
- * @param fork_right pointer mutex assigned as right fork, unique to each philo
+ * @param fork_right posize_ter mutex assigned as right fork, unique to each philo
  * @param meal_lock the mutex lock to prevent race conditions for the meal
  * @brief struct containing the data needed for each philo
  */
-typedef struct s_philo
-{
-	int				id;
-	int				meal_count;
-	pthread_mutex_t	fork_left;
-	pthread_mutex_t	*fork_right;
-	pthread_mutex_t	meal_lock;
-}	t_philo;
 
+typedef struct s_philo	t_philo;
 typedef struct s_monitor
 {
 	/* data */
@@ -54,24 +47,43 @@ typedef struct s_monitor
  */
 typedef struct s_data
 {
-	t_philo	*philo;
-	int		philo_count;
-	int		time_to_die;
-	int		time_to_eat;
-	int		time_to_sleep;
-	int		must_eat;
-	bool	has_eaten;
+	t_philo			*philo;
+	size_t			philo_count;
+	size_t			time_to_die;
+	size_t			time_to_eat;
+	size_t			time_to_sleep;
+	size_t			must_eat;
+	bool			has_eaten;
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	printing;
+	pthread_mutex_t	eating;
+	pthread_mutex_t	monitor;
 	//unsigned long	start_time;
 }	t_data;
 
-// checks.c
-bool	check_args(char **argv);
+typedef struct s_philo
+{
+	size_t				id;
+	size_t				meal_count;
+	pthread_mutex_t		*fork_left;
+	pthread_mutex_t		*fork_right;
+	pthread_mutex_t		meal_lock;
+	t_data				*data;
+}	t_philo;
+
+// free.c
+void	free_forks(t_data *data, size_t i);
+void	free_freud(t_data *data);
+
+// init_bruv.c
+t_data	*innit(t_data *data, int argc, char **argv);
 
 // parse.c
-t_data	*parse_args(t_data *data, int argc, char **argv);
+bool	assign_inputs(t_data *data, int argc, char **argv);
+bool	check_args(char **argv);
 
 // utils.c
-int		marcus_atoi(char *str);
+size_t	marcus_atoi(char *str);
 void	*karl_calloc(size_t count, size_t size);
 bool	plato_isdigit(int c);
 

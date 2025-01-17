@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/07 17:59:21 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/15 15:14:36 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/01/17 16:17:16 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,12 @@ int	main(int argc, char **argv)
 	if (argc != 5 && argc != 6)
 		return (show_argc_error());
 	if (!check_args(argv))
-		return (1);
-	data = parse_args(data, argc, argv);
+		return (EXIT_FAILURE);
+	data = innit(data, argc, argv);
+	if (!data)
+		return (EXIT_FAILURE);
 	// run_simulation -> in here 1 philo en actual starting threads
+	free_freud(data);
 	printf("ya done innit\n");
 	return (EXIT_SUCCESS);
 }
