@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/16 18:03:30 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/17 16:21:49 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/21 17:31:28 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ static bool	philos_innit(t_data *data)
 		data->philo[i].fork_right = &data->forks[i];
 		data->philo[i].fork_left = &data->forks[(i + 1) % data->philo_count];
 		data->philo[i].meal_count = 0;
-		
-		//data->philo[i].meal_lock = ; 
+		//data->philo[i].meal_lock = pthread_mutex_init; 
 		data->philo[i].data = data;
 		i++;
 	}
@@ -38,7 +37,7 @@ static bool	forks_innit(t_data *data)
 {
 	size_t	i;
 	size_t	j;
-	
+
 	i = 0;
 	data->forks = karl_calloc(sizeof(pthread_mutex_t), data->philo_count);
 	if (!data->forks)
@@ -63,15 +62,14 @@ static bool	forks_innit(t_data *data)
 
 static bool	mutex_innit(t_data *data)
 {
-	size_t	i;
-	size_t	j;
+	size_t			i;
+	size_t			j;
 	pthread_mutex_t	*mutex[3];
-	
+
 	i = 0;
 	mutex[0] = &data->printing;
 	mutex[1] = &data->eating;
 	mutex[2] = &data->monitor;
-
 	while (i < 3)
 	{
 		if (pthread_mutex_init(mutex[i], NULL) != 0)
@@ -88,7 +86,6 @@ static bool	mutex_innit(t_data *data)
 	}
 	return (true);
 }
-
 
 t_data	*innit(t_data *data, int argc, char **argv)
 {

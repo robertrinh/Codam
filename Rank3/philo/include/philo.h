@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/07 17:58:46 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/17 16:26:31 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/21 15:19:47 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,7 @@
 # include <stdbool.h>
 # include <limits.h>
 
-/**
- * @param id each unique ID of a thread (philo)
- * @param fork_left mutex assigned as left fork, unique to each philo
- * @param fork_right posize_ter mutex assigned as right fork, unique to each philo
- * @param meal_lock the mutex lock to prevent race conditions for the meal
- * @brief struct containing the data needed for each philo
- */
-
 typedef struct s_philo	t_philo;
-typedef struct s_monitor
-{
-	/* data */
-}	t_monitor;
-
 
 /**
  * @param philo_count amount of philo's given as input
@@ -53,14 +40,21 @@ typedef struct s_data
 	size_t			time_to_eat;
 	size_t			time_to_sleep;
 	size_t			must_eat;
+	unsigned long	start_time;
 	bool			has_eaten;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	printing;
 	pthread_mutex_t	eating;
 	pthread_mutex_t	monitor;
-	//unsigned long	start_time;
 }	t_data;
 
+/**
+ * @param id each unique ID of a thread (philo)
+ * @param fork_left mutex assigned as left fork, unique to each philo
+ * @param fork_right pointer mutex assigned as right fork, unique to each philo
+ * @param meal_lock the mutex lock to prevent race conditions for the meal
+ * @brief struct containing the data needed for each philo
+ */
 typedef struct s_philo
 {
 	size_t				id;
@@ -72,19 +66,24 @@ typedef struct s_philo
 }	t_philo;
 
 // free.c
-void	free_forks(t_data *data, size_t i);
-void	free_freud(t_data *data);
+void			free_forks(t_data *data, size_t i);
+void			free_freud(t_data *data);
 
 // init_bruv.c
-t_data	*innit(t_data *data, int argc, char **argv);
+t_data			*innit(t_data *data, int argc, char **argv);
 
 // parse.c
-bool	assign_inputs(t_data *data, int argc, char **argv);
-bool	check_args(char **argv);
+bool			assign_inputs(t_data *data, int argc, char **argv);
+bool			check_args(char **argv);
+
+// routine.c
+void			single_philo(t_data *data);
+void			routine(t_philo *philo);
 
 // utils.c
-size_t	marcus_atoi(char *str);
-void	*karl_calloc(size_t count, size_t size);
-bool	plato_isdigit(int c);
+unsigned long	retrieve_time(void);
+size_t			marcus_atoi(char *str);
+void			*karl_calloc(size_t count, size_t size);
+bool			plato_isdigit(int c);
 
 #endif

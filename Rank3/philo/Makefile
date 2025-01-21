@@ -6,7 +6,7 @@
 #    By: robertrinh <robertrinh@student.codam.nl      +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/01/07 18:12:23 by robertrinh    #+#    #+#                  #
-#    Updated: 2025/01/17 16:24:48 by robertrinh    ########   odam.nl          #
+#    Updated: 2025/01/21 16:17:51 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,10 @@ OBJDIR = objects
 
 SRC := 	free.c \
 		init_bruv.c \
+		monitor.c \
 		main.c \
 		parse.c \
+		routine.c \
 		utils.c \
 		
 vpath %.c	src

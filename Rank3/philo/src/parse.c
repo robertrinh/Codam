@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 14:09:09 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/16 18:08:10 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/21 16:32:09 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool	check_args(char **argv)
 		while (argv[str][i])
 		{
 			if (!plato_isdigit(argv[str][i]))
-				return (write(2, "numeric arguments only!\n", 24), false);
+				return (write(2, "Numeric/positive args only!\n", 29), false);
 			i++;
 		}
 		str++;
@@ -32,19 +32,18 @@ bool	check_args(char **argv)
 	return (true);
 }
 
-static bool check_input(t_data *data, int argc)
+static bool	check_input(t_data *data, int argc)
 {
-	// ? need to catch overflow?
 	if (data->philo_count == 0 || data->philo_count > 200)
-		return (write(2, "Philo max is 200\n", 18), false);
+		return (write(2, "Max philo is 200!\n", 18), false);
 	if (data->time_to_die == 0 || data->time_to_die > INT_MAX)
-		return (write(2, "Invalid time to die\n", 21), false);
+		return (write(2, "Invalid time to die!\n", 21), false);
 	if (data->time_to_eat == 0 || data->time_to_eat > INT_MAX)
-		return (write(2, "Invalid time to eat\n", 21), false);
+		return (write(2, "Invalid time to eat!\n", 21), false);
 	if (data->time_to_sleep == 0 || data->time_to_sleep > INT_MAX)
-		return (write(2, "Invalid time to sleep\n", 23), false);
+		return (write(2, "Invalid time to sleep!\n", 23), false);
 	if (argc == 6 && (data->must_eat == 0 || data->must_eat > INT_MAX))
-		return (write(2, "Invalid times eating\n", 22), false);
+		return (write(2, "Invalid amount of eating!\n", 27), false);
 	return (true);
 }
 
@@ -65,4 +64,3 @@ bool	assign_inputs(t_data *data, int argc, char **argv)
 		return (false);
 	return (true);
 }
-

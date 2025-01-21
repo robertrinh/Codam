@@ -6,11 +6,29 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:18:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/17 16:23:08 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/21 15:17:17 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
+
+/**
+ * @param void
+ * @brief get the current time from 1979 onwards
+ * @note converting seconds to milliseconds by multiplying tv.tv_sec * 1000
+ * @note converting microseconds to milliseconds by diving tv.tv_sec / 1000
+ * @return time in milliseconds after converting
+ */
+unsigned long	retrieve_time(void)
+{
+	struct timeval	tv;
+	unsigned long	time_in_ms;
+
+	if (gettimeofday(&tv, NULL) == -1)
+		return (write(2, "Error gettimeofday\n", 20), 42);
+	time_in_ms = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+	return (time_in_ms);
+}
 
 size_t	marcus_atoi(char *str)
 {
