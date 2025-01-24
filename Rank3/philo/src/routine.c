@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/21 12:48:56 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/24 16:55:55 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/24 22:19:48 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static void	thinking(t_philo *philo)
 bool	check_routine(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->data->monitor);
-	if (philo->data->philo_check == DEAD)
-		return (pthread_mutex_unlock(&philo->data->monitor), DEAD);
+	if (philo->data->philo_check == false)
+		return (pthread_mutex_unlock(&philo->data->monitor), false);
 	pthread_mutex_unlock(&philo->data->monitor);
 	return (ALIVE);
 }
@@ -59,9 +59,7 @@ void	*routine(void *philosopher)
 	{
 		chappings(philo);
 		sleeping(philo);
-		// ? eat count check == true
 		thinking(philo);
-		// ? eat count check == true
 	}
 	return (NULL);
 }

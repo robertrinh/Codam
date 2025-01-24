@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/16 18:03:30 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/24 15:12:49 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/24 22:09:53 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static bool	philos_innit(t_data *data)
 		data->philo[i].fork_left = &data->forks[(i + 1) % data->philo_count];
 		data->philo[i].meal_count = 0;
 		data->philo[i].last_eaten = retrieve_time();
-		//data->philo[i].meal_lock = pthread_mutex_init; 
 		data->philo[i].data = data;
 		i++;
 	}

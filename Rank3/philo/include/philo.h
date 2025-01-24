@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/07 17:58:46 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/24 17:18:38 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/24 22:10:02 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct s_philo	t_philo;
  * @param time_to_sleep time allowed for philo to sleep
  * @param time_to_eat time allowed for the philo to eat
  * @param time_to_think time allowed for the philo to think
- * @param has_eaten check if philo has eaten or not
  * @brief struct containing general information of the program.
  */
 typedef struct s_data
@@ -53,7 +52,6 @@ typedef struct s_data
 	size_t			time_to_sleep;
 	size_t			must_eat;
 	unsigned long	start_time;
-	bool			has_eaten;
 	bool			philo_check;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	printing;
@@ -65,7 +63,6 @@ typedef struct s_data
  * @param id each unique ID of a thread (philo)
  * @param fork_left mutex assigned as left fork, unique to each philo
  * @param fork_right pointer mutex assigned as right fork, unique to each philo
- * @param meal_lock the mutex lock to prevent race conditions for the meal
  * @brief struct containing the data needed for each philo
  */
 typedef struct s_philo
@@ -75,7 +72,6 @@ typedef struct s_philo
 	size_t				meal_count;
 	pthread_mutex_t		*fork_left;
 	pthread_mutex_t		*fork_right;
-	// pthread_mutex_t		meal_lock;
 	unsigned long		last_eaten;
 	t_data				*data;
 }	t_philo;
@@ -95,7 +91,9 @@ bool			assign_inputs(t_data *data, int argc, char **argv);
 bool			check_args(char **argv);
 
 // routine_helper.c
+unsigned long	time_diff(t_philo *philo);
 void			waiting_for(unsigned long time);
+
 // routine.c
 void			*single_philo(t_data *data);
 bool			check_routine(t_philo *philo);

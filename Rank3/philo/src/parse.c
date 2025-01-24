@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 14:09:09 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/24 16:52:03 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/24 22:08:36 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,7 @@ bool	assign_inputs(t_data *data, int argc, char **argv)
 	if (argc == 5)
 		data->must_eat = SSIZE_MAX;
 	if (argc == 6)
-	{
 		data->must_eat = marcus_atoi(argv[5]);
-		data->has_eaten = true; // ! check later if needed
-	}
 	data->philo_check = ALIVE;
 	if (!check_input(data, argc))
 		return (false);
