@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/07 17:59:21 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/21 15:22:12 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/01/24 18:07:53 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,26 @@ static char	show_argc_error(void)
 	return (EXIT_FAILURE);
 }
 
-static void	join_threads(t_data *data, size_t i)
+static void	join_threads(t_data *data, size_t thread_count)
 {
-	size_t	j;
+	size_t	i;
 
-	j = 0;
-	while (i < j)
+	i = 0;
+	while (i < thread_count)
 	{
-		if (pthread_join(data->philo[i].id, NULL) != 0)
+		if (pthread_join(data->philo[i].t_id, NULL) != 0)
 		{
 			write(2, "Error joining threads\n", 23);
 			return ;
 		}
-		j++;
+		i++;
 	}
 }
 
 static void	start_simulation(t_data *data)
 {
-	//* 1 philo
 	if (data->philo_count == 1)
 		return (single_philo(data), join_threads(data, 0), free_freud(data));
-	// * the actual simulation
 	data->start_time = retrieve_time();
 	monitor(data);
 	//* end
@@ -62,7 +60,7 @@ static bool	create_threads(t_data *data)
 	i = 0;
 	while (i < data->philo_count)
 	{
-		if (pthread_create(&data->philo[i].id, NULL, &routine, \
+		if (pthread_create(&data->philo[i].t_id, NULL, &routine, \
 			&data->philo[i]) != 0)
 		{
 			join_threads(data, i);
@@ -90,9 +88,13 @@ int	main(int argc, char **argv)
 	if (!create_threads(data))
 		return (EXIT_FAILURE);
 	start_simulation(data);
-	printf("ya done innit\n");
 	return (EXIT_SUCCESS);
 }
+
+//! issue: threads created instantly takes fork at 5 philo
+//! 1 philo has 2 prints of taking a fork
+//! after dead philo still runs -> no correct data lock?
+//! seconds are not portrayed correctly -> should portray get time DIFFERENCE
 
 // ! tests:
 //* Do not test with more than 200 philosophers.

@@ -6,11 +6,21 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:18:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/21 15:17:17 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/01/24 17:26:00 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
+
+void	print_message(t_philo *philo, char *msg)
+{
+	unsigned long	time;
+
+	time = retrieve_time();
+	pthread_mutex_lock(&philo->data->printing);
+	printf("%ld %zu %s\n", time, philo->id, msg);
+	pthread_mutex_unlock(&philo->data->printing);
+}
 
 /**
  * @param void

@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/07 17:58:46 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/21 15:19:47 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/01/24 17:18:38 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,18 @@
 # include <string.h>
 # include <stdbool.h>
 # include <limits.h>
+
+# define FORK_MSG "has taken a fork"
+# define EAT_MSG "is eating"
+# define SLEEP_MSG "is sleeping"
+# define THINK_MSG "is thinking"
+# define DEAD_MSG "died"
+
+typedef enum p_status
+{
+	DEAD,
+	ALIVE
+}	t_status;
 
 typedef struct s_philo	t_philo;
 
@@ -42,6 +54,7 @@ typedef struct s_data
 	size_t			must_eat;
 	unsigned long	start_time;
 	bool			has_eaten;
+	bool			philo_check;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	printing;
 	pthread_mutex_t	eating;
@@ -57,11 +70,13 @@ typedef struct s_data
  */
 typedef struct s_philo
 {
+	pthread_t			t_id;
 	size_t				id;
 	size_t				meal_count;
 	pthread_mutex_t		*fork_left;
 	pthread_mutex_t		*fork_right;
-	pthread_mutex_t		meal_lock;
+	// pthread_mutex_t		meal_lock;
+	unsigned long		last_eaten;
 	t_data				*data;
 }	t_philo;
 
@@ -72,15 +87,22 @@ void			free_freud(t_data *data);
 // init_bruv.c
 t_data			*innit(t_data *data, int argc, char **argv);
 
+// monitor.c
+void			monitor(t_data *data);
+
 // parse.c
 bool			assign_inputs(t_data *data, int argc, char **argv);
 bool			check_args(char **argv);
 
+// routine_helper.c
+void			waiting_for(unsigned long time);
 // routine.c
-void			single_philo(t_data *data);
-void			routine(t_philo *philo);
+void			*single_philo(t_data *data);
+bool			check_routine(t_philo *philo);
+void			*routine(void *philosopher);
 
 // utils.c
+void			print_message(t_philo *philo, char *msg);
 unsigned long	retrieve_time(void);
 size_t			marcus_atoi(char *str);
 void			*karl_calloc(size_t count, size_t size);

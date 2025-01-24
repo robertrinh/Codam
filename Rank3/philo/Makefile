@@ -6,7 +6,7 @@
 #    By: robertrinh <robertrinh@student.codam.nl      +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/01/07 18:12:23 by robertrinh    #+#    #+#                  #
-#    Updated: 2025/01/21 16:17:51 by qtrinh        ########   odam.nl          #
+#    Updated: 2025/01/24 16:09:55 by robertrinh    ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC := 	free.c \
 		monitor.c \
 		main.c \
 		parse.c \
+		routine_helper.c \
 		routine.c \
 		utils.c \
 		
