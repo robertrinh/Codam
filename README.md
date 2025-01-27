@@ -14,4 +14,4 @@ The ranks consists of the following projects:
 | ------ | ------ | ------ | ------ | ------ |
 | [libft](https://github.com/robertrinh/Codam/tree/main/Rank0/libft)  | [ft_printf](https://github.com/robertrinh/Codam/tree/main/Rank1/ft_printf) | [fract-ol](https://github.com/robertrinh/Codam/tree/main/Rank2/fract-ol) | [minishell](https://github.com/robertrinh/minishell) | [cub3d](https://github.com/XilianRose/cub3d) |
 || [get_next_line](https://github.com/robertrinh/Codam/tree/main/Rank1/get_next_line) | [pipex](https://github.com/robertrinh/Codam/tree/main/Rank2/pipex) | philosophers (current) | CPP modules |
-|| [push_swap](https://github.com/robertrinh/Codam/tree/main/Rank2/push_swap) ||
+|||[push_swap](https://github.com/robertrinh/Codam/tree/main/Rank2/push_swap) |
