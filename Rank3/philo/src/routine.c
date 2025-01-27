@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/21 12:48:56 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/27 15:09:49 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 15:17:18 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static bool	sleeping(t_philo *philo)
 	waiting_for(philo->data->time_to_sleep);
 	return (true);
 }
+
 static bool	thinking(t_philo *philo)
 {
 	if (!print_message(philo, THINK_MSG))
@@ -67,6 +68,7 @@ bool	check_routine(t_philo *philo)
 	pthread_mutex_unlock(&philo->data->monitor);
 	return (ALIVE);
 }
+
 /**
  * @brief the routine from the philo's until one dies
  * @param void pointer which will be recasted to the philo struct

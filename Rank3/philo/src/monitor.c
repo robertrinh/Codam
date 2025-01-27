@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/21 14:58:51 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/27 15:04:56 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 15:17:30 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 static void	print_dead(t_data *data)
 {
 	pthread_mutex_lock(&data->printing);
-	printf("%ld %zu %s\n", time_diff(data->start_time), data->philo->id, DEAD_MSG);
+	printf("%ld %zu %s\n", time_diff(data->start_time), \
+			data->philo->id, DEAD_MSG);
 	pthread_mutex_unlock((&data->printing));
 }
 
@@ -65,7 +66,7 @@ static bool	philo_death_check(t_data *data)
 			return (DEAD);
 		}
 		pthread_mutex_unlock(&data->eating);
-		i++;	
+		i++;
 	}
 	return (ALIVE);
 }
