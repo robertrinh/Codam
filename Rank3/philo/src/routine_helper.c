@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/24 16:06:14 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/27 13:32:29 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 14:50:54 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	drop_forks(t_philo *philo, bool fork_left, bool fork_right)
  * @param philo the philo struct containing the starting time
  * @return the difference between current and start in milliseconds
  */
-unsigned long	time_diff(t_philo *philo)
+unsigned long	time_diff(unsigned long input_time)
 {
 	unsigned long	current_time;
 
 	current_time = retrieve_time();
-	return (current_time - philo->data->start_time);
+	return (current_time - input_time);
 }
 
 /**

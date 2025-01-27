@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:18:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/27 13:23:53 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 14:52:13 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ bool	print_message(t_philo *philo, char *msg)
 	if (!check_routine(philo))
 		return (false);
 	pthread_mutex_lock(&philo->data->printing);
-	printf("%ld %zu %s\n", time_diff(philo), philo->id, msg);
+	printf("%ld %zu %s\n", time_diff(philo->data->start_time), philo->id, msg);
 	pthread_mutex_unlock(&philo->data->printing);
 	return (true);
 }

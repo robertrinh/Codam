@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/07 17:58:46 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/27 13:20:32 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 14:51:18 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ bool			check_args(char **argv);
 
 // routine_helper.c
 void			drop_forks(t_philo *philo, bool fork_left, bool fork_right);
-unsigned long	time_diff(t_philo *philo);
+unsigned long	time_diff(unsigned long input_time);
 void			waiting_for(unsigned long time);
 void			*single_philo(t_data *data);
 
