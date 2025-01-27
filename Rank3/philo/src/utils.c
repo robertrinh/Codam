@@ -6,17 +6,20 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:18:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/24 19:22:57 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 12:12:46 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-void	print_message(t_philo *philo, char *msg)
+bool	print_message(t_philo *philo, char *msg)
 {
+	if (!check_routine(philo))
+		return (false);
 	pthread_mutex_lock(&philo->data->printing);
 	printf("%ld %zu %s\n", time_diff(philo), philo->id, msg);
 	pthread_mutex_unlock(&philo->data->printing);
+	return (true);
 }
 
 /**

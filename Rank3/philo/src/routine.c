@@ -6,36 +6,43 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/21 12:48:56 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/24 22:19:48 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 12:20:10 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-static void	chappings(t_philo *philo)
+static bool	chappings(t_philo *philo)
 {
 	pthread_mutex_lock(philo->fork_left);
-	print_message(philo, FORK_MSG);
+	if (!print_message(philo, FORK_MSG))
+		return (drop_forks(philo, true, false), false);
 	pthread_mutex_lock(philo->fork_right);
-	print_message(philo, FORK_MSG);
-	print_message(philo, EAT_MSG);
+	if (!print_message(philo, FORK_MSG))
+		return (drop_forks(philo, true, true), false);
+	if (!print_message(philo, EAT_MSG))
+		return (drop_forks(philo, true, true), false);
 	pthread_mutex_lock(&philo->data->eating);
 	philo->last_eaten = retrieve_time();
 	philo->meal_count++;
 	pthread_mutex_unlock(&philo->data->eating);
 	waiting_for(philo->data->time_to_eat);
-	pthread_mutex_unlock(philo->fork_left);
-	pthread_mutex_unlock(philo->fork_right);
+	drop_forks(philo, true, true);
+	return (true);
 }
 
-static void	sleeping(t_philo *philo)
+static bool	sleeping(t_philo *philo)
 {
-	print_message(philo, SLEEP_MSG);
+	if (!print_message(philo, SLEEP_MSG))
+		return (false);
 	waiting_for(philo->data->time_to_sleep);
+	return (true);
 }
-static void	thinking(t_philo *philo)
+static bool	thinking(t_philo *philo)
 {
-	print_message(philo, THINK_MSG);
+	if (!print_message(philo, THINK_MSG))
+		return (false);
+	return (true);
 }
 
 // monitors if philo has died or not from specific thread
@@ -51,15 +58,22 @@ bool	check_routine(t_philo *philo)
 void	*routine(void *philosopher)
 {
 	t_philo	*philo;
+	bool	completed;
 
 	philo = (t_philo *)philosopher;
 	if (philo->id % 2)
 		usleep(1000);
 	while (check_routine(philo))
 	{
-		chappings(philo);
-		sleeping(philo);
-		thinking(philo);
+		completed = chappings(philo);
+		if (!completed)
+			return (NULL);
+		completed = sleeping(philo);
+		if (!completed)
+			return (NULL);
+		completed = thinking(philo);
+		if (!completed)
+			return (NULL);
 	}
 	return (NULL);
 }

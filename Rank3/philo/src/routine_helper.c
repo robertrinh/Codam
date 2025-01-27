@@ -6,11 +6,19 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/24 16:06:14 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/24 19:36:12 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 12:19:20 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
+
+void	drop_forks(t_philo *philo, bool fork_left, bool fork_right)
+{
+	if (fork_left)
+		pthread_mutex_unlock(philo->fork_left);
+	if (fork_right)
+		pthread_mutex_unlock(philo->fork_right);
+}
 
 unsigned long	time_diff(t_philo *philo)
 {
