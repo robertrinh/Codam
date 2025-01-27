@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:18:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/27 12:12:46 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 13:23:53 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ bool	print_message(t_philo *philo, char *msg)
 
 /**
  * @param void
- * @brief get the current time from 1979 onwards
+ * @brief get the current time
  * @note converting seconds to milliseconds by multiplying tv.tv_sec * 1000
- * @note converting microseconds to milliseconds by diving tv.tv_sec / 1000
+ * @note converting microseconds to milliseconds by diving tv.tv_usec / 1000
  * @return time in milliseconds after converting
  */
 unsigned long	retrieve_time(void)

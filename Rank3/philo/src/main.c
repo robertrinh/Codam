@@ -6,12 +6,11 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/07 17:59:21 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/24 21:59:03 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 13:14:20 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
-
 
 static void	join_threads(t_data *data, size_t thread_count)
 {
@@ -55,7 +54,6 @@ static void	start_simulation(t_data *data)
 {
 	if (data->philo_count == 1)
 		return (single_philo(data), join_threads(data, 0), free_freud(data));
-	data->start_time = retrieve_time();
 	monitor(data);
 	join_threads(data, data->philo_count);
 	free_freud(data);
@@ -93,9 +91,7 @@ int	main(int argc, char **argv)
 	return (EXIT_SUCCESS);
 }
 
-//! issue: threads created instantly takes fork at 5 philo
-//! after dead philo still runs -> no correct data lock?
-//! optional param not functional
+//! improve the time to die
 
 // ! tests:
 //* Do not test with more than 200 philosophers.

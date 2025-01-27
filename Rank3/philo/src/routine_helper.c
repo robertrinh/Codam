@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/24 16:06:14 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/27 12:19:20 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 13:32:29 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	drop_forks(t_philo *philo, bool fork_left, bool fork_right)
 		pthread_mutex_unlock(philo->fork_right);
 }
 
+/**
+ * @brief gets the time difference between current time and start time
+ * @param philo the philo struct containing the starting time
+ * @return the difference between current and start in milliseconds
+ */
 unsigned long	time_diff(t_philo *philo)
 {
 	unsigned long	current_time;
@@ -28,16 +33,26 @@ unsigned long	time_diff(t_philo *philo)
 	return (current_time - philo->data->start_time);
 }
 
+/**
+ * @param time the time given, f.e. time_to_die
+ * @brief waits for x amount of time from the input
+ */
 // wait for given amount of time from the input
 void	waiting_for(unsigned long time)
 {
 	unsigned long	start;
 
 	start = retrieve_time();
-	while((retrieve_time() - start) < time)
+	while ((retrieve_time() - start) < time)
 		usleep(100);
 }
 
+/**
+ * @brief function hardcoded for single philosopher
+ * @param data the data struct needed
+ * @note takes a fork and can't eat because 2 is needed, then dies
+ * @return NULL which indicates the success of the thread
+ */
 void	*single_philo(t_data *data)
 {
 	size_t	i;

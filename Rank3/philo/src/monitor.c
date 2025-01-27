@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/21 14:58:51 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/27 12:33:33 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 13:19:45 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,21 @@ static bool	philo_has_finished(t_data *data)
 			pthread_mutex_lock(&data->monitor);
 			data->philo_check = false;
 			pthread_mutex_unlock(&data->monitor);
-			return (true);
+			return (FINISHED);
 		}
 	}
-	return (false);
+	return (UNFINISHED);
 }
 
 static bool	philo_death_check(t_data *data)
 {
-	unsigned long	time;
-	size_t			i;
+	size_t	i;
 
 	i = 0;
 	while (i < data->philo_count)
 	{
 		pthread_mutex_lock(&data->eating);
-		time = retrieve_time() - data->philo->last_eaten;
-		if (time > data->time_to_die)
+		if (time_diff(data->philo) > data->time_to_die)
 		{
 			pthread_mutex_unlock(&data->eating);
 			pthread_mutex_lock(&data->monitor);

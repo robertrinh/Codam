@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/07 17:58:46 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/27 12:19:25 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/27 13:20:32 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ typedef enum p_status
 	DEAD,
 	ALIVE
 }	t_status;
+
+typedef enum p_meals
+{
+	UNFINISHED,
+	FINISHED
+}	t_meals;
 
 typedef struct s_philo	t_philo;
 
@@ -94,9 +100,9 @@ bool			check_args(char **argv);
 void			drop_forks(t_philo *philo, bool fork_left, bool fork_right);
 unsigned long	time_diff(t_philo *philo);
 void			waiting_for(unsigned long time);
+void			*single_philo(t_data *data);
 
 // routine.c
-void			*single_philo(t_data *data);
 bool			check_routine(t_philo *philo);
 void			*routine(void *philosopher);
 
