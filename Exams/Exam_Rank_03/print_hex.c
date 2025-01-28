@@ -38,7 +38,6 @@ int	atoi_tings(char *str)
 	return (res);
 }
 
-// note: not sure if negative is needed
 void	print_hex(int num)
 {
 	char hex_digits[] = "0123456789abcdef";
