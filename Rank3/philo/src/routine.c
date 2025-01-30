@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/21 12:48:56 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/01/27 15:17:18 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/01/30 19:39:11 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  */
 static bool	chappings(t_philo *philo)
 {
-	pthread_mutex_lock(philo->fork_left);
+	pthread_mutex_lock(&philo->fork_left);
 	if (!print_message(philo, FORK_MSG))
 		return (drop_forks(philo, true, false), false);
 	pthread_mutex_lock(philo->fork_right);

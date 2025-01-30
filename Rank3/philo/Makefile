@@ -6,14 +6,14 @@
 #    By: robertrinh <robertrinh@student.codam.nl      +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/01/07 18:12:23 by robertrinh    #+#    #+#                  #
-#    Updated: 2025/01/24 16:09:55 by robertrinh    ########   odam.nl          #
+#    Updated: 2025/01/30 19:49:42 by robertrinh    ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := philo
 
 CC := gcc
-CFLAGS := -Wall -Werror -Wextra #-g gflag for debug
+CFLAGS := -Wall -Werror -Wextra #-g -fsanitize=thread -pthread
 HEADER := include/philo.h
 INCLUDE := -I include
 OBJDIR = objects

@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/07 17:58:46 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/27 14:51:18 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/30 19:27:23 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct s_philo
 	pthread_t			t_id;
 	size_t				id;
 	size_t				meal_count;
-	pthread_mutex_t		*fork_left;
+	pthread_mutex_t		fork_left;
 	pthread_mutex_t		*fork_right;
 	unsigned long		last_eaten;
 	t_data				*data;

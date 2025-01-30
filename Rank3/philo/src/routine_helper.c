@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/24 16:06:14 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/27 14:50:54 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/30 19:38:31 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	drop_forks(t_philo *philo, bool fork_left, bool fork_right)
 {
 	if (fork_left)
-		pthread_mutex_unlock(philo->fork_left);
+		pthread_mutex_unlock(&philo->fork_left);
 	if (fork_right)
 		pthread_mutex_unlock(philo->fork_right);
 }
@@ -58,9 +58,9 @@ void	*single_philo(t_data *data)
 	size_t	i;
 
 	i = 0;
-	pthread_mutex_lock(data->philo[0].fork_left);
+	pthread_mutex_lock(&data->philo[0].fork_left);
 	printf("%zu %zu has taken a fork\n", i, data->philo[0].id);
-	pthread_mutex_unlock(data->philo[0].fork_left);
+	pthread_mutex_unlock(&data->philo[0].fork_left);
 	waiting_for(data->time_to_die);
 	printf("%zu %zu has died\n", i, data->philo[0].id);
 	return (NULL);

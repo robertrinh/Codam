@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/16 18:03:30 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/01/24 22:09:53 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/01/30 19:35:54 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static bool	philos_innit(t_data *data)
 	while (i < data->philo_count)
 	{
 		data->philo[i].id = i + 1;
-		data->philo[i].fork_right = &data->forks[i];
-		data->philo[i].fork_left = &data->forks[(i + 1) % data->philo_count];
+		data->philo[i].fork_left = data->forks[i];
+		data->philo[i].fork_right = &data->forks[(i + 1) % data->philo_count];
 		data->philo[i].meal_count = 0;
 		data->philo[i].last_eaten = retrieve_time();
 		data->philo[i].data = data;
