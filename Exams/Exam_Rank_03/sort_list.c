@@ -89,7 +89,7 @@ void print_list(t_list *lst)
 	printf("NULL\n");
 }
 
-int main()
+int main(void)
 {
 	t_list *a = new_node(8);
 	t_list *b = new_node(3);
@@ -106,5 +106,5 @@ int main()
 	a = sort_list(a, descending); // swap with ascending for double check
 	printf("After sorting:\n");
 	print_list(a);
-	return 0;
+	return (0);
 }
