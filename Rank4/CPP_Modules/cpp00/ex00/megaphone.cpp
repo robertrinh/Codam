@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/10 14:35:06 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/10 15:49:47 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/02/10 16:31:49 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int main(int argc, char **argv)
 				arg[j] = toupper(arg[j]);
 			std::cout << arg << " ";
 		}
-		// convert toupper
 		std::cout << std::endl;
 	}
 	return (0);
