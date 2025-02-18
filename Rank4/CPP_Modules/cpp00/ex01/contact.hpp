@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/12 15:40:43 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/17 16:56:01 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/02/18 14:08:12 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ public:
 		Contact(void); //constructor
 		~Contact(void); //destructor
 
-		std::string getFirstname() const; // getter function for retrieving information
+		std::string getFirstName() const; // getter function for retrieving information
 		void setFirstName(const std::string &first_name); // setter function to iniatialize the information
 		
-		std::string getLastname() const;
+		std::string getLastName() const;
 		void setLastName(const std::string &last_name);
 
-		std::string getNickname() const;
+		std::string getNickName() const;
 		void setNickname(const std::string &nickname);
 
 		std::string getPhoneNumber() const;

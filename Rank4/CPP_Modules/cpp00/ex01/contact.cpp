@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/12 17:25:30 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/17 17:01:49 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/02/18 14:08:32 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Contact::~Contact(void)
 	return ;
 }
 
-std::string Contact::getFirstname() const {
+std::string Contact::getFirstName() const {
     return first_name;
 }
 
@@ -32,7 +32,7 @@ void Contact::setFirstName(const std::string &first_name) {
     this->first_name = first_name;
 }
 
-std::string Contact::getLastname() const {
+std::string Contact::getLastName() const {
     return last_name;
 }
 
@@ -40,7 +40,7 @@ void Contact::setLastName(const std::string &last_name) {
     this->last_name = last_name;
 }
 
-std::string Contact::getNickname() const {
+std::string Contact::getNickName() const {
     return nickname;
 }
 
