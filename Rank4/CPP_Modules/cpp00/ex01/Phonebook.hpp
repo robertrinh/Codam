@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   HumanB.hpp                                         :+:    :+:            */
+/*   Phonebook.hpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/02/18 19:30:07 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/21 13:09:40 by qtrinh        ########   odam.nl         */
+/*   Created: 2025/02/12 15:26:11 by robertrinh    #+#    #+#                 */
+/*   Updated: 2025/02/19 14:32:18 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_B_HPP
-#define HUMAN_B_HPP
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
-#include <iostream>
-#include "Weapon.hpp"
-class HumanB
+#include "Contact.hpp"
+
+class Phonebook 
 {
 private:
-	std::string _name;
-	Weapon *_weapon;
+	Contact _contacts[8];
+	int _size;
+	int	_nextsize; // _ to indicate that this variable is private
 
+	void	_getinfo(std:: string &info, const std::string &prompt);
 public:
-	HumanB(std::string _name);
-	~HumanB();
-
-	void setWeapon(Weapon &weapon);
-	void attack();
+	Phonebook(void); //constructor
+	~Phonebook(void); //destructor
+	
+	void	addSize(Contact& new_contact);
+	void	addContact();
+	void	searchContact();
+	void	displayContacts();
 };
 
 #endif

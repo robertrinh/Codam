@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 19:16:25 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/18 19:28:48 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/02/21 13:07:12 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ private:
 
 public:
 	Weapon();
+	Weapon(std::string type);
 	~Weapon();
 	
 	//returns const + const and end does not modify member variables of class
-	const std::string& GetType() const; 
-	void SetType(std::string type);	
+	const std::string& getType() const; 
+	void setType(std::string type);	
 };
 
 #endif
