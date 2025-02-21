@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Phonebook.hpp                                      :+:    :+:            */
+/*   Weapon.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/02/12 15:26:11 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/19 14:32:18 by robertrinh    ########   odam.nl         */
+/*   Created: 2025/02/18 19:16:25 by robertrinh    #+#    #+#                 */
+/*   Updated: 2025/02/18 19:28:48 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-#include "Contact.hpp"
+#include <iostream>
 
-class Phonebook 
+class Weapon
 {
 private:
-	Contact _contacts[8];
-	int _size;
-	int	_nextsize; // _ to indicate that this variable is private
+	std::string _type;
 
-	void	_getinfo(std:: string &info, const std::string &prompt);
 public:
-	Phonebook(void); //constructor
-	~Phonebook(void); //destructor
+	Weapon();
+	~Weapon();
 	
-	void	addSize(Contact& new_contact);
-	void	addContact();
-	void	searchContact();
-	void	displayContacts();
+	//returns const + const and end does not modify member variables of class
+	const std::string& GetType() const; 
+	void SetType(std::string type);	
 };
 
 #endif

@@ -2,7 +2,7 @@ NAME:= megaphone
 CC:= c++
 FLAGS:= -Wall -Wextra -Werror -std=c++98
 OBJDIR := objects
-SRC := megaphone.cpp
+SRC := Megaphone.cpp
 OBJS := $(SRC:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)

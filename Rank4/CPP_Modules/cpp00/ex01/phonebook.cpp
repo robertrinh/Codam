@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   phonebook.cpp                                      :+:    :+:            */
+/*   Phonebook.cpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/12 17:26:02 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/18 14:09:27 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/02/21 12:19:37 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
-#include "contact.hpp"
+#include "Phonebook.hpp"
+#include "Contact.hpp"
 #include <iomanip>
 #include <sstream>
 #include <string>

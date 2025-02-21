@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   contact.cpp                                        :+:    :+:            */
+/*   Contact.cpp                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/12 17:25:30 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/18 14:08:32 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/02/21 12:19:46 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
+#include "Contact.hpp"
 
 Contact::Contact(void)
 {
