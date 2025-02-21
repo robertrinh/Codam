@@ -6,10 +6,17 @@ The modules also mention that we have to code in a C++ way and that we have to l
 ## The Modules, in order
 Below will be a list of modules that will be completed. Each module teaches us about a new concept and there will be some key learning points from them.
 
-### Module 00: C++ basics
+### Module 00:
 Object: Introduction to basic concepts and syntax of C++.
 What did I learn? 
--  Basic syntax of C++ (f.e. `<<` and `::` operators), I/O
+-  Basic syntax of C++ (f.e. `<<` and `::` operators), Input/Output stream (I/O)
 -  C++ concepts such as data types, public and private classes, namespaces
 -  C++ functions and libraries
 
+### Module 01: 
+Object: Memory allocation, pointers and references
+What did I learn?
+- Dynamic Allocation in C++ using `new` and `delete`
+- Pointers (`*`) and References (`&`)
+- Understanding constructors and destroyers of classes
+- Using the `switch` - statement
