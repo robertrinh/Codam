@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/21 17:49:47 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/21 17:51:42 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/02/24 13:16:27 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		std::cout << "You just don't want to hear Harl complain huh" << std::endl;
+		std::cout << "You just don't want to hear Harl complain, huh?" << std::endl;
+		std::cout << "try either of these commands: {DEBUG} {INFO} {WARNING} {ERROR}" << std::endl;
 		return 1;
 	}
 	return 0;
