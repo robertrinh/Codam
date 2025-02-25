@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/24 15:08:58 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/02/24 16:02:35 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/02/25 14:20:17 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  */
 Fixed::Fixed() : _rawValue(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "\033[1;32mDefault constructor called\033[0m" << std::endl;
 }
 
 /**
@@ -30,7 +30,7 @@ Fixed::Fixed() : _rawValue(0)
  */
 Fixed::Fixed(const Fixed& src)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "\033[1;33mCopy constructor called\033[0m" << std::endl;
 	*this = src;
 }
 
@@ -42,7 +42,7 @@ Fixed::Fixed(const Fixed& src)
  */
 Fixed &Fixed::operator=(const Fixed& src)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "\033[1;33mCopy constructor called\033[0m" << std::endl;
 	if (this != &src)
 		this->_rawValue = src._rawValue;
 	return (*this);
@@ -50,7 +50,7 @@ Fixed &Fixed::operator=(const Fixed& src)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor Called" << std::endl;
+	std::cout << "\033[1;31mDestructor Called\033[0m" << std::endl;
 }
 
 int Fixed::getRawBits() const

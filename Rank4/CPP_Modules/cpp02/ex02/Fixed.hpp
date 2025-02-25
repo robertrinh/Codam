@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/24 15:43:12 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/02/24 17:10:48 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/02/25 14:10:52 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ public:
 
 	//* Increment/Decrement operators
 	Fixed& operator++(); //Pre-incrementing
-	Fixed& operator--(); //Pre-decrementing
 	Fixed operator++(int); //Post-incrementing
+	Fixed& operator--(); //Pre-decrementing
 	Fixed operator--(int); //Post-decrementing
 	
 	//* overloaded member functions
 	static Fixed& min(Fixed& a, Fixed& b);
-	static Fixed& min(Fixed& const a, Fixed& const b);
+	static const Fixed& min(const Fixed& a, const Fixed& b);
 	static Fixed& max(Fixed& a, Fixed& b);
-	static Fixed& max(Fixed& const a, Fixed& const b);
+	static const Fixed& max(const Fixed& a, const Fixed& b);
 	
 	//* member functions
 	int getRawBits() const;
