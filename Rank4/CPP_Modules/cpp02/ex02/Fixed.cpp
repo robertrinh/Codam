@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/24 15:51:52 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/02/25 14:21:16 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/02/25 14:35:47 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,32 +69,32 @@ Fixed::~Fixed()
  */
 bool	Fixed::operator==(const Fixed& src) const
 {
-	return _rawValue == src._rawValue;
+	return this->_rawValue == src._rawValue;
 }
 
 bool	Fixed::operator!=(const Fixed& src) const
 {
-	return _rawValue != src._rawValue;
+	return this->_rawValue != src._rawValue;
 }
 
 bool	Fixed::operator<(const Fixed& src) const
 {
-	return _rawValue < src._rawValue;
+	return this->_rawValue < src._rawValue;
 }
 
 bool	Fixed::operator>(const Fixed& src) const
 {
-	return _rawValue > src._rawValue;
+	return this->_rawValue > src._rawValue;
 }
 
 bool	Fixed::operator<=(const Fixed& src) const
 {
-	return _rawValue <= src._rawValue;
+	return this->_rawValue <= src._rawValue;
 }
 
 bool	Fixed::operator>=(const Fixed& src) const
 {
-	return _rawValue >= src._rawValue;
+	return this->_rawValue >= src._rawValue;
 }
 
 //* Arithmetic Overload Operators *//
