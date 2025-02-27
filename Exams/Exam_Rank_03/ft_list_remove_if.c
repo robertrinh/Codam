@@ -10,32 +10,29 @@ typedef struct t_list
 
 void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(void *, void *))
 {
-	t_list	*current;
-	t_list	*previous;
-	t_list	*temp;
+	t_list *current = *begin_list;
+	t_list *delete;
+	t_list *prev = NULL;
 
-	previous = NULL;
-	current = *begin_list;
 	while (current)
 	{
 		if ((*cmp)(current->data, data_ref) == 0)
 		{
-			temp = current->next;
-			free(current);
-			if (previous == NULL)  // Removing the first node
-				*begin_list = temp;
+			delete = current;
+			if (prev == NULL)
+				*begin_list = current->next; //removing first node
 			else
-				previous->next = temp;
-			current = temp; // Move to the next node without updating previous
+				prev->next = current->next;
+			current = current->next;
+			free(delete);
 		}
 		else
 		{
-			previous = current;
+			prev = current;
 			current = current->next;
 		}
 	}
 }
-
 
 #include <stdio.h>
 t_list *create_elem(void *data)
