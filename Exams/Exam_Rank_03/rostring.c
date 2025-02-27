@@ -44,7 +44,7 @@ void rostring(char *s)
 	//write first word
     if (len > 0)
     {
-        if (word) 
+		if (word) 
 			write(1, " ", 1);
         write(1, &s[first], len);
     }
