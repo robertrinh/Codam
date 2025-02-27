@@ -29,7 +29,7 @@ void rostring(char *s)
 	// write the whole string after first word
     while (s[i])
     {
-        if (!ft_isblank(s[i]) && (i == 0 || ft_isblank(s[i - 1])))
+        if (!ft_isblank(s[i]) && ft_isblank(s[i - 1]))
         {
             if (word) 
 				write(1, " ", 1);
@@ -37,7 +37,8 @@ void rostring(char *s)
                 write(1, &s[i++], 1);
             word = 1;
         }
-        else i++;
+        else 
+			i++;
     }
     
 	//write first word
