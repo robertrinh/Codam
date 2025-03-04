@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   megaphone.cpp                                      :+:    :+:            */
+/*   MegaPhone.cpp                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
+/*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/02/10 14:35:06 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/10 16:31:49 by robertrinh    ########   odam.nl         */
+/*   Created: 2025/03/04 12:45:58 by qtrinh        #+#    #+#                 */
+/*   Updated: 2025/03/04 12:46:05 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream> //input output stream
+#include <iostream>
 #include <cctype>
 
 int main(int argc, char **argv)
