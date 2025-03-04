@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Phonebook.cpp                                      :+:    :+:            */
+/*   PhoneBook.cpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/12 17:26:02 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/21 12:19:37 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/04 12:52:59 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 #include "Contact.hpp"
 #include <iomanip>
 #include <sstream>
 #include <string>
 
 // constructor
-Phonebook::Phonebook(void)
+PhoneBook::PhoneBook(void)
 {
 	this->_size = 0;
 	this->_nextsize = 0;
@@ -26,7 +26,7 @@ Phonebook::Phonebook(void)
 }
 
 // destructor
-Phonebook::~Phonebook(void)
+PhoneBook::~PhoneBook(void)
 {
 	// std::cout << "Phonebook destructor called" << std::endl;
 	return ;
@@ -43,7 +43,7 @@ std::string truncate(const std::string &str)
 }
 
 // member function van de class Phonebook: syntax with :: operator
-void	Phonebook::displayContacts()
+void	PhoneBook::displayContacts()
 {
 	std::cout << std::setw(10) << "Index" << "|";
 	std::cout << std::setw(10) << "First Name" << "|";
@@ -61,7 +61,7 @@ void	Phonebook::displayContacts()
 }
 
 // member function van de class Phonebook: syntax with :: operator. _getinfo is a private function
-void	Phonebook::_getinfo(std:: string &info, const std::string &prompt)
+void	PhoneBook::_getinfo(std:: string &info, const std::string &prompt)
 {
 	while (1)
 	{
@@ -72,7 +72,7 @@ void	Phonebook::_getinfo(std:: string &info, const std::string &prompt)
 	}
 }
 
-void	Phonebook::addSize(Contact& contact)
+void	PhoneBook::addSize(Contact& contact)
 {
 	if (this->_size < 8)
 	{
@@ -87,7 +87,7 @@ void	Phonebook::addSize(Contact& contact)
 	}
 }
 
-void	Phonebook::addContact()
+void	PhoneBook::addContact()
 {
 	std::string input;
 	Contact new_contact;
@@ -112,7 +112,7 @@ void	Phonebook::addContact()
 	std::cout << "\033[1;32mYou got yourselves a new contact!\033[0m" << std::endl;
 }
 
-void	Phonebook::searchContact()
+void	PhoneBook::searchContact()
 {
 	std::string input;
 	Contact contact;

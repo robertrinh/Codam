@@ -6,11 +6,11 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/10 17:04:54 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/25 14:14:56 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/04 12:55:42 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 #include "Contact.hpp"
 
 void show_prompt(void)
@@ -24,7 +24,7 @@ void show_prompt(void)
 
 int main()
 {
-	Phonebook phonebook;
+	PhoneBook phonebook;
 	std::string input;
 
 	show_prompt();

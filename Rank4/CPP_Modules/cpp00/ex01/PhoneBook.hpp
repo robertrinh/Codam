@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Phonebook.hpp                                      :+:    :+:            */
+/*   PhoneBook.hpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/12 15:26:11 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/19 14:32:18 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/04 12:52:19 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "Contact.hpp"
 
-class Phonebook 
+class PhoneBook 
 {
 private:
 	Contact _contacts[8];
@@ -24,8 +24,8 @@ private:
 
 	void	_getinfo(std:: string &info, const std::string &prompt);
 public:
-	Phonebook(void); //constructor
-	~Phonebook(void); //destructor
+	PhoneBook(void); //constructor
+	~PhoneBook(void); //destructor
 	
 	void	addSize(Contact& new_contact);
 	void	addContact();
