@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/12 17:26:02 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/04 13:25:41 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/04 13:32:33 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ PhoneBook::~PhoneBook(void)
 
 /**
  * @brief truncate the string to 9 characters and add a dot
+ * @param str takes a reference of the given str
+ * @return the truncated str with . if there are > 10 chars
  */
 std::string truncate(const std::string &str)
 {
