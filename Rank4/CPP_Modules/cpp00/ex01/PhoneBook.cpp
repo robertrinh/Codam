@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/12 17:26:02 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/04 12:52:59 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/04 13:25:41 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void	PhoneBook::searchContact()
 	displayContacts();
 	while (1)
 	{
-		std::cout << "\033[1;34mEnter the index of the contact you want to see:\033[0m" << std::endl;
+		std::cout << "\033[1;34mEnter the index of the contact you want to see: \033[0m";
 		if (!std::getline(std::cin, input))
 			break ;
 		if (input.empty() || !isdigit(input[0]))
@@ -143,7 +143,7 @@ void	PhoneBook::searchContact()
 		}
 		else
 		{
-			std::cout << "First Name: " << _contacts[index ].getFirstName() << std::endl;
+			std::cout << "First Name: " << _contacts[index].getFirstName() << std::endl;
 			std::cout << "Last Name: " << _contacts[index].getLastName() << std::endl;
 			std::cout << "Nickname: " << _contacts[index].getNickName() << std::endl;
 			std::cout << "Phone Number: " << _contacts[index].getPhoneNumber() << std::endl;
