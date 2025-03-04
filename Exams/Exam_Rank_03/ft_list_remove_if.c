@@ -1,5 +1,28 @@
+// Assignment name  : ft_list_remove_if
+// Expected files   : ft_list_remove_if.c
+// Allowed functions: free
+// --------------------------------------------------------------------------------
+
+// Write a function called ft_list_remove_if that removes from the
+// passed list any element the data of which is "equal" to the reference data.
+
+// It will be declared as follows :
+
+// void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)());
+
+// cmp takes two void* and returns 0 when both parameters are equal.
+
+// You have to use the ft_list.h file, which will contain:
+
+// $>cat ft_list.h
+// typedef struct      s_list
+// {
+//     struct s_list   *next;
+//     void            *data;
+// }                   t_list;
+// $>
+
 #include <stdlib.h>
-#include <string.h>
 // #include "ft_list.h" see the struct needed below
 
 typedef struct t_list
@@ -10,34 +33,32 @@ typedef struct t_list
 
 void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(void *, void *))
 {
-	t_list	*current;
-	t_list	*previous;
-	t_list	*temp;
+	t_list *current = *begin_list;
+	t_list *delete;
+	t_list *prev = NULL;
 
-	previous = NULL;
-	current = *begin_list;
 	while (current)
 	{
 		if ((*cmp)(current->data, data_ref) == 0)
 		{
-			temp = current->next;
-			free(current);
-			if (previous == NULL)  // Removing the first node
-				*begin_list = temp;
+			delete = current;
+			if (prev == NULL)
+				*begin_list = current->next; //removing first node
 			else
-				previous->next = temp;
-			current = temp; // Move to the next node without updating previous
+				prev->next = current->next;
+			current = current->next;
+			free(delete);
 		}
 		else
 		{
-			previous = current;
+			prev = current;
 			current = current->next;
 		}
 	}
 }
 
-
 #include <stdio.h>
+#include <string.h>
 t_list *create_elem(void *data)
 {
     t_list *new = malloc(sizeof(t_list));
