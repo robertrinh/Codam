@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/24 15:51:52 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/02/25 14:35:47 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/05 13:32:13 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Fixed::Fixed() : _rawValue(0)
 
 Fixed::Fixed(const int value) : _rawValue(value << _fractionalBits)
 {
-	std::cout << "\033[1;34mInt constructor called\033[0m" << std::endl;
+	std::cout << "\033[1;30mInt constructor called\033[0m" << std::endl;
 }
 
 Fixed::Fixed(const float value) : _rawValue(roundf(1 << _fractionalBits) * value)
@@ -47,7 +47,7 @@ Fixed::Fixed(const Fixed& src)
  */
 Fixed& Fixed::operator=(const Fixed& src)
 {
-	std::cout << "\033[1;35mCopy assigment operator called\033[0m" << std::endl;
+	std::cout << "\033[1;34mCopy Assignment Operator called\033[0m" << std::endl;
 	if (this != &src)
 		this->_rawValue = src._rawValue;
 	return (*this);
