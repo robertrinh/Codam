@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   FragTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/03/06 13:36:50 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/06 13:42:34 by robertrinh    ########   odam.nl         */
+/*   Created: 2025/03/06 13:45:32 by robertrinh    #+#    #+#                 */
+/*   Updated: 2025/03/06 14:03:03 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#pragma once
+#include "ClapTrap.hpp"
 
-int main(void)
+class FragTrap : public ClapTrap
 {
-	ScavTrap one;
-	ScavTrap two("Bab");
-	two.attack("wwwwooooooooooooo");
-	two.guardGate();
-	two.attack("target");
-	two.takeDamage(5);
-	two.beRepaired(5);
+public:
+	FragTrap();
+	FragTrap(std::string const &name);
+	FragTrap(const FragTrap &src);
+	FragTrap &operator=(const FragTrap &src);
+	~FragTrap();
 
-	two.attack("target");
-	two.takeDamage(5);
-	two.takeDamage(110);
-	two.takeDamage(5);
-	two.takeDamage(5);
-	return 0;
-}
+	void highFivesGuys();
+};

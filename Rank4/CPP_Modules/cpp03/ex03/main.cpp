@@ -5,27 +5,23 @@
 /*                                                     +:+                    */
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/03/06 13:36:50 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/06 13:42:34 by robertrinh    ########   odam.nl         */
+/*   Created: 2025/03/06 14:55:06 by robertrinh    #+#    #+#                 */
+/*   Updated: 2025/03/06 15:16:37 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-int main(void)
+int	main(void)
 {
-	ScavTrap one;
-	ScavTrap two("Bab");
-	two.attack("wwwwooooooooooooo");
-	two.guardGate();
-	two.attack("target");
-	two.takeDamage(5);
-	two.beRepaired(5);
+	DiamondTrap joe("Jover");
 
-	two.attack("target");
-	two.takeDamage(5);
-	two.takeDamage(110);
-	two.takeDamage(5);
-	two.takeDamage(5);
+	joe.whoAmI();
+	joe.attack("Back");
+	joe.beRepaired(70);
+	joe.takeDamage(100);
 	return 0;
 }

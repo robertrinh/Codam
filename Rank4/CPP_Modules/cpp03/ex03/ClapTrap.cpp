@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/05 15:31:57 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/06 13:41:54 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/06 14:09:08 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 ClapTrap::ClapTrap() : _health(10), _energyPoints(10), _attackDMG(0)
 {
-	std::cout << "\033[1;32mDefault constructor called\033[0m" << std::endl;
+	std::cout << "\033[1;32mDefault ClapTrap constructor called\033[0m" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string const &name): _name(name), _health(10), _energyPoints(10), _attackDMG(0)
 {
-	std::cout << "\033[1;36mParametered constructor called for " << name << "\033[0m" <<std::endl;
+	std::cout << "\033[1;36mParametered ClapTrap constructor called for " << name << "\033[0m" <<std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& src)
 {
-	std::cout << "\033[1;33mCopy constructor called\033[0m" << std::endl;
+	std::cout << "\033[1;33mCopy ClapTrap constructor called\033[0m" << std::endl;
 	*this = src;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& src)
 {
-	std::cout << "\033[1;34mCopy Assignment Operator called\033[0m" << std::endl;
+	std::cout << "\033[1;34mCopy Assignment ClapTrap Operator called\033[0m" << std::endl;
 	if (this != &src)
 	{
 		this->_name = src._name;
@@ -43,7 +43,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& src)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "\033[1;31mDestructor Called\033[0m" << std::endl;
+	std::cout << "\033[1;31mClapTrap Destructor Called\033[0m" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)

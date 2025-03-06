@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/05 15:31:57 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/05 17:36:03 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/06 13:41:19 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_health == 0)
+	if (this->_health == 0 || this->_health < 0)
 	{
 		std::cout << this->_name << " has been banished into the shadow realm, you can't pull a magic card here" << std::endl;
 		return ;

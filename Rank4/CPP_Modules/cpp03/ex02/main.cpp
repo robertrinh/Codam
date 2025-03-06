@@ -5,27 +5,28 @@
 /*                                                     +:+                    */
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/03/06 13:36:50 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/06 13:42:34 by robertrinh    ########   odam.nl         */
+/*   Created: 2025/03/06 13:53:32 by robertrinh    #+#    #+#                 */
+/*   Updated: 2025/03/06 14:05:31 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
-	ScavTrap one;
-	ScavTrap two("Bab");
-	two.attack("wwwwooooooooooooo");
-	two.guardGate();
-	two.attack("target");
-	two.takeDamage(5);
-	two.beRepaired(5);
+	FragTrap one;
+	FragTrap two("Bob");
+	FragTrap three("Bab");
 
-	two.attack("target");
-	two.takeDamage(5);
-	two.takeDamage(110);
-	two.takeDamage(5);
-	two.takeDamage(5);
-	return 0;
+	two.attack("Bab");
+
+	two.highFivesGuys();
+	three.attack("Bob");
+	three.attack("target");
+	three.beRepaired(5);
+	three.attack("target");
+	three.takeDamage(100);
+	three.takeDamage(5);
+	three.takeDamage(5);
+	return (0);
 }

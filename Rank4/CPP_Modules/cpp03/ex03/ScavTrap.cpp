@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/05 17:15:25 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/06 13:50:42 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/06 14:09:46 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,3 @@ void ScavTrap::guardGate()
 {
 	std::cout << "You want that restaurant? nah man we booting up the GATEKEEPER MODE" << std::endl;
 }
-

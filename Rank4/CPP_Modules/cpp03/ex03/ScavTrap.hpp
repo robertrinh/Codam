@@ -6,15 +6,14 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/05 17:15:32 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/06 13:38:40 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/06 14:26:47 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once //* replaces the define guard (ifndef etc.)
-
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 public:
 	ScavTrap();

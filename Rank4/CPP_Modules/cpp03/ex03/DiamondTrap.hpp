@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   DiamondTrap.hpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/03/06 13:36:50 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/06 13:42:34 by robertrinh    ########   odam.nl         */
+/*   Created: 2025/03/06 14:09:53 by robertrinh    #+#    #+#                 */
+/*   Updated: 2025/03/06 15:20:41 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-int main(void)
+class DiamondTrap : public ScavTrap, public FragTrap
 {
-	ScavTrap one;
-	ScavTrap two("Bab");
-	two.attack("wwwwooooooooooooo");
-	two.guardGate();
-	two.attack("target");
-	two.takeDamage(5);
-	two.beRepaired(5);
+private:
+	std::string _name;
+public:
+	DiamondTrap();
+	DiamondTrap(std::string const &name);
+	DiamondTrap(const DiamondTrap &src);
+	DiamondTrap &operator=(const DiamondTrap &src);
+	~DiamondTrap();
 
-	two.attack("target");
-	two.takeDamage(5);
-	two.takeDamage(110);
-	two.takeDamage(5);
-	two.takeDamage(5);
-	return 0;
-}
+	void whoAmI();
+	void attack(std::string const& target);
+};

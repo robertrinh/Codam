@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ScavTrap.cpp                                       :+:    :+:            */
+/*   FlagTrap.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/05 17:15:25 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/06 13:50:42 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/06 14:02:06 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap()
+FragTrap::FragTrap()
 {
 	_name = "NPC";
 	_health = 100;
-	_energyPoints = 50;
-	_attackDMG = 20;
-	std::cout << "\033[1;33mDefault ScavTrap constructor called\033[0m" << std::endl;
+	_energyPoints = 100;
+	_attackDMG = 30;
+	std::cout << "\033[1;33mDefault FragTrap constructor called\033[0m" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string const& name)
+FragTrap::FragTrap(std::string const &name)
 {
 	_name = name;
 	_health = 100;
-	_energyPoints = 50;
-	_attackDMG = 20;
-	std::cout << "\033[1;36mParametered ScavTrap constructor called for " << name << "\033[0m" <<std::endl;
+	_energyPoints = 100;
+	_attackDMG = 30;
+	std::cout << "\033[1;36mParametered FragTrap constructor called for " << name << "\033[0m" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& src)
+FragTrap::FragTrap(const FragTrap &src)
 {
-	std::cout << "\033[1;33mCopy ScavTrap constructor called\033[0m" << std::endl;
+	std::cout << "\033[1;33mCopy FragTrap constructor called\033[0m" << std::endl;
 	*this = src;
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap& src)
+FragTrap &FragTrap::operator=(const FragTrap &src)
 {
-	std::cout << "\033[1;34mCopy Assignment Operator ScavTrap called\033[0m" << std::endl;
+	std::cout << "\033[1;34mCopy Assignment Operator FragTrap called\033[0m" << std::endl;
 	if (this != &src)
 	{
 		this->_name = src._name;
@@ -49,13 +49,12 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& src)
 	return *this;
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
 	std::cout << "\033[1;31mScavTrap Destructor Called\033[0m" << std::endl;
 }
 
-void ScavTrap::guardGate()
+void FragTrap::highFivesGuys()
 {
-	std::cout << "You want that restaurant? nah man we booting up the GATEKEEPER MODE" << std::endl;
+	std::cout << "Amigo we here on the good vibes gimme a high five brother!" << std::endl;
 }
-
