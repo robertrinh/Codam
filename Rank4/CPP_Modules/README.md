@@ -32,3 +32,11 @@ What did I learn?
 - Ad-hoc Polymorphism by overloading the Operator `<<`;
 - Using Ternary operators (`?`) for the first time;
 - Working with and applying references, from Module 01.
+
+### Module 03:
+Object: Inheritance
+
+What did I learn?
+- Usage of `inheritances`;
+- How to implement multiple `inheritances` in derived classes;
+- Tackling the diamond inheritance problem.
