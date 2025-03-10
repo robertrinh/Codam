@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/21 16:30:59 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/24 13:17:21 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/10 13:23:31 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ enum level
 	DEBUG,
 	INFO,
 	WARNING,
-	ERROR,
-	INVALID
+	ERROR
 };
 
 Harl::Harl()
@@ -50,13 +49,13 @@ void Harl::_error()
 int Harl::getLevel(const std::string& level)
 {
 	if (level == "DEBUG") 
-		return 0;
+		return DEBUG;
 	if (level == "INFO") 
-		return 1;
+		return INFO;
 	if (level == "WARNING") 
-		return 2;
+		return WARNING;
 	if (level == "ERROR") 
-		return 3;
+		return ERROR;
 	return -1;
 }
 
@@ -67,13 +66,13 @@ void Harl::complain(std::string level)
 	int loglevel = getLevel(level);
 	switch (loglevel)
 	{
-		case 0:
+		case DEBUG:
 			(this->*functions[0])();
-		case 1:
+		case INFO:
 			(this->*functions[1])();
-		case 2:
+		case WARNING:
 			(this->*functions[2])();
-		case 3:
+		case ERROR:
 			(this->*functions[3])();
 			break ;
 		default:
