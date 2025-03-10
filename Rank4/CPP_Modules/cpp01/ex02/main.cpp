@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 18:47:39 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/18 19:12:54 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/10 12:01:57 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,18 @@ int main()
 	std::cout << "memory address str: " << &string << std::endl;
 	std::cout << "memory address stringPTR: " << stringPTR << std::endl;
 	std::cout << "memory address stringREF: " << &stringREF << std::endl;
+
 	
 	std::cout << std::endl;
 	std::cout << "value of string: " << string << std::endl;
 	std::cout << "value of stringPTR: " << *stringPTR << std::endl;
 	std::cout << "value of stringREF: " << stringREF << std::endl;
 
+	std::cout << std::endl;
+	string = "HI THIS IS NOT A BRAIN";
+	std::cout << "value of string after change: " << string << std::endl;
+	std::cout << "value of stringPTR after change: " << *stringPTR << std::endl;
+	std::cout << "value of stringREF after change: " << stringREF << std::endl;
 	return 0;
 }
 

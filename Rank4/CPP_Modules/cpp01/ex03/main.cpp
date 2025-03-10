@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/19 13:33:48 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/21 13:26:31 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/10 12:06:08 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ int main()
 		Weapon club = Weapon("crude spiked club");
 		HumanB wasteofskin("Waste of skin");
 		wasteofskin.attack();
-		club.setType("some other type of club");
+
+		std::cout << std::endl;
+		wasteofskin.setWeapon(club);
+		club.setType("bare hands?!");
 		wasteofskin.attack();
 	}
 	return 0;
