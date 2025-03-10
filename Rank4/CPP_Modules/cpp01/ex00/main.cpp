@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 14:20:38 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/02/18 15:02:38 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/10 13:17:15 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int main()
 	std::cout << std::endl;
 	std::cout << "Jackson on the HEAP, hee-hee" << std::endl;
 	Zombie* ptr_zombie = newZombie("Jackson");
+	if (!ptr_zombie)
+		return 1;
 	ptr_zombie->announce();
 	delete ptr_zombie;
 	
