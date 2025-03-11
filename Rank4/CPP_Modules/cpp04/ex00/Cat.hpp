@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:37:30 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/10 17:47:42 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/11 13:51:14 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,24 @@
 
 #include "Animal.hpp"
 
-class Cat : public Animal{	
+class Cat : public Animal
+{
+public:
+	Cat();
+	~Cat();
+	Cat(const Cat& src);
+	Cat& operator=(const Cat& src);
+
+	void makeSound() const; //* Overrides base class' implementation
 };
 
+class WrongCat : public WrongAnimal
+{
+public:
+	WrongCat();
+	~WrongCat();
+	WrongCat(const WrongCat& src);
+	WrongCat& operator=(const WrongCat& src);
+
+	void makeSound() const;
+};
