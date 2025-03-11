@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:36:53 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/11 13:57:57 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/11 14:38:09 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ int main()
 		delete meta;
 	}
 	{
-		//wrong cat / wrong animal
-		const WrongAnimal* lion = new WrongAnimal();
+		std::cout << std::endl;
+		const WrongAnimal* wronganimal = new WrongAnimal();
 		const WrongAnimal* wrongcat = new WrongCat();
-		std::cout << lion->getType() << " " << std::endl;
+		std::cout << wronganimal->getType() << " " << std::endl;
 		std::cout << wrongcat->getType() << " " << std::endl;
-		lion->makeSound();
+		wronganimal->makeSound();
 		wrongcat->makeSound();
-		delete lion;
+		delete wronganimal;
 		delete wrongcat;
 	}
 

@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:46:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/11 13:54:44 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/11 14:39:48 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,19 @@ void Cat::makeSound() const
 WrongCat::WrongCat()
 {
 	_type = "Cat";
-	std::cout << "\033[1;33mDefault Cat constructor called\033[0m" << std::endl;
+	std::cout << "\033[1;35mDefault WrongCat constructor called\033[0m" << std::endl;
 }
 
 
 WrongCat::WrongCat(const WrongCat& src)
 {
-	std::cout << "\033[1;33mCat Copy constructor called\033[0m" << std::endl;
+	std::cout << "\033[1;35mWrongCat Copy constructor called\033[0m" << std::endl;
 	*this = src;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat &src)
 {
-	std::cout << "\033[1;33mCat Copy Assignment Operator called\033[0m" << std::endl;
+	std::cout << "\033[1;35mWrongCat Copy Assignment Operator called\033[0m" << std::endl;
 	if (this != &src)
 		this->_type = src._type;
 	return *this;
@@ -68,10 +68,10 @@ WrongCat& WrongCat::operator=(const WrongCat &src)
 
 WrongCat::~WrongCat()
 {
-	std::cout << "\033[1;33mCat Destructor Called\033[0m" << std::endl;
+	std::cout << "\033[1;35mWrongCat Destructor Called\033[0m" << std::endl;
 }
 
 void WrongCat::makeSound() const
 {
-	std::cout << "\033[1;33m(Muzzled WrongCat noises)\033[0m" << std::endl;
+	std::cout << "\033[1;35m(Muzzled WrongCat noises)\033[0m" << std::endl;
 }
