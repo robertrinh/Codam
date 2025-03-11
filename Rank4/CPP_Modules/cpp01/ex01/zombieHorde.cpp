@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 15:05:34 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/10 13:43:38 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/11 12:53:50 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ Zombie* zombieHorde(int N, std::string name)
 		return (NULL);
 	}
 	Zombie* horde = new Zombie[N];
-	if (!horde)
-		return (NULL);
 	for (int i = 0; i < N; i++)
 		horde[i].SetName(name);
 	return horde;
