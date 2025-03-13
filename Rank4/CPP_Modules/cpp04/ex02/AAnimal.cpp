@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.cpp                                         :+:    :+:            */
+/*   AAnimal.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
@@ -10,43 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal() : _type("Capybara")
+AAnimal::AAnimal() : _type("Capybara")
 {
-	std::cout << "\033[1;32mDefault Animal constructor called\033[0m" << std::endl;
+	std::cout << "\033[1;32mDefault AAnimal constructor called\033[0m" << std::endl;
 }
 
-Animal::Animal(const Animal &src)
+AAnimal::AAnimal(const AAnimal &src)
 {
-	std::cout << "\033[1;32mAnimal Copy constructor called\033[0m" << std::endl;
+	std::cout << "\033[1;32mAAnimal Copy constructor called\033[0m" << std::endl;
 	this->_type = src._type;
 }
 
-Animal &Animal::operator=(const Animal &src)
+AAnimal &AAnimal::operator=(const AAnimal &src)
 {
-	std::cout << "\033[1;32mAnimal Copy Assignment Operator called\033[0m" << std::endl;
+	std::cout << "\033[1;32mAAnimal Copy Assignment Operator called\033[0m" << std::endl;
 	if (this != &src)
 		this->_type = src._type;
 	return *this;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	std::cout << "\033[1;32mAnimal Destructor Called\033[0m" << std::endl;
+	std::cout << "\033[1;32mAAnimal Destructor Called\033[0m" << std::endl;
 }
 
-const std::string &Animal::getType() const
+const std::string &AAnimal::getType() const
 {
 	return this->_type;
 }
 
-void Animal::setType(const std::string &type)
+void AAnimal::setType(const std::string &type)
 {
 	this->_type = type;
 }
 
-void Animal::makeSound() const
+void AAnimal::makeSound() const
 {
-	std::cout << "\033[1;32m(Silenced Animal noises)\033[0m" << std::endl;
+	std::cout << "\033[1;32m(Silenced AAnimal noises)\033[0m" << std::endl;
 }

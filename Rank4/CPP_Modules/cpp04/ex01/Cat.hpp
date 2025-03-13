@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:37:30 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/11 15:00:55 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/13 17:10:43 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,7 @@ public:
 	Cat& operator=(const Cat& src);
 
 	void makeSound() const; //* Overrides base class' implementation
+	void setIdeas(int index, const std::string& idea);
+	std::string& getIdeas(int index) const;
 };
 
-class WrongCat : public WrongAnimal
-{
-public:
-	WrongCat();
-	~WrongCat();
-	WrongCat(const WrongCat& src);
-	WrongCat& operator=(const WrongCat& src);
-
-	void makeSound() const;
-};

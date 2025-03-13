@@ -6,34 +6,41 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:46:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/13 17:26:48 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/13 17:45:25 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : AAnimal(), _brain(new Brain())
 {
-	_type = "Cat";
 	std::cout << "\033[1;33mDefault Cat constructor called\033[0m" << std::endl;
+	this->_type = "Cat";
 }
 
-Cat::Cat(const Cat& src) : Animal(src)
+Cat::Cat(const Cat &src) : AAnimal(src), _brain(new Brain(*src._brain)) //* aanimal should be explicitly init in copy construct
 {
 	std::cout << "\033[1;33mCat Copy constructor called\033[0m" << std::endl;
+	this->_type = src._type;
 }
 
-Cat& Cat::operator=(const Cat &src)
+Cat &Cat::operator=(const Cat &src)
 {
 	std::cout << "\033[1;33mCat Copy Assignment Operator called\033[0m" << std::endl;
 	if (this != &src)
-		Animal::operator=(src);
+	{
+		AAnimal::operator=(src);
+		this->_type = src._type;
+		delete this->_brain;				   //* in case of existing brain
+		this->_brain = new Brain(*src._brain); //* uses the operator
+	}
 	return *this;
 }
 
 Cat::~Cat()
 {
 	std::cout << "\033[1;33mCat Destructor Called\033[0m" << std::endl;
+	delete _brain;
 }
 
 void Cat::makeSound() const
@@ -41,34 +48,23 @@ void Cat::makeSound() const
 	std::cout << "\033[1;33m(Muzzled Cat noises)\033[0m" << std::endl;
 }
 
-//* WrongCat *//
-
-WrongCat::WrongCat()
+void Cat::setIdeas(int index, const std::string &idea)
 {
-	_type = "Cat";
-	std::cout << "\033[1;35mDefault WrongCat constructor called\033[0m" << std::endl;
+	if (index >= 0 && index <= 100)
+		_brain->setIdea(index, idea);
+	else
+		std::cerr << "Dont underestimate the mathemathic genius of the cat (between 0-100)" << std::endl;
 }
 
-
-WrongCat::WrongCat(const WrongCat& src) : WrongAnimal(src)
+std::string &Cat::getIdeas(int index) const
 {
-	std::cout << "\033[1;35mWrongCat Copy constructor called\033[0m" << std::endl;
-}
-
-WrongCat& WrongCat::operator=(const WrongCat &src)
-{
-	std::cout << "\033[1;35mWrongCat Copy Assignment Operator called\033[0m" << std::endl;
-	if (this != &src)
-		WrongAnimal::operator=(src);
-	return *this;
-}
-
-WrongCat::~WrongCat()
-{
-	std::cout << "\033[1;35mWrongCat Destructor Called\033[0m" << std::endl;
-}
-
-void WrongCat::makeSound() const
-{
-	std::cout << "\033[1;35m(Shy WrongCat noises)\033[0m" << std::endl;
+	if (index >= 0 && index <= 100)
+		return _brain->getIdea(index);
+	else
+	{
+		std::cerr << "Dont underestimate the mathemathic genius of the cat (between 0-100)" << std::endl;
+		static std::string empty;
+		empty = "";
+		return empty;
+	}
 }

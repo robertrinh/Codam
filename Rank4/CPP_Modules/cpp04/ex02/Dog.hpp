@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Brain.hpp                                          :+:    :+:            */
+/*   Dog.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/03/11 14:51:08 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/13 17:09:52 by robertrinh    ########   odam.nl         */
+/*   Created: 2025/03/10 17:37:30 by qtrinh        #+#    #+#                 */
+/*   Updated: 2025/03/13 17:45:25 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-class Brain
+class Dog : public AAnimal
 {
 private:
-	std::string _ideas[100];
-	
+	Brain *_brain;
+
 public:
-	Brain();
-	Brain(const Brain& src);
-	Brain& operator=(const Brain& src);
-	~Brain();
-	
-	std::string& getIdea(int index);
-	void setIdea(int index, const std::string& idea);
+	Dog();
+	~Dog();
+	Dog(const Dog &src);
+	Dog &operator=(const Dog &src);
+
+	void makeSound() const; //* Overrides base class' implementation
+	void setIdeas(int index, const std::string &idea);
+	std::string &getIdeas(int index) const;
 };

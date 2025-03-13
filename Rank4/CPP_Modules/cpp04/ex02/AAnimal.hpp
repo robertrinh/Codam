@@ -1,46 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   AAnimal.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:37:09 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/13 14:09:35 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/13 17:42:39 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+#define AANIMAL_HPP
 
 #include <iostream>
 
-class Animal
+class AAnimal
 {
 protected:
 	std::string _type;
+
 public:
-	Animal();
-	virtual ~Animal(); //* virtual to allowed derived class override with its own destructor
-	Animal(const Animal& src);
-	Animal& operator=(const Animal& src);
+	AAnimal();
+	virtual ~AAnimal();
+	AAnimal(const AAnimal &src);
+	AAnimal &operator=(const AAnimal &src);
 
-	const std::string& getType() const;
-	virtual void makeSound() const; //* virtual void to allow derived class override with own implementation
-};
-
-class WrongAnimal
-{
-protected:
-	std::string _type;
-public:
-	WrongAnimal();
-	virtual ~WrongAnimal();
-	WrongAnimal(const WrongAnimal& src);
-	WrongAnimal& operator=(const WrongAnimal& src);
-
-	const std::string& getType() const;
-	virtual void makeSound() const;
+	const std::string &getType() const;
+	void setType(const std::string &type);
+	virtual void makeSound() const = 0; //* pure virtual void for abstract class
 };
 
 #endif
+
+//* instantiating -> creating object for the class
+//* by making it abstract, you cannot declare AAnimal aanimal in main, because it cannot instantiate abstract class

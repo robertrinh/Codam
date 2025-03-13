@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:37:09 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/11 13:49:41 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/13 14:59:15 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,8 @@ public:
 	Animal& operator=(const Animal& src);
 
 	const std::string& getType() const;
+	void setType(const std::string& type);
 	virtual void makeSound() const; //* virtual void to allow derived class override with own implementation
-};
-
-class WrongAnimal
-{
-protected:
-	std::string _type;
-public:
-	WrongAnimal();
-	virtual ~WrongAnimal();
-	WrongAnimal(const WrongAnimal& src);
-	WrongAnimal& operator=(const WrongAnimal& src);
-
-	const std::string& getType() const;
-	virtual void makeSound() const;
 };
 
 #endif

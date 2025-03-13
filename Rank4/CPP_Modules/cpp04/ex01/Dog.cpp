@@ -6,24 +6,22 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/11 13:08:49 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/11 15:04:39 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/13 17:11:46 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal(), _brain(new Brain())
 {
-	this->_type = "Dog";
-	this->_brain = new Brain;
 	std::cout << "\033[1;34mDefault Dog constructor called\033[0m" << std::endl;
+	this->_type = "Dog";
 }
 
-
-Dog::Dog(const Dog& src)
+Dog::Dog(const Dog& src) : Animal(src), _brain(new Brain(*src._brain)) //* animal should be explicitly init in copy construct
 {
 	std::cout << "\033[1;34mDog Copy constructor called\033[0m" << std::endl;
-	*this = src;
+	this->_type = src._type;
 }
 
 Dog& Dog::operator=(const Dog &src)
@@ -31,19 +29,42 @@ Dog& Dog::operator=(const Dog &src)
 	std::cout << "\033[1;34mDog Copy Assignment Operator called\033[0m" << std::endl;
 	if (this != &src)
 	{
+		Animal::operator=(src);
 		this->_type = src._type;
-		this->_brain = new Brain;
+		delete this->_brain; //* in case of existing brain
+		this->_brain = new Brain(*src._brain); //* uses the operator
 	}
 	return *this;
 }
 
 Dog::~Dog()
 {
-	delete _brain;
 	std::cout << "\033[1;34mDog Destructor Called\033[0m" << std::endl;
+	delete _brain;
 }
 
 void Dog::makeSound() const
 {
-	std::cout << "\033[1;34m(Muzzled Dog noises)\033[0m" << std::endl;
+	std::cout << "\033[1;34m(Aggresive Dog noises)\033[0m" << std::endl;
+}
+
+void Dog::setIdeas(int index, const std::string& idea)
+{
+	if (index >= 0 && index <= 100)
+		_brain->setIdea(index, idea);
+	else
+		std::cerr << "Dont underestimate the mathemathic genius of the dog (between 0-100)" << std::endl;
+}
+
+std::string& Dog::getIdeas(int index) const
+{
+	if (index >= 0 && index <= 100)
+		return _brain->getIdea(index);
+	else
+	{
+		std::cerr << "Dont underestimate the mathemathic genius of the dog (between 0-100)" << std::endl;
+		static std::string empty;
+		empty = "";
+		return empty;
+	}
 }

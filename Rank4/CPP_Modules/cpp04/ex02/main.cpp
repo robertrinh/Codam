@@ -6,19 +6,19 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:36:53 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/13 17:35:06 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/13 17:46:45 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 
 int main()
 {
 	{
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
+		const AAnimal *j = new Dog();
+		const AAnimal *i = new Cat();
 		delete j;
 		delete i;
 	}
@@ -26,32 +26,34 @@ int main()
 	std::cout << "own tests:" << std::endl;
 	{
 		const int size = 4;
-		Animal* animals[size];
+		AAnimal *aanimals[size];
 
-		std::cout << "filling Animal array with 2 dogs and 2 cats" << std::endl;
+		std::cout << "filling AAnimal array with 2 dogs and 2 cats" << std::endl;
 		for (int i = 0; i < size / 2; i++) //* first half fill
-			animals[i] = new Dog();
+			aanimals[i] = new Dog();
 		for (int i = size / 2; i < size; i++) //* second half fill
-			animals[i] = new Cat();
-	
-		std::cout << std::endl << "noisemaking..." << std::endl;
+			aanimals[i] = new Cat();
+
+		std::cout << std::endl
+				  << "noisemaking..." << std::endl;
 		for (int i = 0; i < size; i++)
 		{
-			std::cout << animals[i]->getType() << ": ";
-			animals[i]->makeSound();
-		}	
+			std::cout << aanimals[i]->getType() << ": ";
+			aanimals[i]->makeSound();
+		}
 		for (int i = 0; i < size; i++)
-			delete animals[i];
+			delete aanimals[i];
 	}
 	{
-		std::cout << std::endl << "test: Copy constructor" << std::endl;
+		std::cout << std::endl
+				  << "test: Copy constructor" << std::endl;
 		Cat cat;
-		Cat fakeCat(cat); //* fakeCat created + init using existing cat
+		Cat fakeCat(cat);	//* fakeCat created + init using existing cat
 		Cat fakerCat = cat; //* fakerCat created + init same line by calling existing cat
 		std::cout << "Cat type: " << cat.getType();
 		std::cout << " and also makes the following sound: ";
 		cat.makeSound();
-		
+
 		std::cout << "fakeCat type: " << fakeCat.getType();
 		std::cout << " and also makes the following sound: ";
 		fakeCat.makeSound();
@@ -61,22 +63,25 @@ int main()
 		fakerCat.makeSound();
 	}
 	{
-		std::cout << std::endl << "test: deep copies with Copy Assignment Operator" << std::endl;
+		std::cout << std::endl
+				  << "test: deep copies with Copy Assignment Operator" << std::endl;
 		Dog ogDog;
 		Dog fakeDawg;
 		fakeDawg = ogDog; //* object already created, assigning afterwards to trigger CAO
-		
+
 		std::cout << "ogDog type: " << ogDog.getType();
 		std::cout << ", fakeDawg type: " << fakeDawg.getType();
 		fakeDawg.setType("Crip");
-		std::cout << std::endl << "changing up fakeDawg to check copy.." << std::endl;
+		std::cout << std::endl
+				  << "changing up fakeDawg to check copy.." << std::endl;
 		std::cout << "ogDog type: " << ogDog.getType();
 		std::cout << ", fakeDawg type: " << fakeDawg.getType();
 		std::cout << std::endl;
 	}
 	{
-		std::cout << std::endl << "test: printing catdog ideas from brain" << std::endl;
-		Cat* cat = new Cat();
+		std::cout << std::endl
+				  << "test: printing catdog ideas from brain" << std::endl;
+		Cat *cat = new Cat();
 
 		for (int i = 0; i < 100; i++)
 		{
@@ -90,7 +95,7 @@ int main()
 		delete cat;
 
 		std::cout << std::endl;
-		Dog* dog = new Dog();
+		Dog *dog = new Dog();
 		for (int i = 0; i < 100; i++)
 		{
 			if (i % 2 == 0)
@@ -103,13 +108,14 @@ int main()
 		delete dog;
 	}
 	{
-		std::cout << std::endl << "testing DEEP copying catdog, with ideas from brain" << std::endl;
+		std::cout << std::endl
+				  << "testing DEEP copying catdog, with ideas from brain" << std::endl;
 		Dog dawg;
 		for (int i = 0; i < 100; i++)
 			dawg.setIdeas(i, "BONE.. (THUG N HARMONY)");
 		for (int i = 0; i < 6; i++)
 			dawg.getIdeas(i);
-			
+
 		Dog anotha_dawg;
 		anotha_dawg = dawg;
 		std::cout << "the og dawg is placing copyright on" << std::endl;
@@ -125,6 +131,9 @@ int main()
 			std::cout << "You deep copied!! look at you champ" << std::endl;
 		std::cout << "address of dawg: " << &dawg.getIdeas(0) << std::endl;
 		std::cout << "address of anotha_dawg: " << &anotha_dawg.getIdeas(0) << std::endl;
+	}
+	{
+		// AAnimal aanimal; //<-- will give compiling error because cannot be instantiated because of the virtual void
 	}
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:37:30 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/11 15:01:22 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/13 17:11:51 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,6 @@ public:
 	Dog& operator=(const Dog& src);
 
 	void makeSound() const; //* Overrides base class' implementation
+	void setIdeas(int index, const std::string& idea);
+	std::string& getIdeas(int index) const;
 };
