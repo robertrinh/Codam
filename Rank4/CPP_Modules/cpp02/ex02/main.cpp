@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/24 16:55:28 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/13 17:47:31 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/14 14:13:07 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,30 @@ int main()
 	std::cout << "Own tests:" << std::endl;
 	{
 		Fixed const a ( Fixed(5.05f) + Fixed(1));
-		Fixed const b ( Fixed(5.05f) - Fixed(1));
-		Fixed const c ( Fixed(5.05f) * Fixed(2));
-		Fixed const d ( Fixed(5.05f) / Fixed(2));
-		Fixed const e ( Fixed(5.05f) / Fixed(0));
-
 		std::cout << "a: " << a << std::endl;
-		std::cout << "b: " << b << std::endl;
 		std::cout << "testing +: 5.05 + 1 = " << a << std::endl;
-		std::cout << "testing -: 5.05 - 1 = " << b << std::endl;
-		std::cout << "testing *: 5.05 * 2 = " << c << std::endl;
-		std::cout << "testing /: 5.05 / 2 = " << d << std::endl;
-		std::cout << "dividing by 0: 5.05 / 0 = " << e << std::endl;
 		
+		std::cout << std::endl;
+		Fixed const b ( Fixed(5.05f) - Fixed(1));
+		std::cout << "b: " << b << std::endl;
+		std::cout << "testing -: 5.05 - 1 = " << b << std::endl;
+
 		std::cout << "const min of a and b: " << Fixed::min( a, b) << std::endl;
 		std::cout << "const max of a and b: " << Fixed::max( a, b) << std::endl;
 
+		std::cout << std::endl;
+		Fixed const c ( Fixed(5.05f) * Fixed(2));
+		std::cout << "testing *: 5.05 * 2 = " << c << std::endl;
+
+		std::cout << std::endl;
+		Fixed const d ( Fixed(5.05f) / Fixed(2));
+		std::cout << "testing /: 5.05 / 2 = " << d << std::endl;
+	
+		std::cout << std::endl;
+		Fixed const e ( Fixed(5.05f) / Fixed(0));
+		std::cout << "dividing by 0: 5.05 / 0 = " << e << std::endl;
+
+		std::cout << std::endl;
 		Fixed f (Fixed (1));
 		Fixed g (Fixed (1));
 		Fixed h (Fixed (3));

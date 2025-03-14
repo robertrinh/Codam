@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/24 15:08:58 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/05 13:08:37 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/14 14:01:36 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ Fixed::Fixed() : _rawValue(0)
  * @param src takes a const reference to another object of the same class
  * @details creates a new object as a copy of an existing object
  */
-Fixed::Fixed(const Fixed& src)
+Fixed::Fixed(const Fixed& src) : _rawValue(src._rawValue)
 {
 	std::cout << "\033[1;33mCopy constructor called\033[0m" << std::endl;
-	*this = src;
 }
 
 /**

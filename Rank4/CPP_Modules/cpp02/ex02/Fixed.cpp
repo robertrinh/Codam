@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/24 15:51:52 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/05 13:32:13 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/14 13:50:33 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,20 @@ Fixed::Fixed(const float value) : _rawValue(roundf(1 << _fractionalBits) * value
 /**
  * @brief Copy constructor
  * @param src takes a const reference to another object of the same class
- * @note creates new object as a copy of an existing project
+ * @details creates a new object as a copy of an existing object
  */
-Fixed::Fixed(const Fixed& src)
+Fixed::Fixed(const Fixed& src) : _rawValue(src._rawValue)
 {
 	std::cout << "\033[1;33mCopy constructor called\033[0m" << std::endl;
-	*this = src;
 }
 
 /**
  * @brief Copy assignment operator
  * @param src takes a const reference to another object of the same class
- * @return a reference to the current object (to allow assignment chaining) (f.e. obj1 = obj2 = obj3)
- * @note Assigns the value of one object to another with a "deep copy"
+ * @return a reference to the current object (to allow assignment chaining)
+ * @details Assigns the value of one object to another
  */
-Fixed& Fixed::operator=(const Fixed& src)
+Fixed &Fixed::operator=(const Fixed& src)
 {
 	std::cout << "\033[1;34mCopy Assignment Operator called\033[0m" << std::endl;
 	if (this != &src)
