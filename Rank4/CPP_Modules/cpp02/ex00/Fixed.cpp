@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/24 15:08:58 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/14 14:01:36 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/14 14:31:16 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 /**
  * @brief Default constructor
  * @details Init with default values
+ * @details constructor are default initialised, so direct initialisation using `:`
+ * @details does assignment (value = 0) and init in 1 step, instead of init and then assign in function
  */
 Fixed::Fixed() : _rawValue(0)
 {
@@ -27,6 +29,7 @@ Fixed::Fixed() : _rawValue(0)
  * @brief Copy constructor
  * @param src takes a const reference to another object of the same class
  * @details creates a new object as a copy of an existing object
+ * @details Focused on initialization
  */
 Fixed::Fixed(const Fixed& src) : _rawValue(src._rawValue)
 {
@@ -37,7 +40,9 @@ Fixed::Fixed(const Fixed& src) : _rawValue(src._rawValue)
  * @brief Copy assignment operator
  * @param src takes a const reference to another object of the same class
  * @return a reference to the current object (to allow assignment chaining)
+ * @if checks self-assignment (f.e. cat1 = cat1)
  * @details Assigns the value of one object to another
+ * @details Works with already existing objects
  */
 Fixed &Fixed::operator=(const Fixed& src)
 {
