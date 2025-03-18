@@ -6,13 +6,13 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/05 17:15:25 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/18 12:08:26 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/18 22:11:45 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
 	_name = "NPC";
 	_health = 100;
@@ -21,9 +21,8 @@ FragTrap::FragTrap()
 	std::cout << "\033[1;33mDefault FragTrap constructor called\033[0m" << std::endl;
 }
 
-FragTrap::FragTrap(std::string const &name)
+FragTrap::FragTrap(std::string const &name) : ClapTrap(name)
 {
-	_name = name;
 	_health = 100;
 	_energyPoints = 100;
 	_attackDMG = 30;
