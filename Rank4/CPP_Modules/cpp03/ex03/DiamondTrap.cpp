@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/06 14:17:24 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/06 15:09:19 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/18 12:17:02 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ DiamondTrap::DiamondTrap()
 	std::cout << "\033[1;33mDefault DiamondTrap constructor called\033[0m" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string const &name)
+DiamondTrap::DiamondTrap(std::string const& name)
 {
 	_name = name;
 	ClapTrap::_name = name + "_clap_name";
@@ -31,21 +31,24 @@ DiamondTrap::DiamondTrap(std::string const &name)
 	std::cout << "\033[1;36mParametered DiamondTrap constructor called for " << name << "\033[0m" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &src)
+/**
+ * @brief Copy constructor of the diamond inheritance class
+ * @note With virtual inheritance, you must explicitly call constructor of base class for proper init
+ */
+DiamondTrap::DiamondTrap(const DiamondTrap& src) : ClapTrap(src), ScavTrap(src), FragTrap(src), _name(src._name)
 {
 	std::cout << "\033[1;33mCopy DiamondTrap constructor called\033[0m" << std::endl;
-	*this = src;
 }
 
-DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src)
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap& src)
 {
 	std::cout << "\033[1;34mCopy Assignment Operator DiamondTrap called\033[0m" << std::endl;
 	if (this != &src)
 	{
+		ClapTrap::operator=(src); //* handles base class members
+		ScavTrap::operator=(src); //* handles ScavTrap-specific members
+		FragTrap::operator=(src); //* handles FragTrap-specific members
 		this->_name = src._name;
-		this->_health = src._health;
-		this->_energyPoints = src._energyPoints;
-		this->_attackDMG = src._attackDMG;
 	}
 	return *this;
 }
@@ -60,7 +63,7 @@ void DiamondTrap::whoAmI()
 	std::cout << "Eminem: My name is.. " << this->_name << "    MY (CLAP)NAME IS..." << ClapTrap::_name << std::endl;
 }
 
-void DiamondTrap::attack(std::string const &target)
+void DiamondTrap::attack(std::string const& target)
 {
 	ScavTrap::attack(target);
 }

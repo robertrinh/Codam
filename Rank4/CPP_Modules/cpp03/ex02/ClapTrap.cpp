@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/05 15:31:57 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/06 14:04:44 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/18 11:55:44 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ ClapTrap::ClapTrap(std::string const &name): _name(name), _health(10), _energyPo
 	std::cout << "\033[1;36mParametered ClapTrap constructor called for " << name << "\033[0m" <<std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& src)
+ClapTrap::ClapTrap(const ClapTrap& src) : _name(src._name), _health(src._health), _energyPoints(src._energyPoints), _attackDMG(src._attackDMG)
 {
-	std::cout << "\033[1;33mCopy ClapTrap constructor called\033[0m" << std::endl;
-	*this = src;
+	std::cout << "\033[1;33mCopy constructor called\033[0m" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& src)
