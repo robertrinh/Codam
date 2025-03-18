@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:37:09 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/13 14:09:35 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/18 13:58:38 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ public:
 	WrongAnimal& operator=(const WrongAnimal& src);
 
 	const std::string& getType() const;
-	virtual void makeSound() const;
+	void makeSound() const;
 };
 
 #endif

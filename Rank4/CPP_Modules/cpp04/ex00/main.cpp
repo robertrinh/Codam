@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:36:53 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/11 14:38:09 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/18 14:00:40 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int main()
 		std::cout << wronganimal->getType() << " " << std::endl;
 		std::cout << wrongcat->getType() << " " << std::endl;
 		wronganimal->makeSound();
+		std::cout << "cannot make a cat sound incoming:" << std::endl;
 		wrongcat->makeSound();
 		delete wronganimal;
 		delete wrongcat;
