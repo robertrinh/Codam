@@ -6,25 +6,24 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/06 14:17:24 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/18 12:17:02 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/18 22:22:18 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() : ClapTrap("NPC_clap_name"), ScavTrap(), FragTrap()
 {
-	_name = "NPC";
+	_name = "NPC"; //* diamondtrap private name
 	_health = FragTrap::_health;
 	_energyPoints = ScavTrap::_energyPoints;
 	_attackDMG = FragTrap::_attackDMG;
 	std::cout << "\033[1;33mDefault DiamondTrap constructor called\033[0m" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string const& name)
+DiamondTrap::DiamondTrap(std::string const& name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
-	_name = name;
-	ClapTrap::_name = name + "_clap_name";
+	_name = name; //* diamondtrap private name
 	_health = FragTrap::_health;
 	_energyPoints = ScavTrap::_energyPoints;
 	_attackDMG = FragTrap::_attackDMG;

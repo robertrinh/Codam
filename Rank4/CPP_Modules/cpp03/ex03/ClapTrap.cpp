@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/05 15:31:57 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/18 12:17:09 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/18 22:46:37 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,21 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& src)
 ClapTrap::~ClapTrap()
 {
 	std::cout << "\033[1;31mClapTrap Destructor Called\033[0m" << std::endl;
+}
+
+int ClapTrap::getHealth()
+{
+	return this->_health;
+}
+
+int ClapTrap::getEnergy()
+{
+	return this->_energyPoints;
+}
+
+int ClapTrap::getAD()
+{
+	return this->_attackDMG;
 }
 
 void ClapTrap::attack(const std::string& target)
