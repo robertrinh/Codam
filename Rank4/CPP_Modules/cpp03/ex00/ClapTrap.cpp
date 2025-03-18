@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/05 15:31:57 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/18 11:55:16 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/18 22:06:58 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 ClapTrap::ClapTrap() : _health(10), _energyPoints(10), _attackDMG(0)
 {
-	std::cout << "\033[1;32mDefault constructor called\033[0m" << std::endl;
+	std::cout << "\033[1;32mDefault ClapTrap constructor called\033[0m" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string const &name): _name(name), _health(10), _energyPoints(10), _attackDMG(0)
 {
-	std::cout << "\033[1;36mParametered constructor called for " << name << "\033[0m" <<std::endl;
+	std::cout << "\033[1;36mParametered ClapTrap constructor called for " << name << "\033[0m" <<std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& src) : _name(src._name), _health(src._health), _energyPoints(src._energyPoints), _attackDMG(src._attackDMG)
 {
-	std::cout << "\033[1;33mCopy constructor called\033[0m" << std::endl;
+	std::cout << "\033[1;33mClapTrap Copy constructor called\033[0m" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& src)
 {
-	std::cout << "\033[1;34mCopy Assignment Operator called\033[0m" << std::endl;
+	std::cout << "\033[1;34mClapTrap Copy Assignment Operator called\033[0m" << std::endl;
 	if (this != &src)
 	{
 		this->_name = src._name;
