@@ -6,13 +6,13 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/06 14:17:24 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/18 22:22:18 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/20 12:50:22 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap("NPC_clap_name"), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap() : ClapTrap("NPC_clap_name"), FragTrap(), ScavTrap()
 {
 	_name = "NPC"; //* diamondtrap private name
 	_health = FragTrap::_health;
@@ -21,7 +21,7 @@ DiamondTrap::DiamondTrap() : ClapTrap("NPC_clap_name"), ScavTrap(), FragTrap()
 	std::cout << "\033[1;33mDefault DiamondTrap constructor called\033[0m" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string const& name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(std::string const& name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name)
 {
 	_name = name; //* diamondtrap private name
 	_health = FragTrap::_health;
@@ -34,7 +34,7 @@ DiamondTrap::DiamondTrap(std::string const& name) : ClapTrap(name + "_clap_name"
  * @brief Copy constructor of the diamond inheritance class
  * @note With virtual inheritance, you must explicitly call constructor of base class for proper init
  */
-DiamondTrap::DiamondTrap(const DiamondTrap& src) : ClapTrap(src), ScavTrap(src), FragTrap(src), _name(src._name)
+DiamondTrap::DiamondTrap(const DiamondTrap& src) : ClapTrap(src), FragTrap(src), ScavTrap(src), _name(src._name)
 {
 	std::cout << "\033[1;33mCopy DiamondTrap constructor called\033[0m" << std::endl;
 }

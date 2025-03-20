@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/06 14:55:06 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/18 23:04:09 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/20 12:44:26 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	std::cout << "getting Energy points of Jover, which is ScavTrap(50) -> " << joe.getEnergy() << std::endl;
 	std::cout << "getting AttackDamage of Jover, which is FragTrap(30) -> " << joe.getAD() << std::endl;
 	
-	std::cout << std::endl << "attacks with ScavTrap (which has 30 AD): " << std::endl;
+	std::cout << std::endl << "attacks with ScavTrap (which has 20 AD): " << std::endl;
 	joe.attack("back");
 	
 	std::cout << std::endl << "Calling WhoAmI??????????" << std::endl;
