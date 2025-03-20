@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/06 13:36:50 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/18 21:47:31 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/20 13:22:53 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int main(void)
 	cuz.attack("Emily");
 	cuz.takeDamage(5);
 	cuz.beRepaired(5);
+	cuz.guardGate();
 	
 	std::cout << std::endl << "\033[1;34m>>When a brother is getting killed<<\033[0m" << std::endl;
-	cuz.guardGate();
 	fam.takeDamage(50);
 	fam.takeDamage(50);
 	fam.takeDamage(1);
