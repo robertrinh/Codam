@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/03/05 15:27:07 by qtrinh        #+#    #+#                  #
-#    Updated: 2025/03/06 14:03:47 by robertrinh    ########   odam.nl          #
+#    Updated: 2025/03/20 13:30:48 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME:= fragtrap
 CC:= c++
 FLAGS:= -Wall -Wextra -Werror -std=c++11
 OBJDIR := objects
-HDR := ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
-SRC := main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+HDR := ClapTrap.hpp FragTrap.hpp
+SRC := main.cpp ClapTrap.cpp FragTrap.cpp
 OBJS := $(SRC:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
