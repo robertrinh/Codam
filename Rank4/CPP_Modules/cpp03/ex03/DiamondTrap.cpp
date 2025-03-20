@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/06 14:17:24 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/03/20 12:50:22 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/20 13:18:19 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 DiamondTrap::DiamondTrap() : ClapTrap("NPC_clap_name"), FragTrap(), ScavTrap()
 {
 	_name = "NPC"; //* diamondtrap private name
-	_health = FragTrap::_health;
-	_energyPoints = ScavTrap::_energyPoints;
-	_attackDMG = FragTrap::_attackDMG;
+	_health = FragTrap::_fragHP;
+	_energyPoints = ScavTrap::_ScavEP;
+	_attackDMG = FragTrap::_fragAD;
 	std::cout << "\033[1;33mDefault DiamondTrap constructor called\033[0m" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string const& name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name)
 {
 	_name = name; //* diamondtrap private name
-	_health = FragTrap::_health;
-	_energyPoints = ScavTrap::_energyPoints;
-	_attackDMG = FragTrap::_attackDMG;
+	_health = FragTrap::_fragHP;
+	_energyPoints = ScavTrap::_ScavEP;
+	_attackDMG = FragTrap::_fragAD;
 	std::cout << "\033[1;36mParametered DiamondTrap constructor called for " << name << "\033[0m" << std::endl;
 }
 
