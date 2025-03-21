@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:37:30 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/13 17:45:25 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/21 11:48:52 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	Cat(const Cat &src);
 	Cat &operator=(const Cat &src);
 
-	void makeSound() const; //* Overrides base class' implementation
+	void makeSound() const override; //* Overrides base class' implementation
 	void setIdeas(int index, const std::string &idea);
 	std::string &getIdeas(int index) const;
 };

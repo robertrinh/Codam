@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:37:30 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/11 13:51:14 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/21 11:48:37 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
 	Cat(const Cat& src);
 	Cat& operator=(const Cat& src);
 
-	void makeSound() const; //* Overrides base class' implementation
+	void makeSound() const override; //* Overrides base class' implementation
 };
 
 class WrongCat : public WrongAnimal

@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:36:53 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/18 14:00:40 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/03/21 11:29:05 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int main()
 		i->makeSound(); //will output the cat sound!
 		j->makeSound();
 		meta->makeSound();
-		delete i;
-		delete j;
 		delete meta;
+		delete j;
+		delete i;
 	}
 	{
 		std::cout << std::endl;

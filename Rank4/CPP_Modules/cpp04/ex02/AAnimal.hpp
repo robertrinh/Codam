@@ -28,10 +28,11 @@ public:
 
 	const std::string &getType() const;
 	void setType(const std::string &type);
-	virtual void makeSound() const = 0; //* pure virtual void for abstract class
+	virtual void makeSound() const = 0; //* pure virtual function for abstract class
 };
 
 #endif
 
 //* instantiating -> creating object for the class
 //* by making it abstract, you cannot declare AAnimal aanimal in main, because it cannot instantiate abstract class
+//* specifically used as a base class for derived classes
