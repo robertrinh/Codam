@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 17:46:23 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/03/13 17:45:25 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/03/21 17:11:08 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ Cat::Cat() : AAnimal(), _brain(new Brain())
 Cat::Cat(const Cat &src) : AAnimal(src), _brain(new Brain(*src._brain)) //* aanimal should be explicitly init in copy construct
 {
 	std::cout << "\033[1;33mCat Copy constructor called\033[0m" << std::endl;
-	this->_type = src._type;
 }
 
 Cat &Cat::operator=(const Cat &src)
@@ -30,7 +29,6 @@ Cat &Cat::operator=(const Cat &src)
 	if (this != &src)
 	{
 		AAnimal::operator=(src);
-		this->_type = src._type;
 		delete this->_brain;				   //* in case of existing brain
 		this->_brain = new Brain(*src._brain); //* uses the operator
 	}
