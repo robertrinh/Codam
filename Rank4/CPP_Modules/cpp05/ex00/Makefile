@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/03/05 15:27:07 by qtrinh        #+#    #+#                  #
-#    Updated: 2025/03/20 16:24:00 by qtrinh        ########   odam.nl          #
+#    Updated: 2025/04/04 16:28:46 by robertrinh    ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,5 +35,8 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+run: re
+	./$(NAME)
 
 .PHONY: clean fclean re
