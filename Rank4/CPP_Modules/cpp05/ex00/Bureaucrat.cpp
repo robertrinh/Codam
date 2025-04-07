@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/20 16:46:36 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/04/04 16:26:52 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/04/07 17:47:48 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 Bureaucrat::Bureaucrat() : _name("Mark Rutte"), _grade(2)
 {
 	std::cout << "\033[1;32mDefault constructor called\033[0m" << std::endl;
+	if (_grade < 1)
+		throw GradeTooHighException();
+	else if (_grade > 150)
+		throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src) :  _name(src._name), _grade(src._grade)
@@ -38,6 +42,10 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
 	std::cout << "\033[1;32mParametered constructor called\033[0m" << std::endl;
+	if (_grade < 1)
+		throw GradeTooHighException();
+	else if (_grade > 150)
+		throw GradeTooLowException();
 	//! throw error grades too high and low
 }
 
@@ -74,7 +82,6 @@ void Bureaucrat::decrementGrade()
 		throw GradeTooLowException();
 	_grade++;
 }
-
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& src)
 {
