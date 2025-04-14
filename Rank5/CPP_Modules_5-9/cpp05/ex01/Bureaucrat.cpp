@@ -6,11 +6,12 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/20 16:46:36 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/04/07 18:15:23 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/04/14 16:44:17 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Mark Rutte"), _grade(2)
 {
@@ -81,6 +82,17 @@ void Bureaucrat::decrementGrade()
 	if (_grade >= 150)
 		throw GradeTooLowException();
 	_grade++;
+}
+
+void Bureaucrat::signForm(Form& form)
+{
+	try {
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName();
+	}
+	catch (Form::GradeTooLowException &err) {
+		std::cout << _name << " couldn't sign " << form.getName() << " because the grade was too low";
+	}
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& src)

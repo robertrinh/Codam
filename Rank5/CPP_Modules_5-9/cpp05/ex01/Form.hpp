@@ -6,12 +6,12 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 17:52:47 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/04/07 18:02:55 by qtrinh        ########   odam.nl         */
+/*   Updated: 2025/04/14 16:24:10 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
 #include <iostream>
 
@@ -35,8 +35,8 @@ public:
 
 	//* getters
 	const std::string getName() const;
-	const int	getGradeSign() const;
-	const int getGradeExec() const;
+	int	getGradeSign() const;
+	int	getGradeExec() const;
 	bool getSigned() const;
 
 	//* member function
