@@ -6,13 +6,14 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/04 16:19:24 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/04/14 15:32:37 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/04/14 16:03:01 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-int main() {
+int main() 
+{
     try {
         Bureaucrat bob("Bob", 75);
         std::cout << bob << std::endl;
