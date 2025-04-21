@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/14 17:23:27 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/04/14 17:41:34 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/04/21 17:42:14 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,26 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm(
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	AForm::execute(executor);
-	std::cout << _target << "\033[32m has been pardoned by Zaphod Beeblebrox\033[0m" << std::endl;
+	std::string filename;
+	std::ofstream file;
+
+	filename = _target + "_shrubbery";
+	file.open(filename);
+	if (!file.is_open())
+	{
+		std::cerr << "error opening file" << std::endl;
+		return ;
+	}
+	file << " 		 _-_ 		" << std::endl; 
+	file << "     /~~   ~~'\' 	" << std::endl;
+	file << "  /~~         ~~'\'  " << std::endl;
+	file << " {               } " << std::endl;
+	file << "  '\'  _-     -_  /  " << std::endl;
+	file << "    ~  \\ //  ~ 	" << std::endl;
+	file << " _- -   | | _- _ 	" << std::endl;
+	file << "   _ -  | |   -_ 	" << std::endl;
+	file << "       // \\ 		" << std::endl;
+	file << "\n or if you really cheeky, here is: ASCII trees inside it" << std::endl;
+	file << std::endl;
+	file.close();
 }

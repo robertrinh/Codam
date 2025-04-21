@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/14 17:23:27 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/04/14 17:42:08 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/04/21 17:34:04 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,10 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("Pre
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	AForm::execute(executor);
-	std::cout << _target << "\033[32m has been pardoned by Zaphod Beeblebrox\033[0m" << std::endl;
+	std::cout << "DRILLINGS NOIZZZZZZZEZ\nDRILLIN and DRILLIN" << std::endl;
+	std::cout << "Believe IN THE ME WHO BELIEVES IN YOU" << std::endl;
+	if ((rand() % 2) == 0)
+		std::cout << _target << "has been robotomised successfully" << std::endl;
+	else
+		std::cout << _target << "Robotomy has failed.." << std::endl;
 }
