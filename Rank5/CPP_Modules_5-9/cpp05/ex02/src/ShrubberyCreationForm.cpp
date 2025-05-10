@@ -6,14 +6,14 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/14 17:23:27 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/04/21 17:42:14 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/05/10 15:41:14 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ShrubberyCreationForm.hpp"
 #include "../include/Bureaucrat.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Presidential Pardon Form", 145, 137), _target("none yet")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation Form", 145, 137), _target("none yet")
 {
 	std::cout << "\033[1;32mDefault ShrubberyCreationForm constructor called\033[0m" << std::endl;
 }
@@ -36,14 +36,13 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "\033[1;31mShrubberyCreationForm Destructor Called\033[0m" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("Presidential Pardon Form", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("Shrubbery Creation Form", 145, 137), _target(target)
 {
 	std::cout << "\033[1;32mParametered ShrubberyCreationForm constructor called\033[0m" << std::endl;
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+void ShrubberyCreationForm::executeAction() const
 {
-	AForm::execute(executor);
 	std::string filename;
 	std::ofstream file;
 
@@ -64,6 +63,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	file << "   _ -  | |   -_ 	" << std::endl;
 	file << "       // \\ 		" << std::endl;
 	file << "\n or if you really cheeky, here is: ASCII trees inside it" << std::endl;
-	file << std::endl;
 	file.close();
 }

@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/14 17:23:27 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/04/21 17:41:27 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/05/10 15:51:41 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AFor
 	std::cout << "\033[1;32mParametered PresidentialPardonForm constructor called\033[0m" << std::endl;
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+void PresidentialPardonForm::executeAction() const
 {
-	AForm::execute(executor);
-	std::cout << _target << "\033[32m has been pardoned by Zaphod Beeblebrox\033[0m" << std::endl;
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

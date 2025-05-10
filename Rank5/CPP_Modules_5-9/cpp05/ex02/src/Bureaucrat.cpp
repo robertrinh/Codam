@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/20 16:46:36 by qtrinh        #+#    #+#                 */
-/*   Updated: 2025/04/14 17:44:41 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/05/10 15:52:31 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 		throw GradeTooHighException();
 	else if (_grade > 150)
 		throw GradeTooLowException();
-	//! throw error grades too high and low
 }
 
 const std::string Bureaucrat::getName() const
@@ -89,11 +88,11 @@ void Bureaucrat::signAForm(AForm &form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout << _name << " signed " << form.getName();
+		std::cout << _name << " signed " << form.getName() << std::endl;
 	}
 	catch (AForm::GradeTooLowException &err)
 	{
-		std::cout << _name << " couldn't sign " << form.getName() << " because the grade was too low";
+		std::cout << _name << " couldn't sign " << form.getName() << " because the grade was too low.." << std::endl;
 	}
 }
 

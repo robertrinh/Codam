@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/14 17:19:38 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/04/21 17:32:21 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/05/10 15:30:40 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ public:
 	~RobotomyRequestForm();
 	RobotomyRequestForm(const std::string& target);
 
-	void execute(Bureaucrat const& executor) const override;
+	void executeAction() const override;
 };

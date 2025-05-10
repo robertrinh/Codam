@@ -41,7 +41,9 @@ public:
 
 	//* member function
 	void beSigned(Bureaucrat &bureaucrat);
-	virtual void execute(Bureaucrat const& executor) const = 0;
+	void execute(Bureaucrat const& executor) const; //* handles all validations of other forms
+
+	virtual void executeAction() const = 0; //* Derived classes only implement through here
 
 	//* exceptions
 	class GradeTooHighException : public std::exception
@@ -51,6 +53,12 @@ public:
 	};
 
 	class GradeTooLowException : public std::exception
+	{
+	public:
+		virtual const char *what() const throw();
+	};
+
+	class FormNotSignedException : public std::exception
 	{
 	public:
 		virtual const char *what() const throw();
