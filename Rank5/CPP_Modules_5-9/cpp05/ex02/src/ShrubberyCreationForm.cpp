@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/14 17:23:27 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/05/10 15:41:14 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/05/10 16:35:07 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ void ShrubberyCreationForm::executeAction() const
 	std::ofstream file;
 
 	filename = _target + "_shrubbery";
-	file.open(filename);
+	file.open(filename.c_str());
 	if (!file.is_open())
 	{
-		std::cerr << "error opening file" << std::endl;
-		return ;
+		std::cerr << "Error: Could not open file " << filename << std::endl;
+		return;
 	}
 	file << " 		 _-_ 		" << std::endl; 
 	file << "     /~~   ~~'\' 	" << std::endl;
