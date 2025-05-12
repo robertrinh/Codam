@@ -30,7 +30,7 @@ public:
 	AForm();
 	AForm(const AForm &src);
 	AForm &operator=(const AForm &src);
-	~AForm();
+	virtual ~AForm();
 	AForm(std::string name, const int _grade_sign, const int _grade_exec);
 
 	//* getters

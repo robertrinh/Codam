@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ShrubberyCreationForm.hpp                          :+:    :+:            */
+/*   Intern.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/14 17:19:38 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/05/10 15:30:45 by robertrinh    ########   odam.nl         */
+/*   Created: 2025/05/10 16:07:42 by robertrinh    #+#    #+#                 */
+/*   Updated: 2025/05/10 16:11:23 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include <fstream>
-#include "../include/AForm.hpp"
+#include <string>
 
-class ShrubberyCreationForm : public AForm
+class AForm;
+
+class Intern
 {
-private:
-	std::string _target;
-	
 public:
-	ShrubberyCreationForm();
-	ShrubberyCreationForm(const ShrubberyCreationForm& src);
-	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& src);
-	~ShrubberyCreationForm();
-	ShrubberyCreationForm(const std::string& target);
-
-	void executeAction() const override;
+	Intern();
+	Intern(const Intern& src);
+	Intern &operator=(const Intern& src);
+	~Intern();
+	
+	AForm* makeForm(const std::string& name, const std::string& target);
 };
