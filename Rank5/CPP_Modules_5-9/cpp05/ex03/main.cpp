@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/14 17:47:47 by robertrinh    #+#    #+#                 */
-/*   Updated: 2025/05/10 16:59:07 by robertrinh    ########   odam.nl         */
+/*   Updated: 2025/05/12 13:20:17 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 
 int main()
 {
+	{
+		Intern someRandomIntern;
+		AForm* rrf;
+
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		delete rrf;
+	}
 	{
 		std::cout << "\n\033[1;35m--- Testing Valid Forms ---\033[0m" << std::endl;
 		Intern intern;
