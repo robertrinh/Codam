@@ -24,7 +24,6 @@ int main() {
     std::cout << "Name: " << deserializedPtr->name << std::endl;
     std::cout << std::endl;
 
-    //* verifying the pointers are equal
     if (originalPtr == deserializedPtr)
         std::cout << "Success: Original and deserialized pointers are equal!" << std::endl;
     else
