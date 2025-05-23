@@ -11,7 +11,9 @@ enum class ScalarType
 
 static bool isChar(const std::string& input)
 {
-	return input.length() == 1;
+	if (input.length() != 1)
+		return false;
+	return isprint(input.front());
 }
 
 static bool isInt(const std::string& input)
@@ -19,7 +21,7 @@ static bool isInt(const std::string& input)
 	if (input.empty())
 		return false;
 	
-	//* ff it was passed with quotes, it's not an integer
+	//* if it was passed with quotes, it's not an integer
 	if (input[0] == '\'' && input[input.length() - 1] == '\'')
 		return false;
 	
@@ -41,6 +43,8 @@ static bool isFloat(const std::string& input)
 	if (input == "-inff" || input == "+inff" || input == "nanf")
 		return true;
 	if (input.empty() || input.back() != 'f')
+		return false;
+	if (input.find('.') == std::string::npos)
 		return false;
 
 	try {
