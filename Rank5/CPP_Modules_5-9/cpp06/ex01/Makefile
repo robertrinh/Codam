@@ -1,9 +1,9 @@
-NAME:= scalarconverter
+NAME:= serializer
 CC:= c++
 FLAGS:= -Wall -Wextra -Werror -std=c++11
 OBJDIR := objects
-HDR := ScalarConverter.hpp
-SRC := main.cpp ScalarConverter.cpp
+HDR := Serializer.hpp
+SRC := main.cpp Serializer.cpp
 OBJS := $(SRC:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
