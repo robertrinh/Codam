@@ -18,10 +18,7 @@ int main(int argc, char **argv)
 // 	std::cout << "\033[1;34mtesting a\033[0m" << std::endl;
 // 	ScalarConverter::convert("a");  //* regular character
 // 	std::cout << std::endl;
-// 	std::cout << "\033[1;34mtesting 0\033[0m" << std::endl;
-// 	ScalarConverter::convert("0");  //* character '0'
-// 	std::cout << std::endl;
-// 	std::cout << "\033[1;34mtesting  \033[0m" << std::endl;
+// 	std::cout << "\033[1;34mtesting spacebar \033[0m" << std::endl;
 // 	ScalarConverter::convert(" ");  //* space character
 // 	std::cout << std::endl;
 // 	std::cout << "\033[1;34mtesting @\033[0m" << std::endl;
