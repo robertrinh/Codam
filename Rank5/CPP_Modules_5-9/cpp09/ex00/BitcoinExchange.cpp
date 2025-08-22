@@ -1,21 +1,5 @@
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange()
-{}
-
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& src) : _data(src._data)
-{}
-
-BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src)
-{
-	if (this != &src)
-		_data = src._data;
-	return *this;
-}
-
-BitcoinExchange::~BitcoinExchange()
-{}
-
 void BitcoinExchange::loadData(const std::string& filename)
 {
 	std::ifstream file(filename.c_str());

@@ -25,10 +25,10 @@ private:
 	float	findClosestRate(const std::string& date) const;
 
 public:
-	BitcoinExchange();
-	BitcoinExchange(const BitcoinExchange& src);
-	BitcoinExchange& operator=(const BitcoinExchange& src);
-	~BitcoinExchange();
+	BitcoinExchange() = default;
+	BitcoinExchange(const BitcoinExchange& src) = delete;
+	BitcoinExchange& operator=(const BitcoinExchange& src) = delete;
+	~BitcoinExchange() = default;
 
 	void	loadData(const std::string& filename);
 	void	processInputFile(const std::string& filename);
