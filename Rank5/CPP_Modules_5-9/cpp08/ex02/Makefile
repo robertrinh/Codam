@@ -1,4 +1,4 @@
-NAME:= MutantStack
+NAME:= mutantstack
 CC:= c++
 FLAGS:= -Wall -Wextra -Werror -std=c++11
 OBJDIR := objects
