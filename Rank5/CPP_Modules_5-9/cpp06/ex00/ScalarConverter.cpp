@@ -20,11 +20,8 @@ static bool isInt(const std::string& input)
 {
 	if (input.empty())
 		return false;
-	
-	//* if it was passed with quotes, it's not an integer
 	if (input[0] == '\'' && input[input.length() - 1] == '\'')
 		return false;
-	
 	try {
 		size_t pos;
 		long long num = std::stoll(input, &pos);
@@ -73,19 +70,12 @@ static bool isDouble(const std::string& input)
 	}
 }
 
-static ScalarType detectType(const std::string& input)
-{
-	if (isInt(input))
-		return ScalarType::INT;
-	if (isChar(input))
-		return ScalarType::CHAR;
-	if (isFloat(input))
-		return ScalarType::FLOAT;
-	if (isDouble(input))
-		return ScalarType::DOUBLE;
-	return ScalarType::INVALID;
-}
 
+/**
+ * @brief Converts first character of input to multiple data type representations
+ * @param input String containing character to convert
+ * @details Uses static_cast for explicit type conversion from char to int/float/double
+ */
 static void convertChar(const std::string& input)
 {
 	const char c = input[0];
@@ -98,6 +88,12 @@ static void convertChar(const std::string& input)
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 }
 
+/**
+ * @brief Converts string input to integer and displays all possible type representations
+ * @param input String containing numeric value to convert
+ * @details Uses static_cast for safe type conversions; handles overflow with long long intermediate
+ * @remarks Checks int range limits before conversion to prevent undefined behavior
+ */
 static void convertInt(const std::string& input)
 {
 	try {
@@ -127,6 +123,11 @@ static void convertInt(const std::string& input)
 	}
 }
 
+/**
+ * @brief Converts string input ending with 'f' to float and displays type representations
+ * @param input String containing float value (expects 'f' suffix)
+ * @details Uses static_cast for numeric conversions; handles special values (inf, nan)
+ */
 static void convertFloat(const std::string& input)
 {
 	float f;
@@ -152,16 +153,23 @@ static void convertFloat(const std::string& input)
 		std::cout << "char: impossible" << std::endl;
 
 	if (!std::isnan(f) && !std::isinf(f) && 
-		f >= std::numeric_limits<int>::min() && 
-		f <= std::numeric_limits<int>::max())
-		std::cout << "int: " << static_cast<int>(f) << std::endl;
-	else
-		std::cout << "int: impossible" << std::endl;
+        f >= static_cast<float>(std::numeric_limits<int>::min()) && 
+        f <= static_cast<float>(std::numeric_limits<int>::max()))
+        std::cout << "int: " << static_cast<int>(f) << std::endl;
+    else
+	{
+        std::cout << "int: impossible" << std::endl;
+	}
 
 	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
 }
 
+/**
+ * @brief Converts string input to double and displays all possible type representations
+ * @param input String containing double value to convert
+ * @details Uses static_cast for safe numeric type conversions; handles special values
+ */
 static void convertDouble(const std::string& input)
 {
 	double d;
@@ -232,6 +240,19 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src)
 ScalarConverter::~ScalarConverter()
 {
 	std::cout << "\033[1;31mScalarConverter Destructor Called\033[0m" << std::endl;
+}
+
+static ScalarType detectType(const std::string& input)
+{
+	if (isInt(input))
+		return ScalarType::INT;
+	if (isChar(input))
+		return ScalarType::CHAR;
+	if (isFloat(input))
+		return ScalarType::FLOAT;
+	if (isDouble(input))
+		return ScalarType::DOUBLE;
+	return ScalarType::INVALID;
 }
 
 void ScalarConverter::convert(const std::string& input)

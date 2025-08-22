@@ -2,7 +2,11 @@
 
 Base::~Base() {}
 
-//* generates a random instance of A, B, or C
+/**
+ * @brief Generates a random polymorphic object (A, B, or C)
+ * @return Base pointer to randomly created derived class instance
+ * @details Uses time-seeded random generation to ensure variety across calls
+ */
 Base* generate()
 {
 	Base* out = nullptr;
@@ -25,8 +29,12 @@ Base* generate()
 	return (out);
 }
 
-//* identifies the type of object pointed to by p -> prints actual type of object pointed by p
-//* dynamic cast returns nullptr in case of fail
+/**
+ * @brief Identifies the actual type of object using dynamic_cast with pointers
+ * @param p Base pointer to object whose type needs identification
+ * @details Uses dynamic_cast pointer mode - returns nullptr on failed cast
+ * @note Demonstrates safe polymorphic downcasting without exceptions
+ */
 void identify(Base* p)
 {
 	if (dynamic_cast<A*>(p))
@@ -37,8 +45,13 @@ void identify(Base* p)
 		std::cout << "C" << std::endl;
 }
 
-//* identifies the type of object referenced by p without using pointers
-//* dynamic_cast throws bad_cast exception for aliases in case of fail
+/**
+ * @brief Identifies the actual type of object using dynamic_cast with references
+ * @param p Base reference to object whose type needs identification  
+ * @details Uses dynamic_cast reference mode - throws error on failure
+ * @note (void) to silence the warning in case dynamic cast is unused
+ * @note Demonstrates exception-based polymorphic type checking
+ */
 void identify(Base& p)
 {
 	try {
