@@ -13,3 +13,6 @@
 [submodule "Rank4/cub3d"]
 	path = Rank4/cub3d
 	url = https://github.com/XilianRose/cub3d.git
+[submodule "Rank5/webserv"]
+	path = Rank5/webserv
+	url = https://github.com/rutgermeuzelaar/webserv.git
