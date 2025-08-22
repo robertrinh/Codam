@@ -1,4 +1,4 @@
-NAME:= Span
+NAME:= span
 CC:= c++
 FLAGS:= -Wall -Wextra -Werror -std=c++11
 OBJDIR := objects
