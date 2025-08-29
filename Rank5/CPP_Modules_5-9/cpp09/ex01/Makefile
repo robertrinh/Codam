@@ -1,9 +1,9 @@
-NAME:= span
+NAME:= RPN
 CC:= c++
 FLAGS:= -Wall -Wextra -Werror -std=c++11
 OBJDIR := objects
-HDR := Span.hpp
-SRC := main.cpp Span.cpp
+HDR := RPN.hpp
+SRC := main.cpp RPN.cpp
 OBJS := $(SRC:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
@@ -23,8 +23,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-run: re
-	./$(NAME)
 
 .PHONY: clean fclean re

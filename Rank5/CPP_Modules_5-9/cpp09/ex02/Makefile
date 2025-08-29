@@ -1,9 +1,9 @@
-NAME:= span
+NAME:= PmergeMe
 CC:= c++
 FLAGS:= -Wall -Wextra -Werror -std=c++11
 OBJDIR := objects
-HDR := Span.hpp
-SRC := main.cpp Span.cpp
+HDR := PmergeMe.hpp
+SRC := main.cpp PmergeMe.cpp
 OBJS := $(SRC:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)

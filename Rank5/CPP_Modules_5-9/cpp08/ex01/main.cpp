@@ -3,15 +3,30 @@
 #include <cstdlib>
 #include <ctime> 
 
-int main() 
+int main()
 {
-	std::cout << "Basic test" << std::endl;
-	Span sp(5);
-    sp.addNumber(6);
-    sp.addNumber(3);
-    sp.addNumber(17);
-    sp.addNumber(9);
-    sp.addNumber(11);
+	{
+	std::cout << "Test from subject" << std::endl;
+	Span sp = Span(5);
+
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+	}
+	{
+	std::cout << "\n--Own tests--" << std::endl;
+	Span sp = Span(5);
+
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
 
     const std::vector<int>& basicNums = sp.getNumbers();
     auto basicMinIt = std::min_element(basicNums.begin(), basicNums.end());
@@ -23,7 +38,7 @@ int main()
     std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
     std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 
-	std::cout << std::endl << "Testing with 10.000.." << std::endl;
+	std::cout << std::endl << "--Testing with 10.000--" << std::endl;
     Span bigSpan(10000);
     std::srand(static_cast<unsigned int>(std::time(0)));
     std::vector<int> randomNumbers(10000);
@@ -49,5 +64,6 @@ int main()
     } catch (const std::exception& e) {
         std::cout << "Exception caught (not enough numbers): " << e.what() << std::endl;
     }
+	}
     return 0;
 }
