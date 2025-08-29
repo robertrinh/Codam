@@ -13,3 +13,4 @@
 .gitmodules
 .vscode/
 .DS_Store
+.env
