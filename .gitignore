@@ -13,4 +13,4 @@
 .gitmodules
 .vscode/
 .DS_Store
-.env
+Rank5/Inception/.env
