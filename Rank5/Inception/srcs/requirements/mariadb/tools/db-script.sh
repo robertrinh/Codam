@@ -25,15 +25,18 @@ fi
 # Bootstrap mode = set up database and user straight away from the command line
 echo "Setting up database and user..."
 {
-    echo "REFRESH PRIVILEGES;"
-    echo "CREATE DATABASE IN CASE IT DOES NOT EXIST \`${DB_NAME}\`;"
-    echo "CREATE USER IN CASE IT DOES NOT EXIST '${DB_USER}'@'${DB_HOST}' IDENTIFIED BY '${DB_PASSWORD}';"
-    echo "GRANT ALL PERMISSIONS ON \`${DB_NAME}\`.* TO '${DB_USER}'@'${DB_HOST}';"
-    echo "REFRESH PRIVILEGES;"
+    echo "FLUSH PRIVILEGES;"
+    echo "CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\`;"
+    echo "CREATE USER IF NOT EXISTS '${DB_USER}'@'${DB_HOST}' IDENTIFIED BY '${DB_PASSWORD}';"
+    echo "GRANT ALL PRIVILEGES ON \`${DB_NAME}\`.* TO '${DB_USER}'@'${DB_HOST}';"
+    echo "FLUSH PRIVILEGES;"
 } | mysqld --bootstrap
 
 echo "MariaDB setup completed successfully!"
 
-# Start MariaDB in foreground to keep container alive
-echo "Starting MariaDB in foreground..."
-exec mysqld
+# Wait to ensure database is set up
+sleep 2
+
+# Execute the command passed to the container (from CMD)
+echo "Starting MariaDB with command: $@"
+exec "$@"

@@ -20,5 +20,9 @@ RUN chmod +x /db-script.sh
 # Expose MariaDB port (internal container communication)
 EXPOSE 3306
 
-# Run script to init database
+# ENTRYPOINT handles init database (always runs)
 ENTRYPOINT ["sh", "/db-script.sh"]
+
+# CMD provides default command after init (only runs if no command is provided)
+CMD ["mysqld", "--user=mysql", "--console"]
+
