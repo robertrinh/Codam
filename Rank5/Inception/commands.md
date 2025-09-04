@@ -1,0 +1,55 @@
+## Docker compose commands:
+
+No rebuild:
+`docker-compose up -d`
+
+With rebuild:
+`docker-compose up --build -d`
+
+Stop Services, not services:
+`docker-compose stop`
+
+`docker-compose logs`\
+`docker-compose restart`\
+`docker-compose config`\
+`docker network ls`\
+`docker network inspect <network_name>`\
+`docker network prune`\
+
+## Docker Commands for Containers
+
+View Running Containers:
+`docker ps`\
+
+List all containers (including stopped ones):
+`docker ps -a`
+
+`docker inspect <container_name>`\
+`docker volume ls`\
+`docker volume inspect <volume_name>`\
+`docker volume prune`
+
+## Debugging and Troubleshooting
+
+`docker logs <container_name>`\
+Attach your terminal to a running container:
+`docker attach <container_name>`
+
+`docker port <container_name>`\
+`docker kill <container_name>`\
+`docker image prune -a`\
+`docker system df`\
+`docker image prune`
+
+### Mariadb
+---
+Enter Container:
+`exec -it mariadb mysql -u root` \
+Access MariaDB
+`mysql -u root -p`\
+Verify Database
+`SHOW DATABASES;`\
+Verify user creation
+`SELECT User, Host FROM mysql.user;`\
+Check User permissions
+`SHOW GRANTS FOR 'wp_user'@'%';`
