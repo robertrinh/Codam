@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# Configuration variables
-DB_NAME="wordpress"
-DB_USER="wp_user"
-DB_PASSWORD="wp_password"
+# Configuration variables - use environment variables if available, otherwise defaults
+DB_NAME="${DB_NAME:-wordpress}"
+DB_USER="${DB_USER:-wp_user}"
+DB_PASSWORD="${DB_PASSWORD:-wp_password}"
+# Always use % to allow connections from any host (Docker containers)
 DB_HOST="%"
 
 # Wait a bit for the system to be ready
@@ -30,7 +31,7 @@ echo "Setting up database and user..."
     echo "CREATE USER IF NOT EXISTS '${DB_USER}'@'${DB_HOST}' IDENTIFIED BY '${DB_PASSWORD}';"
     echo "GRANT ALL PRIVILEGES ON \`${DB_NAME}\`.* TO '${DB_USER}'@'${DB_HOST}';"
     echo "FLUSH PRIVILEGES;"
-} | mysqld --bootstrap
+} | mysqld --bootstrap > /dev/null 2>&1 # Suppress output of bootstrap
 
 echo "MariaDB setup completed successfully!"
 
