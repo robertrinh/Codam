@@ -16,6 +16,7 @@ Stop Services, not services:
 `docker network inspect <network_name>`\
 `docker network prune`\
 
+
 ## Docker Commands for Containers
 
 View Running Containers:
@@ -53,3 +54,8 @@ Verify user creation
 `SELECT User, Host FROM mysql.user;`\
 Check User permissions
 `SHOW GRANTS FOR 'wp_user'@'%';`
+
+### Misc
+---
+Ssh to VM:
+`ssh -p <port> <username>@127.0.0.1`
