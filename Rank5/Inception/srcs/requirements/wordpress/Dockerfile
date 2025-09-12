@@ -1,4 +1,4 @@
-# Debian bookworm is the latest stable version (Debian 12)
+# Debian bookworm is the penultimate version (Debian 12)
 FROM debian:bookworm
 
 # update and install package manager
