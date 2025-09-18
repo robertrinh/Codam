@@ -44,10 +44,8 @@ Attach your terminal to a running container:
 
 ### Mariadb
 ---
-Enter Container:
+Enter Container and access MariaDB as root:
 `exec -it mariadb mysql -u root` \
-Access MariaDB
-`mysql -u root -p`\
 Verify Database
 `SHOW DATABASES;`\
 Verify user creation
@@ -61,5 +59,5 @@ Ssh to VM:
 `ssh -p <port> <username>@127.0.0.1`
 
 Mount shared folder from host to vm:
-`sudo mount -t vboxsf <foldername> mnt`
+`sudo mount -t vboxsf <foldername> /mnt`
 then cp your file (e.g.) to /srcs
