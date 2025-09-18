@@ -1,12 +1,12 @@
 ## Docker compose commands:
 
-No rebuild:
-`docker-compose up -d`
+No rebuild: 
+`docker-compose up -d` (`-d` is detached mode: runs container in background)
 
 With rebuild:
 `docker-compose up --build -d`
 
-Stop Services, not services:
+Stop Services, not volumes:
 `docker-compose stop`
 
 `docker-compose logs`\
@@ -59,3 +59,7 @@ Check User permissions
 ---
 Ssh to VM:
 `ssh -p <port> <username>@127.0.0.1`
+
+Mount shared folder from host to vm:
+`sudo mount -t vboxsf <foldername> mnt`
+then cp your file (e.g.) to /srcs
