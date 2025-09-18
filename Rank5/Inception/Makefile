@@ -11,6 +11,9 @@ down:
 clean:
 	docker-compose -f srcs/docker-compose.yml down -v
 	docker system prune -af
+	docker volume prune -f
+	sudo rm -rf ${HOME}/data/mariadb
+	sudo rm -rf ${HOME}/data/wordpress
 
 run: down build
 
