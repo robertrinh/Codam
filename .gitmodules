@@ -16,3 +16,6 @@
 [submodule "Rank5/webserv"]
 	path = Rank5/webserv
 	url = https://github.com/rutgermeuzelaar/webserv.git
+[submodule "Rank5/inception"]
+	path = Rank5/inception
+	url = https://github.com/robertrinh/Inception.git
