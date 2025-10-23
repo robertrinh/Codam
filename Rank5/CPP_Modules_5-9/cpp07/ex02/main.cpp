@@ -33,6 +33,13 @@ int main()
 		std::cout << "Caught exception: " << e.what() << std::endl;
 	}
 
+	try {
+        std::cout << "Trying to access b[-2]: ";
+        std::cout << b[-2] << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "Caught exception: " << e.what() << std::endl;
+    }
+
 	const Array<int>& cref = b;
 	std::cout << "Accessing through const reference:" << std::endl;
 	for (unsigned int i = 0; i < cref.size(); ++i)
