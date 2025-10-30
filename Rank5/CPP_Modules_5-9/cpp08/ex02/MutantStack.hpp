@@ -12,6 +12,8 @@ public:
 	MutantStack& operator=(const MutantStack& src);
 	~MutantStack();
 
+	//* Typedef: creates alias for (reverse)iterator
+	//* Typename: tells compiler to use the type of the container
 	typedef typename Container::iterator iterator;
 	typedef typename Container::reverse_iterator reverse_iterator;
 
