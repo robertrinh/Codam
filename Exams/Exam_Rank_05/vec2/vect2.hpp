@@ -13,28 +13,29 @@ public:
 	
 	//arithmetic
 	vect2 operator+(const vect2& src) const;
-	// vect2 operator-(const vect2& src) const;
-	// vect2 operator*(int scalar) const;
+	vect2 operator-(const vect2& src) const;
+	vect2 operator*(int scalar) const;
 	
-	// vect2 operator-() const;
+	vect2 operator-() const;
 
-	// // (in)(de)crementing
-	// vect2& operator++();
-	// vect2 operator++(int);
-	// vect2& operator--();
-	// vect2 operator--(int);
+	// (in)(de)crementing
+	vect2& operator++(); //* prefix (++v)
+	vect2 operator++(int); //* postfix (v++)
+	vect2& operator--(); //* prefix (--v)
+	vect2 operator--(int); //* postfix (v--)
 
-	// // compound
-	// vect2& operator+=(const vect2& src);
-	// vect2& operator-=(const vect2& src);
-	// vect2& operator*=(int scalar);
+	// compound
+	vect2& operator+=(const vect2& src);
+	vect2& operator-=(const vect2& src);
+	vect2& operator*=(int scalar);
 
-	// int& operator[](int index);
-	// const int& operator[](int index) const;
+	int& operator[](int index);
+	const int& operator[](int index) const;
 
-	// bool operator==(const vect2& src) const;
-	// bool operator!=(const vect2& src) const;
+	bool operator==(const vect2& src) const;
+	bool operator!=(const vect2& src) const;
 
+	friend vect2 operator*(int scalar, const vect2& src);
 	friend std::ostream& operator<<(std::ostream& out, const vect2& src);
 };
 
