@@ -59,31 +59,11 @@ size_t PmergeMe::binarySearch(const Container& arr, int value, size_t end) {
 }
 
 template<typename Container>
-void PmergeMe::insertionSort(Container& arr, size_t left, size_t right) {
-    for (size_t i = left + 1; i <= right; i++)
-	{
-        int key = arr[i];
-        size_t j = i;
-        while (j > left && arr[j - 1] > key) {
-            arr[j] = arr[j - 1];
-            j--;
-        }
-        arr[j] = key;
-    }
-}
-
-template<typename Container>
 void PmergeMe::fordJohnson(Container& arr) {
     size_t n = arr.size();
     
     if (n <= 1)
         return;
-    //* for small arrays, use insertion sort
-    if (n <= 16) 
-	{
-        insertionSort(arr, 0, n - 1);
-        return;
-    }
     
     //* step 1: pair elements and sort pairs
     std::vector<std::pair<int, int> > pairs;
