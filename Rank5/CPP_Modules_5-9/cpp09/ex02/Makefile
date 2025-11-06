@@ -1,6 +1,6 @@
-NAME:= PmergeMe
+NAME := PmergeMe
 CC:= c++
-FLAGS:= -Wall -Wextra -Werror -std=c++11 -O3 #-O3 for optimization
+FLAGS:= -Wall -Wextra -Werror -std=c++11 -O3 #-03 for optimization
 OBJDIR := objects
 HDR := PmergeMe.hpp
 SRC := main.cpp PmergeMe.cpp
@@ -8,10 +8,10 @@ OBJS := $(SRC:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(HDR)
+$(NAME) : $(OBJS) $(HDR)
 	@$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 
-$(OBJS): $(OBJDIR)/%.o : %.cpp
+$(OBJS) : $(OBJDIR)/%.o : %.cpp
 	@mkdir -p $(@D)
 	$(CC) $(FLAGS) -c $< -o $@
 
@@ -27,4 +27,4 @@ re: fclean all
 run: re
 	./$(NAME)
 
-.PHONY: clean fclean re
+.PHONY: clean fclean re run

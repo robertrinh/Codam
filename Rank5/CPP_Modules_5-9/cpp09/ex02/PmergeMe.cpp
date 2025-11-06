@@ -1,4 +1,4 @@
-#include "PMergeMe.hpp"
+#include "PmergeMe.hpp"
 
 std::chrono::time_point<std::chrono::high_resolution_clock> PmergeMe::getTime() {
     return std::chrono::high_resolution_clock::now();
