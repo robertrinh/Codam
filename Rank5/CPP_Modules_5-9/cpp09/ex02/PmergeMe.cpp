@@ -4,6 +4,13 @@ std::chrono::time_point<std::chrono::high_resolution_clock> PmergeMe::getTime() 
     return std::chrono::high_resolution_clock::now();
 }
 
+/**
+ * @brief Generate the nth Jacobsthal number
+ * @param n the index of the Jacobsthal number to generate
+ * @details Jacobsthal sequence: Each number = previous + (2 * previous of previous)
+ * @details example: jacobsthal(3) = 1 + (2 * 0) = 1
+ * @return the nth Jacobsthal number
+ */
 size_t PmergeMe::jacobsthal(size_t n) {
 	size_t a = 0, b = 1;
 
@@ -22,7 +29,7 @@ size_t PmergeMe::jacobsthal(size_t n) {
 
 std::vector<size_t> PmergeMe::generateJacobsthalSequence(size_t n) {
     std::vector<size_t> sequence;
-    size_t idx = 3;
+    size_t idx = 3; //* start from 3 because jacobsthal(0) = 0 and jacobsthal(1) = 1
     
     while (jacobsthal(idx) < n) 
 	{
