@@ -1,36 +1,32 @@
-#ifndef Bigint_HPP
-#define Bigint_HPP
+#pragma once
 
 #include <string>
 #include <iostream>
 
 class Bigint {
 private:
-    std::string digits;
-    void removeLeadingZeros();
-
-public:
-    // Constructors (Rule of 3 satisfied with defaults)
-    Bigint();                          // Default: 0
-    Bigint(int n);                     // From integer
-    Bigint(const std::string& s);      // From string
+    std::string _digits;  //* stored REVERSED (123 -> "321")
     
-    // Arithmetic
+    void _trim();  //* remove leading zeros
+public:
+    Bigint();
+    Bigint(int n);
+    
+    //* arithmetic
     Bigint operator+(const Bigint& other) const;
     Bigint& operator+=(const Bigint& other);
-    Bigint operator-(const Bigint& other) const;  // For completeness
     
-    // Increment
-    Bigint& operator++();              // Prefix: ++a
-    Bigint operator++(int);            // Postfix: a++
+    //* increment
+    Bigint& operator++();       //* prefix (++a)
+    Bigint operator++(int);     //* postfix (a++)
     
-    // Digit shift (NOT bit shift)
-    Bigint operator<<(int shift) const;   // Multiply by 10^shift
+    //* digit shifts (NOT bit shifts!)
+    Bigint operator<<(int shift) const;
     Bigint& operator<<=(int shift);
-    Bigint operator>>(int shift) const;   // Divide by 10^shift
+    Bigint operator>>(int shift) const;
     Bigint& operator>>=(int shift);
     
-    // Comparison
+    //* comparison
     bool operator==(const Bigint& other) const;
     bool operator!=(const Bigint& other) const;
     bool operator<(const Bigint& other) const;
@@ -38,7 +34,5 @@ public:
     bool operator<=(const Bigint& other) const;
     bool operator>=(const Bigint& other) const;
     
-    friend std::ostream& operator<<(std::ostream& os, const Bigint& num);
+    friend std::ostream& operator<<(std::ostream& os, const Bigint& b);
 };
-
-#endif
