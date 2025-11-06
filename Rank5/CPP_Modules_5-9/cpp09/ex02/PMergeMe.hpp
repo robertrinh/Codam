@@ -1,5 +1,7 @@
 #pragma once
 
+//* vector: provides random access to elements, crucial for Ford-Johnson algorithm
+//* deque: efficient insertion and deletion at both ends, suitable for tracking pend elements
 #include <vector>
 #include <deque>
 #include <iostream>
