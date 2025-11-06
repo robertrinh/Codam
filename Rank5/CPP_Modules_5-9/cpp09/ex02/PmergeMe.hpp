@@ -73,7 +73,7 @@ void PmergeMe::fordJohnson(Container& arr) {
     
     for (size_t i = 0; i < pairCount; i++) 
 	{
-        int a = arr[2 * i];
+        int a = arr[2 * i]; //* to get the first element of the pair
         int b = arr[2 * i + 1];
         if (a > b)
             pairs.push_back(std::make_pair(a, b));
