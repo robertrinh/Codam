@@ -1,0 +1,16 @@
+#pragma once
+
+#include "tree_bag.hpp"
+#include "searchable_bag.hpp"
+
+class searchable_tree_bag : public tree_bag, public searchable_bag
+{
+public:
+    searchable_tree_bag() = default;
+    searchable_tree_bag(const searchable_tree_bag& src) = default;
+    searchable_tree_bag& operator=(const searchable_tree_bag& src) = default;
+    ~searchable_tree_bag() = default;
+
+    bool has(int value) const; //double check if to add value or not
+    bool search_value(int value, node *n) const;
+};
