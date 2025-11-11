@@ -27,9 +27,9 @@ Bigint Bigint::operator+(const Bigint& other) const {
     result._digits.clear();
     
     int carry = 0;
-    size_t len = std::max(_digits.size(), other._digits.size());
+    size_t i = 0;
     
-    for (size_t i = 0; i < len || carry; i++) {
+    while (i < _digits.size() || i < other._digits.size() || carry) {
         int sum = carry;
         if (i < _digits.size())
             sum += _digits[i] - '0';
@@ -38,6 +38,7 @@ Bigint Bigint::operator+(const Bigint& other) const {
         
         result._digits += (sum % 10) + '0';
         carry = sum / 10;
+        i++;
     }
     
     result._trim();
