@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
 
@@ -15,7 +16,7 @@ void	ft_putnbr(int n)
 }
 
 // Validate map: only '.', 'X', '\n' allowed, all lines same width
-int	validate_map(char *map, int size, int *width)
+bool	validate_map(char *map, int size, int *width)
 {
 	int i = 0;
 	int line_len = 0;
@@ -23,13 +24,13 @@ int	validate_map(char *map, int size, int *width)
 	while (i < size)
 	{
 		if (map[i] != '.' && map[i] != 'X' && map[i] != '\n')
-			return (0);
+			return false;
 		if (map[i] == '\n')
 		{
 			if (*width == 0)
 				*width = line_len;
 			else if (line_len != *width)
-				return (0);
+				return false;
 			line_len = 0;
 		}
 		else
@@ -37,9 +38,9 @@ int	validate_map(char *map, int size, int *width)
 		i++;
 	}
 	// Must end with newline (line_len should be 0)
-	if (line_len != 0)
-		return (0);
-	return (*width > 0);
+	if (line_len != 0 || *width <= 0)
+		return false;
+	return true;
 }
 
 // Flood fill: mark visited by changing 'X' to '.'
